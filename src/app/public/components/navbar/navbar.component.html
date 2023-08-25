@@ -1,0 +1,52 @@
+<header id="header" class="d-flex align-items-center header-scrolled">
+  <div class="container-fluid container-xxl d-flex align-items-center">
+
+    <div id="logo" class="me-auto">
+      <!-- Uncomment below if you prefer to use a text logo -->
+      <!-- <h1><a href="index.html">The<span>Event</span></a></h1>-->
+      <a routerLink="/" class="scrollto"><img src="assets/img/arsii-white.png" alt="" title=""></a>
+    </div>
+
+    <nav id="navbar" class="navbar order-last order-lg-0">
+      <ul>
+        <li><a class="nav-link scrollto active" href="#">Accueil</a></li>
+        <li><a class="nav-link scrollto" href="#presentation">Présentation</a></li>
+        <li><a class="nav-link scrollto" href="#opportunities">Opportunités</a></li>
+        <li><a class="nav-link scrollto" href="#events">Evènements</a></li>
+        <li><a class="nav-link scrollto" href="#medias">Médias</a></li>
+        <li><a class="nav-link scrollto" href="#partners">Partenaires</a></li>
+
+        <!-- <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
+        <ul>
+          <li><a href="#">Drop Down 1</a></li>
+          <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
+            <ul>
+              <li><a href="#">Deep Drop Down 1</a></li>
+              <li><a href="#">Deep Drop Down 2</a></li>
+              <li><a href="#">Deep Drop Down 3</a></li>
+              <li><a href="#">Deep Drop Down 4</a></li>
+              <li><a href="#">Deep Drop Down 5</a></li>
+            </ul>
+          </li>
+          <li><a href="#">Drop Down 2</a></li>
+          <li><a href="#">Drop Down 3</a></li>
+          <li><a href="#">Drop Down 4</a></li>
+        </ul>
+      </li> -->
+        <li><a class="nav-link scrollto" routerLink="#contact">Contact</a></li>
+      </ul>
+      <i class="bi bi-list mobile-nav-toggle"></i>
+    </nav><!-- .navbar -->
+    <a class="buy-tickets scrollto" routerLink="/connection">Se Connecter</a>
+
+  </div>
+</header>
+<router-outlet></router-outlet>
+<app-presentation id="presentation"></app-presentation>
+<app-opportunities id="opportunities"></app-opportunities>
+<app-events id="events"></app-events>
+<app-medias id="medias"></app-medias>
+<app-partners></app-partners>
+<app-contact id="contact"></app-contact>
+<app-footer></app-footer>
+
