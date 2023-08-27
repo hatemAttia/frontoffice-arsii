@@ -16,17 +16,6 @@ const routes: Routes = [
   {
     path: '',
     component: NavbarComponent,
-    children: [
-      { path: '', component: HomeComponent },
-      { path: '', component: PresentationComponent },
-      { path: '', component: OpportunitiesComponent },
-      { path: '', component: EventsComponent },
-      { path: '', component: MediasComponent },
-      { path: '', component: PartnersComponent },
-      { path: '', component: MembershipComponent },
-      { path: '', component: ContactComponent },
-      { path: '', component: FooterComponent },
-    ],
   },
 ];
 

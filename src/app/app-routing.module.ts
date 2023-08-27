@@ -7,15 +7,15 @@ const routes: Routes = [
     loadChildren: () =>
     import('./public/public.module').then((m) => m.PublicModule),
   },
-  // {
-  //   path: '**',
-  //   redirectTo: '',
-  //   pathMatch: 'full',
-  // },
   {
-    path: '',
+    path: 'private',
     loadChildren: () =>
-      import('./private/private.module').then((m) => m.PrivateModule),
+    import('./private/private.module').then((m) => m.PrivateModule),
+  },
+  {
+    path: '**',
+    redirectTo: '',
+    pathMatch: 'full',
   },
 ];
 
