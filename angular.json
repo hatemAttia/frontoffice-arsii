@@ -24,9 +24,7 @@
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
-              "src/favicon.ico",
               "src/assets",
-              "src/assets/img/favicon.png",
               "src/assets/img/apple-touch-icon.png"
             ],
             "styles": [
@@ -39,12 +37,13 @@
               "src/assets/css/style.css"
             ],
             "scripts": [
+
               "src/assets/vendor/aos/aos.js",
               "src/assets/vendor/bootstrap/js/bootstrap.bundle.min.js",
               "src/assets/vendor/glightbox/js/glightbox.min.js",
               "src/assets/vendor/swiper/swiper-bundle.min.js",
-              "src/assets/vendor/php-email-form/validate.js",
-              "src/assets/js/main.js"
+              "src/assets/js/main.js",
+              "src/assets/vendor/php-email-form/validate.js"
             ]
           },
           "configurations": {

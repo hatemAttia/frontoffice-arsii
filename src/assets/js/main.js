@@ -35,7 +35,7 @@
   }
 
   /**
-   * Easy on scroll event listener 
+   * Easy on scroll event listener
    */
   const onscroll = (el, listener) => {
     el.addEventListener('scroll', listener)
@@ -82,6 +82,7 @@
   /**
    * Toggle .header-scrolled class to #header when page is scrolled
    */
+  document.addEventListener('DOMContentLoaded', function() {
   let selectHeader = select('#header')
   if (selectHeader) {
     const headerScrolled = () => {
@@ -94,11 +95,11 @@
     window.addEventListener('load', headerScrolled)
     onscroll(document, headerScrolled)
   }
-
+  });
   /**
    * Back to top button
    */
-  let backtotop = select('.back-to-top')
+  let backtotop = select('.scroll-top')
   if (backtotop) {
     const toggleBacktotop = () => {
       if (window.scrollY > 100) {
@@ -204,7 +205,7 @@
   });
 
   /**
-   * Initiate gallery lightbox 
+   * Initiate gallery lightbox
    */
   const galleryLightbox = GLightbox({
     selector: '.gallery-lightbox'

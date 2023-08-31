@@ -9,6 +9,10 @@
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
+:root {
+  scroll-behavior: smooth;
+}
+
 body {
   background: #fff;
   color: #2f3138;
@@ -24,7 +28,7 @@ a {
 a:hover,
 a:active,
 a:focus {
-  color: #f8234a;
+  color: #16979c;
   outline: none;
   text-decoration: none;
 }
@@ -44,89 +48,8 @@ h6 {
   font-weight: 400;
   margin: 0 0 20px 0;
   padding: 0;
-  color: #0e1b4d;
+  color: #0b1335;
 }
-
-/* why-us*/
-.why-us {
-  padding-bottom: 0;
-}
-
-.why-us .img-bg {
-  min-height: 500px;
-  background-size: cover;
-}
-
-.why-us .slides {
-  background-color: #f7f9fc;
-}
-
-.why-us h3 {
-  font-size: 24px;
-  font-weight: 700;
-  color: var(--color-secondary);
-}
-
-.why-us h4 {
-  font-size: 18px;
-  font-weight: 400;
-  color: #29486a;
-  font-family: var(--font-secondary);
-}
-
-.why-us .swiper {
-  margin: 140px 140px 120px 140px;
-  overflow: hidden;
-}
-
-.why-us .swiper-button-prev:after,
-.why-us .swiper-button-next:after {
-  font-size: 24px;
-  color: var(--color-secondary);
-}
-
-.why-us .swiper-button-prev {
-  left: 80px;
-}
-
-.why-us .swiper-button-next {
-  right: 80px;
-}
-
-.why-us .swiper-pagination {
-  margin-top: 30px;
-  position: relative;
-}
-
-.why-us .swiper-pagination .swiper-pagination-bullet {
-  background-color: var(--color-secondary);
-}
-
-.why-us .swiper-pagination .swiper-pagination-bullet-active {
-  background-color: var(--color-primary);
-}
-
-@media (max-width: 1200px) {
-  .why-us .swiper {
-    margin: 60px 60px 40px 60px;
-  }
-
-  .why-us .swiper-button-prev,
-  .why-us .swiper-button-next {
-    display: none;
-  }
-}
-
-@media (max-width: 575px) {
-  .why-us .swiper {
-    margin: 40px 40px 20px 40px;
-  }
-}
-
-.page-about .why-us {
-  padding: 0 0 80px 0;
-}
-/*end why-us*/
 
 .main-page {
   margin-top: 70px;
@@ -141,13 +64,13 @@ Prelaoder
   width: 100%;
   height: 100%;
   overflow: visible;
-  /*background: #fff url("../img/preloader.svg") no-repeat center center;*/
+  /* background: #fff url("../img/preloader.svg") no-repeat center center; */
 }
 
 /*--------------------------------------------------------------
 # Back to top button
 --------------------------------------------------------------*/
-.back-to-top {
+/* .back-to-top {
   position: fixed;
   visibility: hidden;
   opacity: 0;
@@ -175,12 +98,41 @@ Prelaoder
 .back-to-top.active {
   visibility: visible;
   opacity: 1;
+} */
+.scroll-top {
+  position: relative;
+  visibility: hidden;
+  opacity: 0;
+  right: 15px;
+  bottom: 15px;
+  z-index: 99999;
+  background: #16979c;
+  width: 40px;
+  height: 40px;
+  border-radius: 50px;
+  transition: all 0.4s;
 }
 
+.scroll-top i {
+  font-size: 24px;
+  color: #fff;
+  line-height: 0;
+}
+
+.scroll-top:hover {
+  background: rgba(#16979c, 0.85);
+  color: #fff;
+}
+
+.scroll-top.active {
+  visibility: visible;
+  opacity: 1;
+}
 /* Sections Header
 --------------------------------*/
 .section-header {
-  margin-bottom: 60px;
+  margin-top: 50px;
+  margin-bottom: 30px;
   position: relative;
   padding-bottom: 20px;
 }
@@ -196,18 +148,37 @@ Prelaoder
   left: calc(50% - 25px);
 }
 
-.section-header h2 {
-  font-size: 36px;
+.section-header h3 {
+  font-size: 30px;
   text-transform: uppercase;
   text-align: center;
   font-weight: 700;
   margin-bottom: 10px;
 }
+.section-header h2 {
+  font-size: 30px;
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+@media (max-width: 767px) {
+  .section-title h4 {
+    font-size: 16px; } }
+
+.section-p p {
+  text-align: center;
+  padding: 0;
+  margin: 10;
+  font-size: 18px;
+  font-weight: 500;
+  color: #9195a2;
+}
 
 .section-header p {
   text-align: center;
   padding: 0;
-  margin: 0;
+  margin: 10;
   font-size: 18px;
   font-weight: 500;
   color: #9195a2;
@@ -232,8 +203,9 @@ Prelaoder
 
 #header.header-scrolled,
 #header.header-inner {
-  background: rgba(6, 12, 34, 0.98);
+  background: rgba(6, 12, 34, 0.765);
   height: 70px;
+  transition: background-color 0.3s ease-in-out;
 }
 
 #header #logo h1 {
@@ -269,7 +241,7 @@ Prelaoder
 /*--------------------------------------------------------------
 # Buy Tickets
 --------------------------------------------------------------*/
-.buy-tickets {
+.signin {
   color: #fff;
   background: #16979c;
   padding: 7px 22px;
@@ -283,17 +255,17 @@ Prelaoder
   white-space: nowrap;
 }
 
-.buy-tickets:hover {
+.signin:hover {
   background: none;
   color: #fff;
 }
 
-.buy-tickets:focus {
+.signin:focus {
   color: #fff;
 }
 
 @media (max-width: 992px) {
-  .buy-tickets {
+  .signin {
     margin: 0 15px 0 0;
   }
 }
@@ -559,7 +531,7 @@ Prelaoder
 #hero {
   width: 100%;
   height: 100vh;
-  background: url(../img/hero-bg.jpg) top center;
+  background: url(../img/bg-3.jpg) top center;
   background-size: cover;
   overflow: hidden;
   position: relative;
@@ -604,7 +576,7 @@ Prelaoder
 #hero h1 {
   color: #fff;
   font-family: "Raleway", sans-serif;
-  /* font-size: 30px; */
+  font-size: 30px;
   font-weight: 600;
   text-transform: uppercase;
 }
@@ -615,19 +587,19 @@ Prelaoder
 
 @media (max-width: 991px) {
   #hero h1 {
-    font-size: 34px;
+    font-size: 30px;
   }
 }
 
 #hero p {
   color: #ebebeb;
-  font-weight: 700;
+  font-weight: 100;
   font-size: 20px;
 }
 
 @media (max-width: 991px) {
   #hero p {
-    font-size: 16px;
+    font-size: 15px;
   }
 }
 
@@ -732,50 +704,87 @@ Prelaoder
 /*--------------------------------------------------------------
 # About Section
 --------------------------------------------------------------*/
-#about {
-  background: url("../img/about-bg.jpg");
-  background-size: cover;
-  overflow: hidden;
+.about .about-img {
   position: relative;
-  color: #fff;
-  padding: 60px 0 40px 0;
+  margin: 60px 0 0 60px;
 }
 
-@media (min-width: 1024px) {
-  #about {
-    background-attachment: fixed;
+.about .about-img:before {
+  position: absolute;
+  inset: -60px 0 0 -60px;
+  z-index: -1;
+  content: "";
+  background: url("../img/about-bg.png") top left;
+  background-repeat: no-repeat;
+}
+
+@media (max-width: 575px) {
+  .about .about-img {
+    margin: 30px 0 0 30px;
+  }
+
+  .about .about-img:before {
+    inset: -30px 0 0 -30px;
   }
 }
 
-#about:before {
-  content: "";
-  background: rgba(13, 20, 41, 0.8);
-  position: absolute;
-  bottom: 0;
-  top: 0;
-  left: 0;
-  right: 0;
-}
-
-#about h2 {
-  font-size: 36px;
-  font-weight: bold;
-  margin-bottom: 10px;
-  color: #fff;
-}
-
-#about h3 {
-  font-size: 18px;
-  font-weight: bold;
-  text-transform: uppercase;
-  margin-bottom: 10px;
-  color: #fff;
-}
-
-#about p {
-  font-size: 14px;
+.about .title {
+  color: #094b4e;
+  font-family: var('Poppins', sans-serif);
+  font-weight: 300;
+  font-size: 30px;
   margin-bottom: 20px;
-  color: #fff;
+}
+
+@media (max-width: 768px) {
+  .about h3 {
+    font-size: 28px;
+  }
+}
+
+.about .nav-pills {
+  border-bottom: 1px solid #dce7e9;
+}
+
+.about .nav-pills li+li {
+  margin-left: 40px;
+}
+
+.about .nav-link {
+  background: none;
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--color-secondary);
+  padding: 12px 0;
+  margin-bottom: -2px;
+  border-radius: 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+.about .nav-link.active {
+  color: #16979c;
+  background: none;
+  border-bottom: 3px solid #16979c;
+}
+
+@media (max-width: 575px) {
+  .about .nav-link {
+    font-size: 16px;
+  }
+}
+
+.about .tab-content h4 {
+  font-size: 15px;
+  margin: 0;
+  font-weight: 700;
+  color: #485664;
+}
+
+.about .tab-content i {
+  font-size: 22px;
+  line-height: 0;
+  margin-right: 8px;
+  color: #16979c;
 }
 
 /*--------------------------------------------------------------
@@ -1208,6 +1217,23 @@ Prelaoder
 }
 
 /*--------------------------------------------------------------
+# Clients Section
+--------------------------------------------------------------*/
+.clients {
+  padding: 0 0 60px 0;
+}
+
+.clients .swiper-slide img {
+  opacity: 0.5;
+  transition: 0.3s;
+  filter: grayscale(100);
+}
+
+.clients .swiper-slide img:hover {
+  filter: none;
+  opacity: 1;
+}
+/*--------------------------------------------------------------
 # F.A.Q Section
 --------------------------------------------------------------*/
 #faq {
@@ -1306,7 +1332,7 @@ Prelaoder
 
 #subscribe input {
   background: #fff;
-  color: #060c22;
+  color: #16979c;
   border: 0;
   outline: none;
   margin: 0;
@@ -1322,19 +1348,19 @@ Prelaoder
 }
 
 #subscribe button {
-  border: 0;
+  border: 2px solid #16979c;
   padding: 9px 25px;
   cursor: pointer;
   background: #16979c;
   color: #fff;
-  transition: all 0.3s ease;
+  transition: all ease-in-out 0.3s;
   outline: none;
   font-size: 14px;
   border-radius: 50px;
 }
 
 #subscribe button:hover {
-  background: #e0072f;
+  background: none;
 }
 
 @media (max-width: 460px) {
@@ -1344,48 +1370,53 @@ Prelaoder
 }
 
 /*--------------------------------------------------------------
-# Buy Tickets Section
+# Signin Section
 --------------------------------------------------------------*/
-#buy-tickets {
+#signin {
   padding: 60px 0;
 }
 
-#buy-tickets .card {
+#signin .card {
   border: none;
-  border-radius: 5px;
   transition: all 0.3s ease-in-out;
-  box-shadow: 0 10px 25px 0 rgba(6, 12, 34, 0.1);
+  box-shadow: 0 10px 25px 0 rgba(6, 34, 34, 0.1);
+  width: 300px;
+  border-radius: 10%;
+  /* position: absolute; */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
-#buy-tickets .card:hover {
-  box-shadow: 0 10px 35px 0 rgba(6, 12, 34, 0.2);
+#signin .card:hover {
+  box-shadow: 0 10px 35px 0 rgba(3, 34, 17, 0.2);
 }
 
-#buy-tickets .card hr {
+#signin .card hr {
   margin: 25px 0;
 }
 
-#buy-tickets .card .card-title {
+#signin .card .card-title {
   margin: 10px 0;
   font-size: 14px;
   letter-spacing: 1px;
   font-weight: bold;
 }
 
-#buy-tickets .card .card-price {
+#signin .card .card-price {
   font-size: 48px;
   margin: 0;
 }
 
-#buy-tickets .card ul li {
+#signin .card ul li {
   margin-bottom: 20px;
 }
 
-#buy-tickets .card .text-muted {
+#signin .card .text-muted {
   opacity: 0.7;
 }
 
-#buy-tickets .card .btn {
+#signin .card .btn {
   font-size: 15px;
   border-radius: 50px;
   padding: 10px 40px;
@@ -1395,16 +1426,16 @@ Prelaoder
   color: #fff;
 }
 
-#buy-tickets .card .btn:hover {
-  background-color: #e0072f;
+#signin .card .btn:hover {
+  background-color: #0c5d60;
 }
 
-#buy-tickets #buy-ticket-modal input,
-#buy-tickets #buy-ticket-modal select {
+#signin #buy-ticket-modal input,
+#signin #buy-ticket-modal select {
   border-radius: 0;
 }
 
-#buy-tickets #buy-ticket-modal .btn {
+#signin #buy-ticket-modal .btn {
   font-size: 15px;
   border-radius: 50px;
   padding: 10px 40px;
@@ -1414,194 +1445,200 @@ Prelaoder
   color: #fff;
 }
 
-#buy-tickets #buy-ticket-modal .btn:hover {
-  background-color: #e0072f;
+#signin #buy-ticket-modal .btn:hover {
+  background-color: #0c5d60;
 }
 
 /*--------------------------------------------------------------
 # Contact Section
 --------------------------------------------------------------*/
-#contact {
-  padding: 60px 0;
-}
-
-#contact .contact-info {
-  margin-bottom: 20px;
-  text-align: center;
-}
-
-#contact .contact-info i {
-  font-size: 48px;
-  display: inline-block;
-  margin-bottom: 10px;
-  color: #16979c;
-}
-
-#contact .contact-info address,
-#contact .contact-info p {
-  margin-bottom: 0;
-  color: #112363;
-}
-
-#contact .contact-info h3 {
-  font-size: 18px;
-  margin-bottom: 15px;
-  font-weight: bold;
-  text-transform: uppercase;
-  color: #112363;
-}
-
-#contact .contact-info a {
-  color: #4869df;
-}
-
-#contact .contact-info a:hover {
-  color: #16979c;
-}
-
-#contact .contact-address,
-#contact .contact-phone,
-#contact .contact-email {
-  margin-bottom: 20px;
-}
-
-@media (min-width: 768px) {
-
-  #contact .contact-address,
-  #contact .contact-phone,
-  #contact .contact-email {
-    padding: 20px 0;
-  }
-}
-
-@media (min-width: 768px) {
-  #contact .contact-phone {
-    border-left: 1px solid #ddd;
-    border-right: 1px solid #ddd;
-  }
-}
-
-#contact .php-email-form .error-message {
-  display: none;
-  color: #fff;
-  background: #ed3c0d;
-  text-align: left;
-  padding: 15px;
-  font-weight: 600;
-}
-
-#contact .php-email-form .error-message br+br {
-  margin-top: 25px;
-}
-
-#contact .php-email-form .sent-message {
-  display: none;
-  color: #fff;
-  background: #18d26e;
-  text-align: center;
-  padding: 15px;
-  font-weight: 600;
-}
-
-#contact .php-email-form .loading {
-  display: none;
-  background: #fff;
-  text-align: center;
-  padding: 15px;
-}
-
-#contact .php-email-form .loading:before {
-  content: "";
-  display: inline-block;
-  border-radius: 50%;
-  width: 24px;
-  height: 24px;
-  margin: 0 10px -6px 0;
-  border: 3px solid #18d26e;
-  border-top-color: #eee;
-  animation: animate-loading 1s linear infinite;
-}
-
-#contact .php-email-form input,
-#contact .php-email-form textarea {
-  border-radius: 0;
-  box-shadow: none;
-  font-size: 14px;
-}
-
-#contact .php-email-form input:focus,
-#contact .php-email-form textarea:focus {
-  border-color: #16979c;
-}
-
-#contact .php-email-form input {
-  padding: 10px 15px;
-}
-
-#contact .php-email-form textarea {
-  padding: 12px 15px;
-}
-
-#contact .php-email-form button[type=submit] {
-  background: #16979c;
-  border: 0;
-  padding: 10px 40px;
-  color: #fff;
-  transition: 0.4s;
-  border-radius: 50px;
-  cursor: pointer;
-}
-
-#contact .php-email-form button[type=submit]:hover {
-  background: #e0072f;
-}
-
-@keyframes animate-loading {
-  0% {
-    transform: rotate(0deg);
+  .contact {
+    background: url("../img/contact-bg.png") left top no-repeat;
+    background-size: contain;
+    position: relative;
+    padding: 60px 0;
   }
 
-  100% {
-    transform: rotate(360deg);
+  @media (max-width: 640px) {
+    .contact {
+      background-position: center 50px;
+      position: relative;
+    }
   }
-}
-.map-area {
-  position: relative;
-  height: 300px; }
-  @media only screen and (min-width: 768px) and (max-width: 991px) {
-    .map-area {
-      height: 450px; } }
-  @media (max-width: 767px) {
-    .map-area {
-      height: 450px; } }
 
-.mapouter {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 60%; }
-  @media only screen and (min-width: 768px) and (max-width: 991px) {
-    .mapouter {
-      width: 100%; } }
-  @media (max-width: 767px) {
-    .mapouter {
-      width: 100%; } }
-  .mapouter .gmap_canvas iframe {
+  .contact:before {
+    content: "";
+    background: rgba(255, 255, 255, 0.7);
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+
+  .contact .info-item+.info-item {
+    margin-top: 40px;
+  }
+
+  .contact .info-item{
+    margin-bottom: 100px ;
+    margin-top: 20px;
+  }
+
+  .contact .info-item i {
+    font-size: 20px;
+    background: #16979c;
+    color: #fff;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;
+    transition: all 0.3s ease-in-out;
+    margin-right: 15px;
+  }
+
+  .contact .info-item h4 {
+    padding: 0;
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 5px;
+    color: #16979c;
+  }
+
+  .contact .info-item p {
+    padding: 0;
+    margin-bottom: 0;
+    font-size: 14px;
+  }
+
+  .contact .php-email-form {
     width: 100%;
+  }
+
+  .contact .php-email-form .form-group {
+    padding-bottom: 8px;
+  }
+
+  .contact .php-email-form .error-message {
+    display: none;
+    color: #fff;
+    background: #df1529;
+    text-align: left;
+    padding: 15px;
+    font-weight: 600;
+  }
+
+  .contact .php-email-form .error-message br+br {
+    margin-top: 25px;
+  }
+
+  .contact .php-email-form .sent-message {
+    display: none;
+    color: #fff;
+    background: #16979c;
+    text-align: center;
+    padding: 15px;
+    font-weight: 600;
+  }
+
+  .contact .php-email-form .loading {
+    display: none;
+    background: #fff;
+    text-align: center;
+    padding: 15px;
+  }
+
+  .contact .php-email-form .loading:before {
+    content: "";
+    display: inline-block;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    margin: 0 10px -6px 0;
+    border: 3px solid #16979c;
+    border-top-color: #fff;
+    animation: animate-loading 1s linear infinite;
+  }
+
+  .contact .php-email-form input,
+  .contact .php-email-form textarea {
+    border-radius: 5px;
+    box-shadow: none;
+    font-size: 14px;
+    padding: 12px 15px;
+  }
+
+  .contact .php-email-form input:focus,
+  .contact .php-email-form textarea:focus {
+    border-color: #16979c;
+  }
+
+  .contact .php-email-form textarea {
+    padding: 10px 12px;
+  }
+
+  .contact .php-email-form button[type=submit] {
+    background: #16979c;
+    border: 2px solid #16979c;
+    padding: 12px 40px;
+    color: #fff;
+    transition: all ease-in-out 0.3s;
+    border-radius: 10px;
+  }
+
+  .contact .php-email-form button[type=submit]:hover {
+    background: none;
+    color:#16979c
+  }
+
+  @keyframes animate-loading {
+    0% {
+      transform: rotate(0deg);
+    }
+
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  .map-area {
+    position: relative;
     height: 300px; }
     @media only screen and (min-width: 768px) and (max-width: 991px) {
-      .mapouter .gmap_canvas iframe {
+      .map-area {
         height: 450px; } }
     @media (max-width: 767px) {
-      .mapouter .gmap_canvas iframe {
+      .map-area {
         height: 450px; } }
 
-.map-bg {
-  width: 40%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  right: 0; }
+  .mapouter {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; }
+    @media only screen and (min-width: 768px) and (max-width: 991px) {
+      .mapouter {
+        width: 100%; } }
+    @media (max-width: 767px) {
+      .mapouter {
+        width: 100%; } }
+    .mapouter .gmap_canvas iframe {
+      width: 100%;
+      height: 300px; }
+      @media only screen and (min-width: 768px) and (max-width: 991px) {
+        .mapouter .gmap_canvas iframe {
+          height: 450px; } }
+      @media (max-width: 767px) {
+        .mapouter .gmap_canvas iframe {
+          height: 450px; } }
+
+  .map-bg {
+    width: 40%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0; }
 
 /*--------------------------------------------------------------
 # Footer
@@ -1615,11 +1652,12 @@ Prelaoder
 
 #footer .footer-top {
   background: #040919;
-  padding: 60px 0 30px 0;
+  padding: 30px 0 30px 0;
 }
 
 #footer .footer-top .footer-info {
   margin-bottom: 30px;
+  margin-top: 100px;
 }
 
 #footer .footer-top .footer-info h3 {
@@ -1645,12 +1683,15 @@ Prelaoder
   color: #fff;
 }
 
+#footer .footer-top .social-links{
+  margin-left: 30px;
+}
+
 #footer .footer-top .social-links a {
   display: inline-block;
   background: #222636;
   color: #eee;
   line-height: 1;
-  margin-right: 4px;
   border-radius: 50%;
   width: 36px;
   height: 36px;
@@ -1658,6 +1699,7 @@ Prelaoder
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  margin-right: 15px;
 }
 
 #footer .footer-top .social-links a i {
@@ -1721,6 +1763,17 @@ Prelaoder
   line-height: 26px;
 }
 
+#footer .copyright {
+  text-align: center;
+  padding-top: 30px;
+}
+
+#footer .credits {
+  text-align: center;
+  font-size: 13px;
+  color: #ddd;
+}
+/*
 #footer .footer-top .footer-newsletter {
   margin-bottom: 30px;
 }
@@ -1744,15 +1797,5 @@ Prelaoder
 
 #footer .footer-top .footer-newsletter input[type=submit]:hover {
   background: #e0072f;
-}
+} */
 
-#footer .copyright {
-  text-align: center;
-  padding-top: 30px;
-}
-
-#footer .credits {
-  text-align: center;
-  font-size: 13px;
-  color: #ddd;
-}

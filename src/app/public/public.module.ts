@@ -14,6 +14,7 @@ import { ContactComponent } from './components/contact/contact.component';
 import { NewsletterComponent } from './components/newsletter/newsletter.component';
 import { ClubsComponent } from './components/clubs/clubs.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { MembersComponent } from './components/members/members.component';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { FooterComponent } from './components/footer/footer.component';
     ContactComponent,
     NewsletterComponent,
     ClubsComponent,
-    FooterComponent
+    FooterComponent,
+    MembersComponent
   ],
   imports: [
     CommonModule,
