@@ -1,4 +1,4 @@
-<header id="header" class="d-flex align-items-center header-scrolled ">
+<header id="header" class="d-flex align-items-center header-scrolled">
   <div class="container-fluid container-xxl d-flex align-items-center">
 
     <div id="logo" class="me-auto">
@@ -10,10 +10,9 @@
     <nav id="navbar" class="navbar order-last order-lg-0">
       <ul>
         <li><a class="nav-link scrollto active" href="#">Accueil</a></li>
-        <li><a class="nav-link scrollto" href="#presentation">Présentation</a></li>
-        <li class="dropdown"><a href="#presentation"><span>Membres</span> <i class="bi bi-chevron-down"></i></a>
+        <li class="dropdown"><a href="#presentation"><span>Présnetaion</span> <i class="bi bi-chevron-down"></i></a>
         <ul>
-          <li><a href="#">Bureau Exécutif</a></li>
+          <li><a href="#bureau-executif">Bureau Exécutif</a></li>
           <!-- <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
             <ul>
               <li><a href="#">Deep Drop Down 1</a></li>
@@ -24,12 +23,18 @@
             </ul>
           </li> -->
           <li><a href="#">Bureaux Régionaux</a></li>
-          <li><a href="#">Clubs</a></li>
           <li><a href="#">Memebres</a></li>
+          <li><a href="#">Clubs</a></li>
         </ul>
       </li>
+        <li class="dropdown"><a href="#"><span>Evènements</span><i class="bi bi-chevron-down"></i> </a>
+        <ul>
+          <li><a href="#actualities">Actualités</a></li>
+          <li><a href="#formations">Formations</a></li>
+          <li><a href="#events">Evènements</a></li>
+        </ul>
+        </li>
         <li><a class="nav-link scrollto" href="#opportunities">Opportunités</a></li>
-        <li><a class="nav-link scrollto" href="#events">Evènements</a></li>
         <li><a class="nav-link scrollto" href="#medias">Médias</a></li>
         <li><a class="nav-link scrollto" href="#partners">Partenaires</a></li>
 
@@ -41,15 +46,19 @@
 
   </div>
 </header>
+<router-outlet></router-outlet>
 <app-home></app-home>
 <app-presentation id="presentation"></app-presentation>
-<app-opportunities id="opportunities"></app-opportunities>
+<app-members id="bureau-executif"></app-members>
+<!-- <app-actuality id="actualities"></app-actuality> -->
+<app-formation id="formations"></app-formation>
 <app-events id="events"></app-events>
-<app-medias id="medias"></app-medias>
+<!-- <app-opportunities id="opportunities"></app-opportunities>
+<app-medias id="medias"></app-medias> -->
 <app-membership id="membership"></app-membership>
 <app-partners id="partners"></app-partners>
 <app-newsletter></app-newsletter>
 <app-contact id="contact"></app-contact>
 <app-footer></app-footer>
-<!-- <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a> -->
+<a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 <div id="preloader"></div>

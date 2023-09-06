@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
+import { HttpClientModule } from '@angular/common/http';
 import { PublicRoutingModule } from './public-routing.module';
 import { HomeComponent } from './components/home/home.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -15,6 +15,9 @@ import { NewsletterComponent } from './components/newsletter/newsletter.componen
 import { ClubsComponent } from './components/clubs/clubs.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { MembersComponent } from './components/members/members.component';
+import { EventsDetailsComponent } from './components/events-details/events-details.component';
+import { ActualityComponent } from './components/actuality/actuality.component';
+import { FormationComponent } from './components/formation/formation.component';
 
 
 @NgModule({
@@ -31,10 +34,14 @@ import { MembersComponent } from './components/members/members.component';
     NewsletterComponent,
     ClubsComponent,
     FooterComponent,
-    MembersComponent
+    MembersComponent,
+    EventsDetailsComponent,
+    ActualityComponent,
+    FormationComponent
   ],
   imports: [
     CommonModule,
+    HttpClientModule,
     PublicRoutingModule
   ]
 })
