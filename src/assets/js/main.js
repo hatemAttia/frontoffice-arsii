@@ -222,46 +222,22 @@
   /**
    * Gallery Slider
    */
-  new Swiper('.gallery-slider', {
-    speed: 400,
+new Swiper(".slide-content", {
+    slidesPerView: 3,
+    spaceBetween: 30,
+    slidesPerGroup: 3,
     loop: true,
-    centeredSlides: true,
-    autoplay: {
-      delay: 5000,
-      disableOnInteraction: false
-    },
-    slidesPerView: 'auto',
+    loopFillGroupWithBlank: true,
     pagination: {
-      el: '.swiper-pagination',
-      type: 'bullets',
-      clickable: true
+      el: ".swiper-pagination",
+      clickable: true,
     },
-    breakpoints: {
-      320: {
-        slidesPerView: 1,
-        spaceBetween: 20
-      },
-      575: {
-        slidesPerView: 2,
-        spaceBetween: 20
-      },
-      768: {
-        slidesPerView: 3,
-        spaceBetween: 20
-      },
-      992: {
-        slidesPerView: 5,
-        spaceBetween: 20
-      }
-    }
-  });
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+  })
 
-  /**
-   * Initiate gallery lightbox
-   */
-  const galleryLightbox = GLightbox({
-    selector: '.gallery-lightbox'
-  });
 
   /**
    * Buy tickets select the ticket type on click

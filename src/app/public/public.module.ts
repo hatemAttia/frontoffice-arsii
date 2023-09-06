@@ -18,6 +18,10 @@ import { MembersComponent } from './components/members/members.component';
 import { EventsDetailsComponent } from './components/events-details/events-details.component';
 import { ActualityComponent } from './components/actuality/actuality.component';
 import { FormationComponent } from './components/formation/formation.component';
+import { NgbModule, NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
+import {CarouselModule} from 'ngx-owl-carousel-o';
+import { EventService } from './services/event.service';
+import { PartnerService } from './services/partner.service';
 
 
 @NgModule({
@@ -37,12 +41,16 @@ import { FormationComponent } from './components/formation/formation.component';
     MembersComponent,
     EventsDetailsComponent,
     ActualityComponent,
-    FormationComponent
+    FormationComponent,
   ],
   imports: [
     CommonModule,
     HttpClientModule,
-    PublicRoutingModule
-  ]
+    NgbCarouselModule,
+    PublicRoutingModule,
+    CarouselModule
+  ],
+
+  providers: [EventService, PartnerService]
 })
 export class PublicModule { }

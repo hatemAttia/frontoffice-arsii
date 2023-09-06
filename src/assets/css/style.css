@@ -150,28 +150,32 @@ Prelaoder
   .section-title h4 {
     font-size: 16px; } }
 
-.section-p p {
-  text-align: center;
-  padding: 0;
-  margin: 10;
-  font-size: 18px;
-  font-weight: 500;
-  color: #9195a2;
-}
+    .section-p p {
+      text-align: center;
+      padding: 0;
+      margin: 10;
+      font-size: 18px;
+      font-weight: 500;
+      color: #9195a2;
+    }
 
-.section-header p {
-  text-align: center;
-  padding: 0;
-  margin: 10;
-  font-size: 18px;
-  font-weight: 500;
-  color: #9195a2;
-}
+    .section-header p {
+      text-align: center;
+      padding: 0;
+      margin: 10;
+      font-size: 18px;
+      font-weight: 500;
+      color: #9195a2;
+    }
 
 .section-with-bg {
-  background-color: #f6f7fd;
+  background-color: #fefefe;
 }
 
+.container {
+  width: 90%;
+  margin: 0 auto;
+}
 /*--------------------------------------------------------------
 # Header
 --------------------------------------------------------------*/
@@ -418,7 +422,7 @@ Prelaoder
 
 .navbar-mobile {
   position: fixed;
-  overflow: hidden;
+  overflow: visible;
   top: 0;
   right: 0;
   left: 0;
@@ -777,104 +781,34 @@ Prelaoder
   margin-right: 8px;
   color: #16979c;
 }
-/*--------------------------------------------------------------
-# Events Section
---------------------------------------------------------------*/
-.events .post-box {
-  transition: 0.3s;
-  height: 100%;
-  overflow: hidden;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  box-shadow: 0 4px 16px rgba(33, 37, 41, 0.275);
-  border-radius: 10px;
-  padding-left: 30px;
-}
 
-.events .post-box .post-img {
-  overflow: hidden;
-  position: relative;
-  max-height: 240px;
-  margin: -30px -30px 15px -30px;
-}
-
-.events .post-box .post-img img {
-  transition: 0.5s;
-}
-
-.events .post-box .meta {
-  margin-top: 15px;
-  margin-left: 20px;
-}
-
-.events .post-box .meta .post-date,
-.events .post-box .meta .post-address {
-  font-size: 12px;
-  font-weight: 400;
-  color: #16979c;
-}
-
-.events .post-box .meta .post-date i,
-.events .post-box .meta .post-address i {
-  color: #16979c;
-  margin: 5px;
-  font-size: 12px;
-}
-
-
-.events .post-box .post-title {
-  font-size: 18px;
-  color: #1b2f45;
-  font-weight: 700;
-  margin: 15px 0 0 0;
-  position: relative;
-  transition: 0.3s;
-}
-
-.events .post-box p {
-  margin: 15px 0 0 0;
-  color: rgba(27, 47, 69, 0.7);
-}
-
-.events .post-box .readmore {
-  display: flex;
-  align-items: center;
-  font-weight: 600;
-  line-height: 1;
-  transition: 0.3s;
-  margin-top: 15px;
-  text-align: right;
-}
-
-.events .post-box .readmore i {
-  line-height: 0;
-  margin-left: 4px;
-  font-size: 18px;
-}
-
-.events .post-box:hover .post-title {
-  color: #16979c;
-}
-
-.events .post-box:hover .post-img img {
-  transform: scale(1.1);
-}
 /* Formations Section - Home Page
 ------------------------------*/
+/* ngb-carousel{
+  margin-bottom: 30px;
+  margin-right: -20px;
+  margin-left: -20px;
+  width: 100%;
+} */
 .formations article {
   background-color: #ffffff;
-  box-shadow: 0 4px 16px rgba(33, 37, 41, 0.1);
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   padding: 30px;
   height: 100%;
   border-radius: 10px;
   overflow: hidden;
+  transition: 0.3s;
+  /* margin-bottom: 10px; */
 }
 
 .formations .post-img {
   max-height: 240px;
   margin: -30px -30px 15px -30px;
   overflow: hidden;
+}
+
+.formations .post-img img {
+  transition: 0.5s;
 }
 
 .formations .post-category {
@@ -909,31 +843,41 @@ Prelaoder
   margin-right: 15px;
 }
 
+.formations article:hover .post-img img {
+  transform: scale(1.1);
+}
+
 .formations .post-author {
   font-weight: 600;
   margin-bottom: 5px;
+
 }
 
 .formations .post-date {
   font-size: 14px;
   color: rgba(33, 37, 41, 0.5);
   margin-bottom: 0;
+  display: inline-block;
+  margin-right: 10px;
 }
 
 .formations .post-address {
   font-size: 14px;
   color: rgba(33, 37, 41, 0.5);
   margin-bottom: 0;
+  display: inline-block;
 }
 
-.formations .readmore {
+.formations article .readmore {
+  position: relative;
+  bottom: 0;
   display: flex;
-  position:static;
   align-items: center;
   font-weight: 600;
   line-height: 1;
   transition: 0.3s;
-  margin-top: 30px;
+  margin-top: 15px;
+  z-index: 100;
 }
 
 .formations .readmore i {
@@ -1456,22 +1400,15 @@ Prelaoder
 }
 
 /*--------------------------------------------------------------
-# Clients Section
+# Partners Section
 --------------------------------------------------------------*/
-.clients {
-  padding: 0 0 60px 0;
+.partners img {
+  transition: all .3s ease;
+}
+.partners img:hover {
+  box-shadow: 0 0 10px 1px #dbdbdb;
 }
 
-.clients .swiper-slide img {
-  opacity: 0.5;
-  transition: 0.3s;
-  filter: grayscale(100);
-}
-
-.clients .swiper-slide img:hover {
-  filter: none;
-  opacity: 1;
-}
 /*--------------------------------------------------------------
 # F.A.Q Section
 --------------------------------------------------------------*/
