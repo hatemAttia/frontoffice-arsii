@@ -22,6 +22,7 @@ import { NgbModule, NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
 import {CarouselModule} from 'ngx-owl-carousel-o';
 import { EventService } from './services/event.service';
 import { PartnerService } from './services/partner.service';
+import { BaseComponent } from './components/base/base.component';
 
 
 @NgModule({
@@ -42,6 +43,7 @@ import { PartnerService } from './services/partner.service';
     EventsDetailsComponent,
     ActualityComponent,
     FormationComponent,
+    BaseComponent,
   ],
   imports: [
     CommonModule,

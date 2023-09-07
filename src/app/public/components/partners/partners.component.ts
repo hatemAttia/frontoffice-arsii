@@ -6,11 +6,10 @@ import { PartnerService } from '../../services/partner.service';
 @Component({
   selector: 'app-partners',
   templateUrl: './partners.component.html',
-  styleUrls: ['./partners.component.scss']
+  styleUrls: ['./partners.component.scss'],
 })
 export class PartnersComponent implements OnInit {
-
-  partners: Partner[]=[];
+  partners: Partner[] = [];
   customOptions: OwlOptions = {
     loop: true,
     mouseDrag: true,
@@ -21,27 +20,26 @@ export class PartnersComponent implements OnInit {
     navText: ['', ''],
     responsive: {
       0: {
-        items: 1
+        items: 1,
       },
       400: {
-        items: 2
+        items: 2,
       },
       740: {
-        items: 3
+        items: 3,
       },
       940: {
-        items: 4
-      }
+        items: 4,
+      },
     },
-    nav: false
-  }
-  constructor(private partnerService: PartnerService) { }
+    nav: false,
+  };
+  constructor(private partnerService: PartnerService) {}
 
   ngOnInit(): void {
     this.partnerService.getPartners().subscribe((data: Partner[]) => {
-      console.log(data);
+      console.log('categories-------', data);
       this.partners = data;
     });
   }
-
 }
