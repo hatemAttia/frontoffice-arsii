@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { EventService } from '../../services/event.service';
-import { OwlOptions } from 'ngx-owl-carousel-o';
 import { Router } from '@angular/router';
 
 @Component({
@@ -16,6 +15,18 @@ export class EventsComponent implements OnInit {
       console.log(data);
       this.events = data;
     });
+  }
+
+  getEventGroups() {
+    const groupSize = 3;
+    const eventGroups = [];
+
+    for (let i = 0; i < this.events.length; i += groupSize) {
+      const group = this.events.slice(i, i + groupSize);
+      eventGroups.push(group);
+    }
+
+    return eventGroups;
   }
 
   navigateTo(path: string) {

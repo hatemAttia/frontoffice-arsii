@@ -286,11 +286,10 @@
     </ngb-carousel>
 
     <!-- <ngb-carousel >
-      <ng-template ngbSlide>
-        <img src="assets/img/slide1.jpg" alt="Slide 1">
+      <ng-template ngbSlide *ngFor="let group of getEventGroups()">
         <div class="row gy-4">
 
-          <div *ngFor="let event of events" class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+          <div *ngFor="let event of group" class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
             <article>
 
               <div class="post-img">
@@ -315,8 +314,6 @@
 
                 </div>
               </div>
-              <a routerLink="events-details" class="readmore stretched-link"><span>Voir Détails</span><i class="bi bi-arrow-right"></i></a>
-
             </article>
           </div>
         </div>
