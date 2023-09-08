@@ -10,7 +10,7 @@ const routes: Routes = [
     component: BaseComponent,
     children: [
       { path: '', component: NavbarComponent },
-      { path: 'formation', component: EventsDetailsComponent },
+      { path: 'formation-details', component: EventsDetailsComponent },
     ],
   },
 

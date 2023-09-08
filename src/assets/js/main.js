@@ -174,6 +174,9 @@
       }
     }
   });
+
+  /**Event */
+
   /**
    * Porfolio isotope and filter
    */
@@ -222,21 +225,25 @@
   /**
    * Gallery Slider
    */
-new Swiper(".slide-content", {
-    slidesPerView: 3,
-    spaceBetween: 30,
-    slidesPerGroup: 3,
+  new Swiper('.slides-1', {
+    speed: 600,
     loop: true,
-    loopFillGroupWithBlank: true,
+    autoplay: {
+      delay: 5000,
+      disableOnInteraction: false
+    },
+    slidesPerView: 'auto',
     pagination: {
-      el: ".swiper-pagination",
-      clickable: true,
+      el: '.swiper-pagination',
+      type: 'bullets',
+      clickable: true
     },
     navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
-    },
-  })
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    }
+  });
+
 
 
   /**
