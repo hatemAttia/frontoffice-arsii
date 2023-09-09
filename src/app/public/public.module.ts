@@ -19,10 +19,12 @@ import { EventsDetailsComponent } from './components/events-details/events-detai
 import { ActualityComponent } from './components/actuality/actuality.component';
 import { FormationComponent } from './components/formation/formation.component';
 import { NgbModule, NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
-import {CarouselModule} from 'ngx-owl-carousel-o';
+import { CarouselModule } from 'ngx-owl-carousel-o';
 import { EventService } from './services/event.service';
 import { PartnerService } from './services/partner.service';
 import { BaseComponent } from './components/base/base.component';
+import { BreadcrumbsComponent } from './components/breadcrumbs/breadcrumbs.component';
+
 
 
 @NgModule({
@@ -44,6 +46,7 @@ import { BaseComponent } from './components/base/base.component';
     ActualityComponent,
     FormationComponent,
     BaseComponent,
+    BreadcrumbsComponent
   ],
   imports: [
     CommonModule,
@@ -52,7 +55,6 @@ import { BaseComponent } from './components/base/base.component';
     PublicRoutingModule,
     CarouselModule
   ],
-
   providers: [EventService, PartnerService]
 })
 export class PublicModule { }

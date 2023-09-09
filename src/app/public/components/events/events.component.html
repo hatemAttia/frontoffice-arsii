@@ -8,114 +8,296 @@
   </div><!-- End Section Title -->
 
   <div class="container">
-    <div class="row gy-4">
-
-      <div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-        <article>
-
-          <div class="post-img">
-            <img src="assets/img/blog/blog-1.jpg" alt="" class="img-fluid">
-          </div>
-
-          <p class="post-category">Politics</p>
-
-          <h2 class="title">
-            <a href="blog-details.html">Dolorum optio tempore voluptas dignissimos</a>
-          </h2>
-
-          <div class="d-flex align-items-center">
-            <img src="assets/img/blog/blog-author.jpg" alt="" class="img-fluid post-author-img flex-shrink-0">
-            <div class="post-meta">
-              <p class="post-author">Maria Doe</p>
-
-                <p class="post-date">
-                  <time datetime="2022-01-01"><i class="bi bi-clock-fill"></i> Jun 22, 2022</time>
-                </p>
-                <p class="post-address"><i class="bi bi-geo-alt-fill"></i> Sousse </p>
-
-            </div>
-          </div>
-          <!-- <a routerLink="events-details" class="readmore stretched-link"><span>Voir Détails</span><i class="bi bi-arrow-right"></i></a> -->
-        </article>
-      </div>
-
-      <div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-        <article>
-
-          <div class="post-img">
-            <img src="assets/img/blog/blog-2.jpg" alt="" class="img-fluid">
-          </div>
-
-          <p class="post-category">Sports</p>
-
-          <h2 class="title">
-            <a href="blog-details.html">Nisi magni odit consequatur autem nulla dolorem</a>
-          </h2>
-
-          <div class="d-flex align-items-center">
-            <img src="assets/img/blog/blog-author-2.jpg" alt="" class="img-fluid post-author-img flex-shrink-0">
-            <div class="post-meta">
-              <p class="post-author">Allisa Mayer</p>
-
-              <p class="post-date">
-                <time datetime="2022-01-01"><i class="bi bi-clock-fill"></i> Jun 22, 2022</time>
-              </p>
-              <p class="post-address"><i class="bi bi-geo-alt-fill"></i> Sousse Sousse Sousse</p>
-
-            </div>
-          </div>
-          <!-- <a routerLink="events-details" class="readmore stretched-link"><span>Voir Détails</span><i class="bi bi-arrow-right"></i></a> -->
-        </article>
-      </div>
-
-      <div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-        <article>
-
-          <div class="post-img">
-            <img src="assets/img/blog/blog-3.jpg" alt="" class="img-fluid">
-          </div>
-
-          <p class="post-category">Entertainment</p>
-
-          <h2 class="title">
-            <a href="blog-details.html">Possimus soluta ut id suscipit ea ut in quo quia et soluta</a>
-          </h2>
-
-          <div class="d-flex align-items-center">
-            <img src="assets/img/blog/blog-author-3.jpg" alt="" class="img-fluid post-author-img flex-shrink-0">
-            <div class="post-meta">
-              <p class="post-author">Mark Dower</p>
-
-                <p class="post-date">
-                  <time datetime="2022-01-01"><i class="bi bi-clock-fill"></i> Jun 22, 2022</time>
-                </p>
-                <p class="post-address"><i class="bi bi-geo-alt-fill"></i> Sousse</p>
-
+    <ngb-carousel>
+      <ng-template ngbSlide>
+        <div class="row gy-4">
+          <div
+            class="col-xl-4 col-md-6"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            <article>
+              <div class="post-img">
+                <img
+                  src="assets/img/events/AI-Challenge.png"
+                  alt=""
+                  class="img-fluid"
+                />
               </div>
-              <!-- <a routerLink="events-details" class="readmore stretched-link"><span>Voir Détails</span><i class="bi bi-arrow-right"></i></a> -->
+
+              <p class="post-category">Intelligence Artificielle</p>
+
+              <h2 class="title">
+                <a routerLink="/events-details"
+                  >AI Night Challenge - Second Edition</a
+                >
+              </h2>
+
+              <div class="d-flex align-items-center">
+                <!-- <img
+                  src="assets/img/blog/blog-author.jpg"
+                  alt=""
+                  class="img-fluid post-author-img flex-shrink-0"
+                /> -->
+                <div class="post-meta">
+                  <!-- <p class="post-author">Maria Doe</p> -->
+
+                  <p class="post-date">
+                    <time datetime="2023-04-01 15:00"
+                      ><i class="bi bi-clock-fill"></i> Jan 04, 2023, 15:00</time
+                    >
+                  </p>
+                  <p class="post-address">
+                    <i class="bi bi-geo-alt-fill"></i> Sousse, Tunisia
+                  </p>
+                </div>
+              </div>
+              <a routerLink="/events-details" class="readmore stretched-link"><span>Voir Détails</span><i class="bi bi-arrow-right"></i></a>
+            </article>
           </div>
 
-        </article>
-      </div>
+          <div
+            class="col-xl-4 col-md-6"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            <article>
+              <div class="post-img">
+                <img
+                  src="assets/img/events/convention.jpg"
+                  alt=""
+                  class="img-fluid"
+                />
+              </div>
 
-    </div>
+              <p class="post-category">Convention</p>
+
+              <h2 class="title">
+                <a (click)="navigateTo('/events-details')">Convention de partenariat ARSII - Ecole Polytechnique de Sousse</a>
+              </h2>
+
+              <div class="d-flex align-items-center">
+                <!-- <img
+                  src="assets/img/blog/blog-author-2.jpg"
+                  alt=""
+                  class="img-fluid post-author-img flex-shrink-0"
+                /> -->
+                <div class="post-meta">
+                  <!-- <p class="post-author">Allisa Mayer</p> -->
+
+                  <p class="post-date">
+                    <time datetime="2022-09-23"
+                      ><i class="bi bi-clock-fill"></i> Sep 23, 2022, 15:00</time
+                    >
+                  </p>
+                  <p class="post-address">
+                    <i class="bi bi-geo-alt-fill"></i> Polytechnique Sousse
+                  </p>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <div
+            class="col-xl-4 col-md-6"
+            data-aos="fade-up"
+            data-aos-delay="300"
+          >
+            <article>
+              <div class="post-img">
+                <img
+                  src="assets/img/events/convention-us.jpg"
+                  alt=""
+                  class="img-fluid"
+                />
+              </div>
+
+              <p class="post-category">Convention</p>
+
+              <h2 class="title">
+                <a href="blog-details.html"
+                  >Convention de partenariat ARSII - Université de Sousse</a
+                >
+              </h2>
+
+              <div class="d-flex align-items-center">
+                <!-- <img
+                  src="assets/img/blog/blog-author-3.jpg"
+                  alt=""
+                  class="img-fluid post-author-img flex-shrink-0"
+                /> -->
+                <div class="post-meta">
+                  <!-- <p class="post-author">Mark Dower</p> -->
+
+                  <p class="post-date">
+                    <time datetime="2022-01-01"
+                      ><i class="bi bi-clock-fill"></i> Jun 18, 2022,, 17:55</time
+                    >
+                  </p>
+                  <p class="post-address">
+                    <i class="bi bi-geo-alt-fill"></i> Université de Sousse, نهج خليفة القروي، Sousse, Tunisie
+                  </p>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </ng-template>
+      <ng-template ngbSlide>
+        <div class="row gy-4">
+          <div
+            class="col-xl-4 col-md-6"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+          <article>
+              <div class="post-img">
+                <img
+                  src="assets/img/events/ai-neight.jpg"
+                  alt=""
+                  class="img-fluid"
+                />
+              </div>
+
+              <p class="post-category">Intelligence Artificielle</p>
+
+              <h2 class="title">
+                <a href="blog-details.html"
+                  >AI NIGHT CHALLENGE</a
+                >
+              </h2>
+
+              <div class="d-flex align-items-center">
+                <!-- <img
+                  src="assets/img/blog/blog-author.jpg"
+                  alt=""
+                  class="img-fluid post-author-img flex-shrink-0"
+                /> -->
+                <div class="post-meta">
+                  <!-- <p class="post-author">Maria Doe</p> -->
+
+                  <p class="post-date">
+                    <time datetime="2022-01-01"
+                      ><i class="bi bi-clock-fill"></i> Mar 14, 2022, 16:00</time
+                    >
+                  </p>
+                  <p class="post-address">
+                    <i class="bi bi-geo-alt-fill"></i> Association ARSII - جمعية البحث العلمي والإبتكار في الإعلامية, Sousse, Tunisia
+                  </p>
+                </div>
+              </div>
+
+            </article>
+          </div>
+
+          <div
+            class="col-xl-4 col-md-6"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            <article>
+              <div class="post-img">
+                <img
+                  src="assets/img/events/assemblé-.jpg"
+                  alt=""
+                  class="img-fluid"
+                />
+              </div>
+
+              <p class="post-category">Assemblé</p>
+
+              <h2 class="title">
+                <a href="blog-details.html"
+                  >Assemblée générale ARSII 2K21</a
+                  >
+              </h2>
+
+              <div class="d-flex align-items-center">
+                <!-- <img
+                  src="assets/img/blog/blog-author-2.jpg"
+                  alt=""
+                  class="img-fluid post-author-img flex-shrink-0"
+                  /> -->
+                <div class="post-meta">
+                  <!-- <p class="post-author">Allisa Mayer</p> -->
+
+                  <p class="post-date">
+                    <time datetime="2022-01-01"
+                      ><i class="bi bi-clock-fill"></i> Dec 17, 2021</time
+                    >
+                  </p>
+                  <p class="post-address">
+                    <i class="bi bi-geo-alt-fill"></i> Hotel Riadh Palms, Sousse, Tunisia
+                  </p>
+                </div>
+              </div>
+
+            </article>
+          </div>
+
+          <div
+            class="col-xl-4 col-md-6"
+            data-aos="fade-up"
+            data-aos-delay="300"
+          >
+            <article>
+              <div class="post-img">
+                <img
+                  src="assets/img/events/webinaire.png"
+                  alt=""
+                  class="img-fluid"
+                />
+              </div>
+
+              <p class="post-category">Webinaire</p>
+
+              <h2 class="title">
+                <a href="blog-details.html"
+                  >Webinaire IoT & Cloud Computing</a
+                >
+              </h2>
+
+              <div class="d-flex align-items-center">
+                <!-- <img
+                  src="assets/img/blog/blog-author-3.jpg"
+                  alt=""
+                  class="img-fluid post-author-img flex-shrink-0"
+                /> -->
+                <div class="post-meta">
+                  <!-- <p class="post-author">Mark Dower</p> -->
+
+                  <p class="post-date">
+                    <time datetime="2022-01-01"
+                      ><i class="bi bi-clock-fill"></i> Avr 27, 2021</time
+                    >
+                  </p>
+                  <p class="post-address">
+                    <i class="bi bi-geo-alt-fill"></i> Association ARSII - جمعية البحث العلمي والإبتكار في الإعلامية, Sousse, Tunisie
+                  </p>
+                </div>
+              </div>
+
+            </article>
+          </div>
+        </div>
+      </ng-template>
+    </ngb-carousel>
 
     <!-- <ngb-carousel >
-      <ng-template ngbSlide>
-        <img src="assets/img/slide1.jpg" alt="Slide 1">
+      <ng-template ngbSlide *ngFor="let group of getEventGroups()">
         <div class="row gy-4">
 
-          <div *ngFor="let event of events" class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+          <div *ngFor="let event of group" class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
             <article>
 
               <div class="post-img">
                 <img [src]="event.urlImage" alt="" class="img-fluid">
               </div>
 
-              <p class="post-category">{{ event.status}}</p>
+              <p class="post-category">{{ event.typeEvent}}</p>
 
               <h2 class="title">
-                <a href="blog-details.html">Possimus soluta ut id suscipit ea ut in quo quia et soluta</a>
+                <a href="blog-details.html">{{ event.title }}</a>
               </h2>
 
               <div class="d-flex align-items-center">
@@ -130,16 +312,14 @@
 
                 </div>
               </div>
-              <a routerLink="events-details" class="readmore stretched-link"><span>Voir Détails</span><i class="bi bi-arrow-right"></i></a>
-
             </article>
           </div>
         </div>
       </ng-template>
     </ngb-carousel> -->
   </div>
+  <!-- <a routerLink="events-details" class="readmore stretched-link"><span>Voir Détails</span><i class="bi bi-arrow-right"></i></a> -->
 
 </section>
-
 
 
