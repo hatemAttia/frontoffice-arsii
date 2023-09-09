@@ -103,7 +103,7 @@ Prelaoder
 /* Sections Header
 --------------------------------*/
 .section-header {
-  margin-top: 50px;
+  margin-top: 80px;
   margin-bottom: 30px;
   position: relative;
   padding-bottom: 20px;
@@ -795,10 +795,11 @@ Prelaoder
   background-color: #ffffff;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   padding: 20px;
-  height: 100%;
+  height: 95%;
   border-radius: 10px;
   overflow: hidden;
   transition: 0.3s;
+  margin-top: 10px;
   /* margin-bottom: 10px; */
 }
 
@@ -806,10 +807,16 @@ Prelaoder
   max-height: 240px;
   margin: -30px -30px 15px -30px;
   overflow: hidden;
+
 }
 
 .formations .post-img img {
   transition: 0.5s;
+  display: block;
+  max-width: 100%;
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
 }
 
 .formations .post-category {
@@ -848,13 +855,14 @@ Prelaoder
   transform: scale(1.1);
 }
 
-.formations .post-author {
+/* .formations .post-author {
   font-weight: 600;
   margin-bottom: 5px;
 
-}
+} */
 
-.formations .post-date {
+.formations .post-date,
+.formations .post-author {
   font-size: 14px;
   color: rgba(33, 37, 41, 0.5);
   margin-bottom: 0;
@@ -868,7 +876,12 @@ Prelaoder
   margin-bottom: 0;
   display: inline-block;
 }
-
+.formations .post-date i,
+.formations .post-author i,
+.formations .post-address i{
+  color: #16979c;
+  margin-right: 5px;
+}
 .formations article .readmore {
   position: relative;
   bottom: 0;

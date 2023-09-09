@@ -7,11 +7,12 @@ import { Router } from '@angular/router';
   templateUrl: './events.component.html'
 })
 export class EventsComponent implements OnInit {
-  events: Event[] = [];
+  events: any[]=[];
+  // events: Event[] = [];
   constructor(private router: Router, private eventService: EventService) { }
 
   ngOnInit(): void {
-    this.eventService.getEvents().subscribe((data: Event[]) => {
+    this.eventService.getEvents().subscribe((data: any) => {
       console.log(data);
       this.events = data;
     });
