@@ -1,4 +1,4 @@
-<section id="formations" class="formations">
+<section id="events" class="events">
 
   <!--  Section Title -->
   <div class="container" data-aos="fade-up">
@@ -52,7 +52,7 @@
                   </p>
                 </div>
               </div>
-              <a routerLink="/events-details" class="readmore stretched-link"><span>Voir Détails</span><i class="bi bi-arrow-right"></i></a>
+              <!-- <a routerLink="/events-details" class="readmore stretched-link"><span>Voir Détails</span><i class="bi bi-arrow-right"></i></a> -->
             </article>
           </div>
 
@@ -283,11 +283,10 @@
       </ng-template>
     </ngb-carousel>
 
-    <!-- <ngb-carousel >
-      <ng-template ngbSlide *ngFor="let group of getEventGroups()">
-        <div class="row gy-4">
+    <p-carousel [value]="events" styleClass="custom-carousel" [numVisible]="3" [numScroll]="1" [circular]="true" [autoplayInterval]="2000" [responsiveOptions]="responsiveOptions">
+      <ng-template let-event pTemplate="item">
 
-          <div *ngFor="let event of group" class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+          <div data-aos="none" data-aos-delay="100">
             <article>
 
               <div class="post-img">
@@ -301,7 +300,7 @@
               </h2>
 
               <div class="d-flex align-items-center">
-                <img src="assets/img/blog/blog-author-3.jpg" alt="" class="img-fluid post-author-img flex-shrink-0">
+                <!-- <img src="assets/img/blog/blog-author-3.jpg" alt="" class="img-fluid post-author-img flex-shrink-0"> -->
                 <div class="post-meta">
                   <p class="post-author">{{ event.former.firstName}} {{ event.former.lastName}}</p>
 
@@ -314,9 +313,9 @@
               </div>
             </article>
           </div>
-        </div>
+
       </ng-template>
-    </ngb-carousel> -->
+    </p-carousel>
   </div>
   <!-- <a routerLink="events-details" class="readmore stretched-link"><span>Voir Détails</span><i class="bi bi-arrow-right"></i></a> -->
 

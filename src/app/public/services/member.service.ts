@@ -13,16 +13,22 @@ export class MemberService {
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
       Authorization:
-        'Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTY5NDA3NzMwNCwiZXhwIjoxNjk0MDg3Mzg0fQ._b8q4bbl8awMeJd_QzhfT1B9u46F_2BHpyVh3f6m5yY',
+        'Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTY5NDQzODAxMiwiZXhwIjoxNjk0NDQ4MDkyfQ.Zi-X4aVZ1EWyKrXVWkcyU_h21dERc0ftEBR6UGMNLa4',
     });
     return headers;
   }
   constructor(private http: HttpClient) {}
 
-  getMembers(): Observable<Member[]> {
+  getAllMembers(): Observable<Member[]> {
     const headers = this.createRequestOptions();
     return this.http.get<Member[]>(this.membersUrl, {
       headers: headers,
     });
   }
+  getMembers() {
+    return this.http.get<any>('assets/members.json')
+    .toPromise()
+    .then(res => <Member[]>res.data)
+    .then(data => { return data; });
+}
 }

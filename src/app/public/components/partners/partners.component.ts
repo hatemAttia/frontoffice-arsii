@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { OwlOptions } from 'ngx-owl-carousel-o';
 import { Partner } from '../../types/partner';
 import { PartnerService } from '../../services/partner.service';
 
