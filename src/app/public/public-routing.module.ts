@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { EventsDetailsComponent } from './components/events-details/events-details.component';
 import { BaseComponent } from './components/base/base.component';
+import { MembershipComponent } from './components/membership/membership.component';
 
 const routes: Routes = [
   {
@@ -10,7 +11,8 @@ const routes: Routes = [
     component: BaseComponent,
     children: [
       { path: '', component: NavbarComponent },
-      { path: 'formation-details', component: EventsDetailsComponent },
+      { path: 'events-details/:id', component: EventsDetailsComponent },
+      { path: 'join-us', component: MembershipComponent },
     ],
   },
 

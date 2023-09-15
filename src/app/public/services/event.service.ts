@@ -7,15 +7,16 @@ import { Event } from '../types/event';
   providedIn: 'root'
 })
 export class EventService {
-  private eventsUrl = '/api/arsii/event/allevents'; // Remplacez par l'URL de votre API
-  private eventUrl = '/api/arsii/event/{{ eventId }}'
+  private eventsUrl = '/api/arsii/admin/event';
+  eventId!: number;
+
 
   constructor(private http: HttpClient) { }
   createRequestOptions() {
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
       Authorization:
-        'Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTY5NDUzODMxNiwiZXhwIjoxNjk0NTQ4Mzk2fQ.nnlUo4Z2vQmN67mccY6Rf2ugPOPyV_lmtC3xQ2S3xM8',
+        'Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTY5NDc5NzE0MSwiZXhwIjoxNjk0ODA3MjIxfQ.Mn2okXg_nIkEAR_MGNzwyVUNJsYoB2nlnFOxFYOW-JI',
     });
     return headers;
   }
@@ -27,11 +28,11 @@ export class EventService {
     });
   }
 
-  getEventById(): Observable<Event[]> {
+  getEventById(eventId: number): Observable<Event> {
+    const url = `${this.eventsUrl}/${eventId}`; 
     const headers = this.createRequestOptions();
-    return this.http.get<Event[]>(this.eventUrl, {
-      headers: headers,
-    });
+
+    return this.http.get<Event>(url, { headers });
   }
 
 }

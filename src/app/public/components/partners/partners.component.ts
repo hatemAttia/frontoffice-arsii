@@ -13,7 +13,7 @@ export class PartnersComponent implements OnInit {
 
   ngOnInit(): void {
     this.partnerService.getPartners().subscribe((data: Partner[]) => {
-      console.log('categories-------', data);
+      console.log('partners-------', data);
       this.partners = data;
     });
   }

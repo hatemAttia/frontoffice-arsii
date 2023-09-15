@@ -1,27 +1,28 @@
-<header id="header" class="d-flex align-items-center header-scrolled">
+<header [ngClass]="{'header-scrolled': isScrolled}" id="header" class="d-flex align-items-center">
   <div class="container-fluid container-xxl d-flex align-items-center">
     <div id="logo" class="me-auto">
-      <!-- Uncomment below if you prefer to use a text logo -->
-      <!-- <h1><a href="index.html">The<span>Event</span></a></h1>-->
       <a routerLink="/" class="scrollto"
         ><img src="assets/img/arsii-white.png" alt="" title=""
       /></a>
     </div>
 
+
+
     <nav id="navbar" class="navbar order-last order-lg-0">
       <ul>
         <li><a class="nav-link scrollto active" href="#">Accueil</a></li>
         <li class="dropdown">
-          <a href="#presentation"
+          <a href=""
             ><span>Présentaion</span> <i class="bi bi-chevron-down"></i
           ></a>
           <ul>
+            <li><a href="#objectifs">Objectifs</a></li>
             <li><a href="#bureau-executif">Bureau Exécutif</a></li>
-            <li class="dropdown"><a href="#"><span>Bureaux Régionaux</span> <i class="bi bi-chevron-right"></i></a>
+            <li class="dropdown"><a href=""><span>Bureaux Régionaux</span> <i class="bi bi-chevron-right"></i></a>
               <ul>
                 <li><a href="#">Bureau ARSII SFAX</a></li>
-                <!-- <li><a href="#">Deep Drop Down 2</a></li>
-                <li><a href="#">Deep Drop Down 3</a></li>
+                <li><a href="#">Deep Drop Down 2</a></li>
+                <!--<li><a href="#">Deep Drop Down 3</a></li>
                 <li><a href="#">Deep Drop Down 4</a></li>
                 <li><a href="#">Deep Drop Down 5</a></li> -->
               </ul>
@@ -31,13 +32,13 @@
           </ul>
         </li>
         <li class="dropdown">
-          <a href="#"
+          <a href=""
             ><span>Evènements</span><i class="bi bi-chevron-down"></i>
           </a>
           <ul>
             <li><a href="#actualities">Actualités</a></li>
-            <li><a href="#formations">Formations</a></li>
             <li><a href="#events">Evènements</a></li>
+            <li><a href="#formations">Formations</a></li>
           </ul>
         </li>
         <li>
@@ -59,7 +60,13 @@
   <router-outlet> </router-outlet>
 </main>
 <app-footer></app-footer>
-<a href="#" class="scroll-top d-flex align-items-center justify-content-center"
+<!-- <a href="#" class="scroll-top d-flex align-items-center justify-content-center"
   ><i class="bi bi-arrow-up-short"></i
-></a>
-<div id="preloader"></div>
+></a> -->
+<p-scrollTop
+      target="parent"
+      styleClass="custom-scrolltop"
+      [threshold]="100"
+      icon="pi pi-arrow-up"
+    ></p-scrollTop>
+<!-- <div id="preloader"></div> -->

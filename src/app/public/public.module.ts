@@ -27,6 +27,7 @@ import { CarouselModule} from 'primeng/carousel';
 import { ButtonModule } from 'primeng/button';
 import { TagModule} from 'primeng/tag';
 import {ToastModule} from 'primeng/toast';
+import {ScrollTopModule} from 'primeng/scrolltop';
 
 
 
@@ -59,7 +60,8 @@ import {ToastModule} from 'primeng/toast';
     CarouselModule,
     ButtonModule,
     TagModule,
-    ToastModule
+    ToastModule,
+    ScrollTopModule
   ],
   providers: [EventService, PartnerService]
 })

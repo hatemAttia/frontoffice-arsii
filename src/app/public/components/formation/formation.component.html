@@ -297,43 +297,39 @@
       <button type="button" class="carousel-control-prev"><span aria-hidden="true" class="carousel-control-prev-icon"></span><span class="visually-hidden">Previous</span></button>
       <button type="button" class="carousel-control-next"><span aria-hidden="true" class="carousel-control-next-icon"></span><span class="visually-hidden">Next</span></button>
     </ngb-carousel>
-    <!-- <ngb-carousel >
-      <ng-template ngbSlide>
-        <img src="assets/img/slide1.jpg" alt="Slide 1">
-        <div class="row gy-4">
+    <!-- <p-carousel [value]="formations" styleClass="custom-carousel" [numVisible]="3" [numScroll]="1" [circular]="true" [autoplayInterval]="2000" [responsiveOptions]="responsiveOptions">
+      <ng-template let-formation pTemplate="item">
 
-          <div *ngFor="let event of events" class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+          <div data-aos="none" data-aos-delay="100">
             <article>
 
               <div class="post-img">
-                <img [src]="event.urlImage" alt="" class="img-fluid">
+                <img [src]="formation.urlImage" alt="" class="img-fluid">
               </div>
 
-              <p class="post-category">{{ event.status}}</p>
+              <p class="post-category">{{ formation.typeEvent}}</p>
 
               <h2 class="title">
-                <a href="blog-details.html">Possimus soluta ut id suscipit ea ut in quo quia et soluta</a>
+                <a href="blog-details.html">{{ formation.title }}</a>
               </h2>
 
               <div class="d-flex align-items-center">
                 <img src="assets/img/blog/blog-author-3.jpg" alt="" class="img-fluid post-author-img flex-shrink-0">
                 <div class="post-meta">
-                  <p class="post-author">{{ event.former.firstName}} {{ event.former.lastName}}</p>
+                  <p class="post-author">{{ formation.former.firstName}} {{ formation.former.lastName}}</p>
 
                   <p class="post-date">
-                    <time datetime="2022-01-01"><i class="bi bi-clock-fill"></i> {{ event.date }}</time>
+                    <time datetime="2022-01-01"><i class="bi bi-clock-fill"></i> {{ formation.date }}</time>
                   </p>
-                  <p class="post-address"><i class="bi bi-geo-alt-fill"></i> {{ event.location }}</p>
+                  <p class="post-address"><i class="bi bi-geo-alt-fill"></i> {{ formation.location }}</p>
 
                 </div>
               </div>
-              <a routerLink="events-details" class="readmore stretched-link"><span>Voir Détails</span><i class="bi bi-arrow-right"></i></a>
-
             </article>
           </div>
-        </div>
+
       </ng-template>
-    </ngb-carousel> -->
+    </p-carousel> -->
   </div>
 </section>
 

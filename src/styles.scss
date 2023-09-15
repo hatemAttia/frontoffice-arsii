@@ -68,34 +68,11 @@ Prelaoder
 /*--------------------------------------------------------------
 # Scroll top button
 --------------------------------------------------------------*/
-.scroll-top {
-  position: fixed;
-  visibility:visible;
-  opacity: 1;
-  right: 15px;
-  bottom: 15px;
-  z-index: 99999;
-  background: #16979c;
-  width: 40px;
-  height: 40px;
-  border-radius: 50px;
-  transition: 0.4s;
+.p-scrolltop.p-link {
+  background: rgba(3, 110, 110, 0.649);
 }
-
-.scroll-top i {
-  font-size: 24px;
-  color: #fff;
-  line-height: 0;
-}
-
-.scroll-top:hover {
-  background: #70c7ca;
-  color: #fff;
-}
-
-.scroll-top.active {
-  visibility: visible;
-  opacity: 1;
+.p-scrolltop.p-link:hover {
+  background: rgba(4, 190, 190, 0.746);
 }
 
 /* Sections Header
@@ -108,13 +85,11 @@ Prelaoder
 }
 
 .section-header h3::before,
-.section-header h3::after,
-.section-header h2::before,
-.section-header h2::after {
+.section-header h3::after {
   content: "";
-  /* position: absolute; */
+  position: relative;
   display: inline-block;
-  width: 50px;
+  width: 40px;
   height: 2px;
   background: #16979c;
   /* bottom: 0; */
@@ -342,7 +317,7 @@ Prelaoder
   z-index: 99;
   opacity: 0;
   visibility: hidden;
-  background: #fff;
+  background: rgba(6, 12, 34, 0.93);
   box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);
   transition: 0.3s;
 }
@@ -355,7 +330,7 @@ Prelaoder
   padding: 10px 20px;
   font-size: 14px;
   text-transform: none;
-  color: #060c22;
+  color: #fff;
 }
 
 .navbar .dropdown ul a i {
@@ -377,7 +352,7 @@ Prelaoder
 .navbar .dropdown .dropdown ul {
   top: 0;
   left: calc(100% - 30px);
-  visibility: hidden;
+  visibility: visible;
 }
 
 .navbar .dropdown .dropdown:hover>ul {
@@ -421,12 +396,12 @@ Prelaoder
 
 .navbar-mobile {
   position: fixed;
-  overflow: visible;
+  overflow: hidden;
   top: 0;
   right: 0;
   left: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.9);
+  background: rgba(6, 12, 34, 0.93);
   transition: 0.3s;
   z-index: 999;
 }
@@ -445,7 +420,6 @@ Prelaoder
   bottom: 15px;
   left: 15px;
   padding: 10px 0;
-  background-color: #fff;
   overflow-y: auto;
   transition: 0.3s;
 }
@@ -464,7 +438,7 @@ Prelaoder
 .navbar-mobile a:focus {
   padding: 10px 20px;
   font-size: 15px;
-  color: #060c22;
+  color: #fff
 }
 
 .navbar-mobile a:hover,
@@ -486,7 +460,7 @@ Prelaoder
   z-index: 99;
   opacity: 1;
   visibility: visible;
-  background: #fff;
+  background: rgba(51, 69, 132, 0.118);
   box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);
 }
 
@@ -496,6 +470,7 @@ Prelaoder
 
 .navbar-mobile .dropdown ul a {
   padding: 10px 20px;
+  color: #fff;
 }
 
 .navbar-mobile .dropdown ul a i {
@@ -564,7 +539,7 @@ Prelaoder
 #hero h1 {
   color: #fff;
   font-family: "Raleway", sans-serif;
-  font-size: 30px;
+  font-size: 40px;
   font-weight: 600;
   text-transform: uppercase;
 }
@@ -789,13 +764,14 @@ Prelaoder
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   padding: 20px;
   height: 95%;
-  border-radius: 10px;
+  border-radius: 4px;
   overflow: hidden;
   transition: 0.3s;
   margin-top: 10px;
-  margin-right: 20px;
+  margin-right: 15px;
   margin-bottom: 10px;
-  margin-left: 10px;
+  margin-left: 15px;
+  border: 1px solid #eee;
 }
 
 .events .post-img {
@@ -920,21 +896,61 @@ Prelaoder
 .events .carousel-indicators .active {
   background-color: #16979c;
 }
+.future-event {
+  cursor: pointer;
+    box-shadow: 0 0 0 rgba(18, 130, 117, 0.8);
+    animation: pulse 2s infinite;
+}
 
-.product-item {
-  .product-item-content {
-      border: 1px solid var(--surface-d);
-      border-radius: 3px;
-      margin: .3rem;
-      text-align: center;
-      padding: 2rem 0;
+@keyframes pulse {
+  0% {
+    -moz-box-shadow: 0 0 0 0 rgba(18, 130, 117, 0.8);
+    box-shadow: 0 0 0 0 rgba(18, 130, 117, 0.8);
   }
-
-  .product-image {
-      width: 50%;
-      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23)
+  70% {
+      -moz-box-shadow: 0 0 0 10px rgba(18, 130, 117, 0);
+      box-shadow: 0 0 0 10px rgba(18, 130, 117, 0);
+  }
+  100% {
+      -moz-box-shadow: 0 0 0 0 rgba(18, 130, 117, 0);
+      box-shadow: 0 0 0 0 rgba(18, 130, 117, 0);
   }
 }
+
+.new-label {
+  position: absolute; 
+  background-color: #16979c;
+  color: white; 
+  left: 10;
+  padding: 10px; 
+  border-radius: 4px;
+}
+
+.label{
+  display: inline;
+  font-size: 75%;
+  font-weight: 700;
+  line-height: 1;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: 0.25em;
+}
+// .product-item {
+//   .product-item-content {
+//       border: 1px solid var(--surface-d);
+//       border-radius: 3px;
+//       margin: .3rem;
+//       text-align: center;
+//       padding: 2rem 0;
+//   }
+
+//   .product-image {
+//       width: 50%;
+//       box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23)
+//   }
+// }
 
 /*--------------------------------------------------------------
 # Breadcrumbs
@@ -1020,7 +1036,7 @@ Prelaoder
 }
 
 .team .member-item .member-img {
-  margin: 0 80px;
+  margin: 0 50px;
   border-radius: 50%;
   overflow: hidden;
   position: relative;
@@ -1030,7 +1046,7 @@ Prelaoder
 
 @media (max-width: 1024px) {
   .team .member-img {
-    margin: 0 60px;
+    margin: 0 70px;
   }
 }
 
@@ -1096,23 +1112,23 @@ Prelaoder
 }
 
 /*--------------------------------------------------------------
-# Sponsors Section
+# Partners Section
 --------------------------------------------------------------*/
-#supporters {
+#partners {
   padding: 60px 0;
 }
 
-#supporters .supporters-wrap {
+#partners .partners-wrap {
   border-top: 1px solid #e0e5fa;
   border-left: 1px solid #e0e5fa;
   margin-bottom: 30px;
 }
 
-#supporters .supporter-logo {
+#partners .partner-logo {
   padding: 30px;
   display: flex;
   justify-content: center;
-  align-items: center;
+  // align-items: center;
   border-right: 1px solid #e0e5fa;
   border-bottom: 1px solid #e0e5fa;
   overflow: hidden;
@@ -1120,11 +1136,11 @@ Prelaoder
   height: 160px;
 }
 
-#supporters .supporter-logo:hover img {
+#partners .partner-logo:hover img {
   transform: scale(1.2);
 }
 
-#supporters img {
+#partners img {
   transition: all 0.4s ease-in-out;
 }
 
