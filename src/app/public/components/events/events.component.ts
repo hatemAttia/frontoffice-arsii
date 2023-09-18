@@ -1,33 +1,54 @@
 import { Component, OnInit } from '@angular/core';
 import { EventService } from '../../services/event.service';
 import { Router } from '@angular/router';
+import { Event } from '../../types/event';
+import { format } from 'date-fns';
 
 @Component({
   selector: 'app-events',
   templateUrl: './events.component.html'
 })
 export class EventsComponent implements OnInit {
-  events: any[]=[];
-  // events: Event[] = [];
-  constructor(private router: Router, private eventService: EventService) { }
+  events: Event[]=[];
+  responsiveOptions;
+  constructor(private router: Router, private eventService: EventService) {
+    this.responsiveOptions = [
+      {
+          breakpoint: '1024px',
+          numVisible: 3,
+          numScroll: 3
+      },
+      {
+          breakpoint: '768px',
+          numVisible: 2,
+          numScroll: 2
+      },
+      {
+          breakpoint: '560px',
+          numVisible: 1,
+          numScroll: 1
+      }
+  ];
+   }
 
   ngOnInit(): void {
-    this.eventService.getEvents().subscribe((data: any) => {
+    this.eventService.getEvents().subscribe((data: Event[]) => {
       console.log(data);
       this.events = data;
     });
   }
 
-  getEventGroups() {
-    const groupSize = 3;
-    const eventGroups = [];
+  isFutureEvent(eventDate: string): boolean {
+    // Convertissez la date de l'événement en objet Date
+    const eventDateObj = new Date(eventDate);
 
-    for (let i = 0; i < this.events.length; i += groupSize) {
-      const group = this.events.slice(i, i + groupSize);
-      eventGroups.push(group);
-    }
+    // Comparez la date de l'événement avec la date actuelle
+    return eventDateObj > new Date();
+  }
 
-    return eventGroups;
+  formatDate(dateString: string): string {
+    const eventDate = new Date(dateString);
+    return format(eventDate, 'dd LLLL yyyy, HH:mm');
   }
 
   navigateTo(path: string) {

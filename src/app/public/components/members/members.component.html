@@ -6,18 +6,40 @@
       <h3>Bureau Exécutif</h3>
     </div>
   </div><!-- End Section Title -->
-
   <div class="container">
+    <p-carousel [value]="members" styleClass="custom-carousel" [numVisible]="3" [numScroll]="1" [circular]="true" [autoplayInterval]="2000" [responsiveOptions]="responsiveOptions">
+      <ng-template let-member pTemplate="item">
+          <div class="member-item">
+              <div class="member-info text-center">
+                  <div class="p-mb-3">
+                    <div class="member-img">
+                      <img [src]="member.photo"  class="img-fluid" alt="">
+                      <div class="social">
+                        <a href="#"><i class="bi bi-linkedin"></i></a>
+                        <a href=""><i class="bi bi-zoom-in"></i></a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="">
+                      <h4 class="p-mb-1">{{member.firstName }}  {{ member.lastName}}</h4>
+                      <span class="p-mt-0 p-mb-3">{{member.post}}</span>
+                      <!-- <span [class]="'product-badge status-'+product.inventoryStatus.toLowerCase()">{{product.inventoryStatus}}</span> -->
+
+                  </div>
+              </div>
+          </div>
+      </ng-template>
+  </p-carousel>
+
+  </div>
+  <!-- <div class="container">
 
     <div class="row gy-5">
 
-      <div class="col-lg-4 col-md-6 member" data-aos="fade-up" data-aos-delay="100">
+      <div class="col-lg-4 col-md-6 member-item" data-aos="fade-up" data-aos-delay="100">
         <div class="member-img">
           <img src="assets/img/members/AhmedMaalel.jpeg" class="img-fluid" alt="">
           <div class="social">
-
-            <a href="#"><i class="bi bi-facebook"></i></a>
-            <a href="#"><i class="bi bi-instagram"></i></a>
             <a href="#"><i class="bi bi-linkedin"></i></a>
           </div>
         </div>
@@ -30,9 +52,9 @@
             <p>Membre du Labo. RIADI-ENSI</p>
 
         </div>
-      </div><!-- End Team Member -->
+      </div>
 
-      <div class="col-lg-4 col-md-6 member" data-aos="fade-up" data-aos-delay="200">
+      <div class="col-lg-4 col-md-6 member-item" data-aos="fade-up" data-aos-delay="200">
         <div class="member-img">
           <img src="assets/img/members/ahmedghazi.jpg" class="img-fluid" alt="">
           <div class="social">
@@ -50,9 +72,9 @@
 
             <p>Habilité à Diriger des Recherches (HDR)</p>
         </div>
-      </div><!-- End Team Member -->
+      </div>
 
-      <div class="col-lg-4 col-md-6 member" data-aos="fade-up" data-aos-delay="300">
+      <div class="col-lg-4 col-md-6 member-item" data-aos="fade-up" data-aos-delay="300">
         <div class="member-img">
           <img src="assets/img/members/fatma.jpg" class="img-fluid" alt="">
           <div class="social">
@@ -68,9 +90,9 @@
 
             <p>Docteur en Informatique</p>
         </div>
-      </div><!-- End Team Member -->
+      </div>
 
-      <div class="col-lg-4 col-md-6 member" data-aos="fade-up" data-aos-delay="400">
+      <div class="col-lg-4 col-md-6 member-item" data-aos="fade-up" data-aos-delay="400">
         <div class="member-img">
           <img src="assets/img/members/souha.jpeg" class="img-fluid" alt="">
           <div class="social">
@@ -87,10 +109,10 @@
 
            <p>Docteur en Informatique,<br> Membre du Labo. RIADI-ENSI</p>
         </div>
-      </div><!-- End Team Member -->
+      </div>
 
-      <!-- End Team Member -->
-      <div class="col-lg-4 col-md-6 member" data-aos="fade-up" data-aos-delay="500">
+
+      <div class="col-lg-4 col-md-6 member-item" data-aos="fade-up" data-aos-delay="500">
         <div class="member-img">
           <img src="assets/img/members/yosra2.jpeg" class="img-fluid" alt="">
           <div class="social">
@@ -105,7 +127,7 @@
           <p>Maître Assistante en Informatique</p>
         </div>
       </div>
-      <div class="col-lg-4 col-md-6 member" data-aos="fade-up" data-aos-delay="600">
+      <div class="col-lg-4 col-md-6 member-item" data-aos="fade-up" data-aos-delay="600">
         <div class="member-img">
           <img src="assets/img/members/rahma.jpg" class="img-fluid" alt="">
           <div class="social">
@@ -122,8 +144,8 @@
 
             <p>Doctorante en Informatique,<br> Membre du labo. MIRACL, ISIM Sfax</p>
         </div>
-      </div><!-- End Team Member -->
-      <div class="col-lg-4 col-md-6 member" data-aos="fade-up" data-aos-delay="700">
+      </div>
+      <div class="col-lg-4 col-md-6 member-item" data-aos="fade-up" data-aos-delay="700">
         <div class="member-img">
           <img src="assets/img/members/mahbouba.jpg" class="img-fluid" alt="">
           <div class="social">
@@ -140,8 +162,8 @@
 
             <p>Doctorante en Informatique</p>
         </div>
-      </div><!-- End Team Member -->
-      <div class="col-lg-4 col-md-6 member" data-aos="fade-up" data-aos-delay="800">
+      </div>
+      <div class="col-lg-4 col-md-6 member-item" data-aos="fade-up" data-aos-delay="800">
         <div class="member-img">
           <img src="assets/img/members/nourchene2.jpeg" class="img-fluid" alt="">
           <div class="social">
@@ -157,8 +179,8 @@
           <p>Doctorante en Informatique,<br> Membre du Labo. RIADI-ENSI</p>
 
         </div>
-      </div><!-- End Team Member -->
-      <div class="col-lg-4 col-md-6 member" data-aos="fade-up" data-aos-delay="900">
+      </div>
+      <div class="col-lg-4 col-md-6 member-item" data-aos="fade-up" data-aos-delay="900">
         <div class="member-img">
           <img src="assets/img/members/sonia3.jpg" class="img-fluid" alt="">
           <div class="social">
@@ -176,8 +198,8 @@
             Docteur en Informatique</p>
 
         </div>
-      </div><!-- End Team Member -->
-      <div class="col-lg-4 col-md-6 member" data-aos="fade-up" data-aos-delay="1000">
+      </div>
+      <div class="col-lg-4 col-md-6 member-item" data-aos="fade-up" data-aos-delay="1000">
         <div class="member-img">
           <img src="assets/img/members/sonia.jpg" class="img-fluid" alt="">
           <div class="social">
@@ -195,8 +217,8 @@
           <p>Maître Technologue en Informatique</p>
 
         </div>
-      </div><!-- End Team Member -->
-      <div class="col-lg-4 col-md-6 member" data-aos="fade-up" data-aos-delay="1100">
+      </div>
+      <div class="col-lg-4 col-md-6 member-item" data-aos="fade-up" data-aos-delay="1100">
         <div class="member-img">
           <img src="assets/img/members/hadil.jpg" class="img-fluid" alt="">
           <div class="social">
@@ -214,6 +236,7 @@
       </div>
     </div>
 
-  </div>
+  </div> -->
 
 </section>
+

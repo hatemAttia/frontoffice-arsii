@@ -1,4 +1,5 @@
 export interface Event {
+  id: number;
   title: string;
   description: string;
   date: Date;
@@ -6,7 +7,8 @@ export interface Event {
   numberOfParticipants: BigInteger;
   location: string;
   status: boolean;
-  TypeEvent: string;
+  type: string;
   active:boolean;
+  image: string
 
 }

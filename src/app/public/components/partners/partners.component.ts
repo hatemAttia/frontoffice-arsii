@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { OwlOptions } from 'ngx-owl-carousel-o';
 import { Partner } from '../../types/partner';
 import { PartnerService } from '../../services/partner.service';
 
@@ -14,7 +13,7 @@ export class PartnersComponent implements OnInit {
 
   ngOnInit(): void {
     this.partnerService.getPartners().subscribe((data: Partner[]) => {
-      console.log('categories-------', data);
+      console.log('partners-------', data);
       this.partners = data;
     });
   }

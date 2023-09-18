@@ -7,12 +7,12 @@ import { Partner } from '../types/partner';
   providedIn: 'root',
 })
 export class PartnerService {
-  private partnersUrl = 'api/arsii/admin/category'; // Remplacez par l'URL de votre API
+  private partnersUrl = 'api/arsii/admin/partner';
   createRequestOptions() {
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
       Authorization:
-        'Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTY5NDA3NzMwNCwiZXhwIjoxNjk0MDg3Mzg0fQ._b8q4bbl8awMeJd_QzhfT1B9u46F_2BHpyVh3f6m5yY',
+        'Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTY5NDc5NzE0MSwiZXhwIjoxNjk0ODA3MjIxfQ.Mn2okXg_nIkEAR_MGNzwyVUNJsYoB2nlnFOxFYOW-JI',
     });
     return headers;
   }
