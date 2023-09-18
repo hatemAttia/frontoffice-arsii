@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {CaptchaModule} from 'primeng/captcha';
-
+import { CaptchaModule } from 'primeng/captcha';
+import { AppHttpInterceptor } from './core/interceptor/http-interceptor.service';
 
 @NgModule({
   declarations: [AppComponent],
@@ -14,9 +14,15 @@ import {CaptchaModule} from 'primeng/captcha';
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    CaptchaModule
+    CaptchaModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AppHttpInterceptor,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
