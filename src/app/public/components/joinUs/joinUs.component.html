@@ -1,0 +1,144 @@
+<app-breadcrumbs></app-breadcrumbs>
+<section id="join-us" class="join-us">
+  <div class="container" data-aos="fade-up">
+
+    <div class="section-header">
+      <h3>Adhésion</h3>
+    </div>
+    <!-- <div  class="section-p">
+      <p>L’association ouvre l’inscription à toute personne intéressée par l’ingénierie, la recherche scientifique ou l’innovation technologique.</p>
+    </div> -->
+    <div class="row g-0">
+      <div class="col-lg-5 infos" data-aos="fade-up" data-aos-delay="200">
+        <h4>
+          ADHÉRER ARSII POUR BENÉFICIER
+        </h4>
+        <div class="section-p">
+            Réduction des frais de participation aux événements organisés par l’ARSII (Journées scientifiques, Formations, Compétitions, etc.).
+          <br>
+            Priorité d’accès aux événements gratuits.
+          <br>
+            Attestation de participation de tout événement assisté.
+          <br>
+            Accès prioritaire à toutes les opportunités publiées (Offres de Stage, PFE, bourses, etc.).
+          <br>
+            Possibilité de prise en charge dans des manifestations scientifiques.
+          <br>
+            Possibilité d’adhérer au bureau exécutif d’ARSII.
+          <br>
+        </div>
+        <h4>
+          MODALITÉ D’INSCRIPTION
+        </h4>
+        <div class="section-p">
+          <p> 
+            L’association ouvre l’inscription à toute personne intéressée par l’informatique, l’ingénierie, la recherche scientifique ou l’innovation technologique.
+            <br>
+            Pour adhérer, il suffit de :
+          </p>
+          <ol>
+            <li>
+              Remplir formulaire.
+            </li>
+            <li>
+              Payer la cotisation annuelle . 25 DT
+            </li>
+          </ol>
+
+        </div>
+        <!-- <h4>
+          MODALITÉ DE PAYEMENT
+        </h4>
+        <div class="section-p">
+          
+            Par Virement au CCB RIB: TN 59 1750 3000 0002 2957 9702
+          <br>
+          
+            Par chèque (libellé ARSII).
+          <br>
+          
+            En espèces (contacter le comité d’adhésion)
+          <br>
+        </div> -->
+        <h4>
+          PLUS D’INFORMATIONS
+        </h4>
+        <div class="section-p">
+          Bureau : <strong>+216 31 516 919</strong> <br>
+          Email : <strong>contact@arsii.org | association.arsii@gmail.com</strong> <br>
+          Dr. Ahmed MAALEL : <strong>+216 98 684 033</strong> <br>
+          Dr. Fatma SBIAA : <strong>+216 96 392 329</strong> <br>
+          Mme Wafa CHLAGOU : <strong>+216 97 934 466</strong> <br>
+          Mlle Rahma MILI : <strong>+216 50 712 963</strong> <br>
+        </div>
+      </div>
+      <div class="col-lg-7">
+        <form [formGroup]="joinUsForm" (ngSubmit)="submitForm()" class="php-email-form">
+          <h3>Adhésion {{ currentYear }}</h3>
+          <!-- <p>L’association ouvre l’inscription à toute personne intéressée par l’ingénierie, la recherche scientifique ou l’innovation technologique.</p> -->
+          <div class="row gy-4">
+            <div class="form-group col-lg-4 col-md-6">
+              <input type="text" id="lastName" formControlName="lastName" class="form-control" placeholder="Nom">
+            </div>
+            <div class="form-group col-lg-4 col-md-6">
+              <input type="text" id="firstName" formControlName="firstName" class="form-control" placeholder="Prénom">
+            </div>
+            <div class="form-group col-lg-4 col-md-6">
+              <input type="email" id="email" formControlName="email" class="form-control" placeholder="Email">
+            </div>
+            <div class="form-group col-lg-4 col-md-6">
+              <input type="password" id="password" formControlName="password" class="form-control" placeholder="Mot de passe">
+            </div>
+            <div class="form-group col-lg-4 col-md-6">
+              <input type="password" id="confirm_password" formControlName="confirm_password" class="form-control" placeholder="Confirmer le mot de passe">
+            </div>
+            <div *ngIf="joinUsForm.hasError('passwordMismatch')" class="text-danger">
+              Les mots de passe ne correspondent pas.
+            </div>
+            <div class="col-md-12" text-center>
+              <re-captcha [siteKey]="recaptchaSiteKey" (resolved)="onRecaptchaResolved($event)" class="custom-recaptcha"></re-captcha>
+              <button type="submit" [disabled]="!joinUsForm.valid || !isRecaptchaResolved">Soumettre</button>
+            </div>
+            
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Order Form -->
+  <div id="buy-ticket-modal" class="modal fade">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Buy Tickets</h4>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form method="POST" action="#">
+            <div class="form-group ">
+              <input type="text" class="form-control" name="your-name" placeholder="Your Name">
+            </div>
+            <div class="form-group mt-3">
+              <input type="text" class="form-control" name="your-email" placeholder="Your Email">
+            </div>
+            <div class="form-group mt-3">
+              <select id="ticket-type" name="ticket-type" class="form-select">
+                <option value="">-- Select Your Ticket Type --</option>
+                <option value="standard-access">Standard Access</option>
+                <option value="pro-access">Pro Access</option>
+                <option value="premium-access">Premium Access</option>
+              </select>
+            </div>
+            <div class="text-center mt-3">
+              <button type="submit" class="btn">Buy Now</button>
+            </div>
+          </form>
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
+
+</section><!-- End Buy Ticket Section -->
+

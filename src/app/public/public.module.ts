@@ -9,7 +9,7 @@ import { OpportunitiesComponent } from './components/opportunities/opportunities
 import { EventsComponent } from './components/events/events.component';
 import { MediasComponent } from './components/medias/medias.component';
 import { PartnersComponent } from './components/partners/partners.component';
-import { MembershipComponent } from './components/membership/membership.component';
+import { JoinUsComponent } from './components/joinUs/joinUs.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { NewsletterComponent } from './components/newsletter/newsletter.component';
 import { ClubsComponent } from './components/clubs/clubs.component';
@@ -26,9 +26,15 @@ import { BreadcrumbsComponent } from './components/breadcrumbs/breadcrumbs.compo
 import { CarouselModule} from 'primeng/carousel';
 import { ButtonModule } from 'primeng/button';
 import { TagModule} from 'primeng/tag';
-import {ToastModule} from 'primeng/toast';
-import {ScrollTopModule} from 'primeng/scrolltop';
-
+import { ToastModule} from 'primeng/toast';
+import { ScrollTopModule} from 'primeng/scrolltop';
+import { GalleriaModule } from 'primeng/galleria';
+import { TableModule } from 'primeng/table'
+import { ReactiveFormsModule } from '@angular/forms';
+import { RecaptchaModule, RecaptchaFormsModule, RECAPTCHA_SETTINGS, RecaptchaSettings } from 'ng-recaptcha';
+import { DialogService, DynamicDialogModule } from 'primeng/dynamicdialog';
+import { MemberService } from './services/member.service';
+import { FormationService } from './services/formation.service';
 
 
 @NgModule({
@@ -40,7 +46,7 @@ import {ScrollTopModule} from 'primeng/scrolltop';
     EventsComponent,
     MediasComponent,
     PartnersComponent,
-    MembershipComponent,
+    JoinUsComponent,
     ContactComponent,
     NewsletterComponent,
     ClubsComponent,
@@ -61,8 +67,15 @@ import {ScrollTopModule} from 'primeng/scrolltop';
     ButtonModule,
     TagModule,
     ToastModule,
-    ScrollTopModule
+    ScrollTopModule,
+    GalleriaModule,
+    ReactiveFormsModule,
+    RecaptchaModule, 
+    RecaptchaFormsModule,
+    DynamicDialogModule,
+    TableModule,
+    ButtonModule
   ],
-  providers: [EventService, PartnerService]
+  providers: [EventService, PartnerService, MemberService, FormationService, DialogService]
 })
 export class PublicModule { }

@@ -1,5 +1,6 @@
     <section id="contact" class="contact">
       <div class="section-header">
+        <span>Contact</span>
         <h3>Contact</h3>
 
       </div>
@@ -51,29 +52,29 @@
           </div>
           <div class="col-lg-6" data-aos="fade-up" data-aos-delay="250">
 
-            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+            <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="email-form">
               <div class="row">
                 <div class="col-md-6 form-group">
-                  <input type="text" name="name" class="form-control" id="name" placeholder="Nom & Prénom" required>
+                  <input type="text" formControlName="name" class="form-control" id="name" placeholder="Nom & Prénom" required>
                 </div>
                 <div class="col-md-6 form-group mt-3 mt-md-0">
-                  <input type="email" class="form-control" name="email" id="email" placeholder="E-mail" required>
+                  <input type="email" formControlName="email" class="form-control" id="email" placeholder="E-mail" required>
                 </div>
               </div>
               <div class="form-group mt-3">
-                <input type="text" class="form-control" name="subject" id="subject" placeholder="Sujet" required>
+                <input type="text" formControlName="subject" class="form-control" id="subject" placeholder="Sujet" required>
               </div>
               <div class="form-group mt-3">
-                <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
+                <textarea formControlName="message" class="form-control" rows="5" placeholder="Message" required></textarea>
               </div>
               <div class="my-3">
                 <div class="loading">Chargement</div>
-                <div class="error-message"></div>
-                <div class="sent-message">Votre message a bien été envoyé. Merci !</div>
+                <div class="error-message">{{ errorMessage }}</div>
+                <div class="sent-message">{{ successMessage}}</div>
               </div>
-              <div class="text-center"><button type="submit">Envoyer</button></div>
+              <re-captcha [siteKey]="recaptchaSiteKey" (resolved)="onRecaptchaResolved($event)" class="custom-recaptcha"></re-captcha>
+              <div class="text-center"><button type="submit" [disabled]="!contactForm.valid || !isRecaptchaResolved">Envoyer</button></div>
             </form>
-
           </div>
 
         </div>

@@ -5,14 +5,19 @@
       <p>Rejoignez notre liste d'abonnés pour recevoir les dernières nouvelles,<br> mises à jour et offres spéciales directement dans votre boîte de réception.</p>
     </div>
 
-    <form method="POST" action="#">
-      <div class="row justify-content-center">
-        <div class="col-lg-6 col-md-10 d-flex">
-          <input type="text" class="form-control" placeholder="Entrer votre Email">
-          <button type="submit" class="ms-2">S'abonner</button>
+    <form [formGroup]="newsletterForm" (ngSubmit)="onSubmit()" class="text-center">
+      <div class="d-flex flex-column align-items-center">
+        <div class="mb-3">
+          <input pInputText type="text" formControlName="email" placeholder="Entrer votre Email" required>
+        </div>
+        <div class="mb-3 newsletter-recaptcha">
+          <re-captcha [siteKey]="recaptchaSiteKey" class=""></re-captcha>
+        </div>
+        <div>
+          <button pButton type="submit" label="S'abonner" class="ms-2"></button>
         </div>
       </div>
     </form>
 
   </div>
-</section><!-- End Subscribe Section -->
+</section>

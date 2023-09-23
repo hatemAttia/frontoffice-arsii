@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { EventService } from '../../services/event.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Event } from '../../types/event';
 import { format } from 'date-fns';
+import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
+import { MessageService } from 'primeng/api';
+import { EventsDetailsComponent } from '../events-details/events-details.component';
 
 @Component({
   selector: 'app-events',
@@ -10,8 +13,10 @@ import { format } from 'date-fns';
 })
 export class EventsComponent implements OnInit {
   events: Event[]=[];
+  event!:Event;
   responsiveOptions;
-  constructor(private router: Router, private eventService: EventService) {
+  constructor(private route: ActivatedRoute, private router: Router, private eventService: EventService,
+    public dialogService: DialogService) {
     this.responsiveOptions = [
       {
           breakpoint: '1024px',
@@ -20,15 +25,15 @@ export class EventsComponent implements OnInit {
       },
       {
           breakpoint: '768px',
-          numVisible: 2,
-          numScroll: 2
+          numVisible: 1,
+          numScroll: 1
       },
       {
           breakpoint: '560px',
           numVisible: 1,
           numScroll: 1
       }
-  ];
+    ];
    }
 
   ngOnInit(): void {
@@ -38,21 +43,37 @@ export class EventsComponent implements OnInit {
     });
   }
 
+  ref!: DynamicDialogRef;
+  
   isFutureEvent(eventDate: string): boolean {
-    // Convertissez la date de l'événement en objet Date
     const eventDateObj = new Date(eventDate);
-
-    // Comparez la date de l'événement avec la date actuelle
     return eventDateObj > new Date();
   }
 
-  formatDate(dateString: string): string {
-    const eventDate = new Date(dateString);
-    return format(eventDate, 'dd LLLL yyyy, HH:mm');
-  }
+  // formatDate(dateString: string): string {
+  //   const eventDate = new Date(dateString);
+  //   return format(eventDate, 'dd LLLL yyyy, HH:mm');
+  // }
 
-  navigateTo(path: string) {
-    console.log('fffffffff');
-    this.router.navigate([path]);
+  show(eventId: number) {
+    this.ref = this.dialogService.open(EventsDetailsComponent, {
+        data: {
+          eventId: eventId
+        },
+        header: 'Détails',
+        width: '70%',
+        contentStyle: {"max-height": "500px", "overflow": "auto"},
+        baseZIndex: 10000
+    });
+}
+
+  ngOnDestroy() {
+      if (this.ref) {
+          this.ref.close();
+      }
   }
+  // navigateTo(path: string) {
+  //   console.log('fffffffff');
+  //   this.router.navigate([path]);
+  // }
 }

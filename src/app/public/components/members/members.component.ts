@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Member } from '../../types/member';
+import { User } from '../../types/user';
 import { MemberService } from '../../services/member.service';
 
 @Component({
@@ -7,7 +7,7 @@ import { MemberService } from '../../services/member.service';
   templateUrl: './members.component.html'
 })
 export class MembersComponent implements OnInit {
-  members: Member[] = [];
+  members: User[] = [];
   responsiveOptions;
   constructor(private memberService: MemberService) {
     this.responsiveOptions = [

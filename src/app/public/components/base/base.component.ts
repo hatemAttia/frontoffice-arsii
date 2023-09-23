@@ -1,4 +1,5 @@
 import { Component, OnInit, HostListener,ElementRef, Renderer2, AfterViewInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -18,7 +19,7 @@ export class BaseComponent implements OnInit {
       this.isScrolled = false;
     }
   }
-  constructor(private renderer: Renderer2, private el: ElementRef) { }
+  constructor(private renderer: Renderer2, private el: ElementRef, private router: Router) { }
   ngOnInit(): void {
   }
 

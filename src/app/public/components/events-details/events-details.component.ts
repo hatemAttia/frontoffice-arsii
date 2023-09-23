@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { EventService } from '../../services/event.service';
 import { Event } from '../../types/event';
-import { format } from 'date-fns';
+import { Galleria} from 'primeng/galleria';
+import { PhotoService } from '../../services/photo.service';
+import { DialogService, DynamicDialogConfig, DynamicDialogRef } from 'primeng/dynamicdialog';
 
 @Component({
   selector: 'app-events-details',
@@ -10,21 +12,18 @@ import { format } from 'date-fns';
 })
 export class EventsDetailsComponent implements OnInit {
   event!:Event;
+  images!: any[];
+  eventId!: number;
 
-  constructor(private route: ActivatedRoute, private eventService: EventService) { }
+  constructor(private eventService: EventService,
+    public ref: DynamicDialogRef, public config: DynamicDialogConfig) { 
+      this.eventId = this.config.data.eventId;
+    }
 
-  formatDate(dateString: string): string {
-    const eventDate = new Date(dateString);
-    return format(eventDate, 'dd LLLL yyyy, HH:mm');
-  }
   ngOnInit(): void {
-    const idParam = this.route.snapshot.paramMap.get('id');
-    if (idParam !== null) {
-    const eventId = +idParam;
-    this.eventService.getEventById(eventId).subscribe((data: Event) => {
-      console.log(data);
+    this.eventService.getEventById(this.eventId).subscribe((data) => {
       this.event = data;
     });
-  }
+
   }
 }

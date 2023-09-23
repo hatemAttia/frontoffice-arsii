@@ -85,33 +85,19 @@ Prelaoder
 }
 
 .section-header h3::before,
-.section-header h3::after {
-  content: "";
-  position: relative;
-  display: inline-block;
-  width: 40px;
-  height: 2px;
-  background: #16979c;
-  /* bottom: 0; */
-  /* left: calc(50% - 25px); */
-}
-.section-header h3:before,
 .section-header h2::before {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 50px;
+  height: 5px;
+  background: #16979c;
+  bottom: 0;
+  left: calc(50% - 25px);
   margin: 0 15px 10px 0;
 }
 
-.section-header h3:after,
-.section-header h2::after {
-  margin: 0 0 10px 15px;
-}
-
-.section-header h3 {
-  font-size: 30px;
-  text-transform: uppercase;
-  text-align: center;
-  font-weight: 700;
-  margin-bottom: 10px;
-}
+.section-header h3,
 .section-header h2 {
   font-size: 30px;
   text-transform: uppercase;
@@ -119,34 +105,36 @@ Prelaoder
   font-weight: 700;
   margin-bottom: 10px;
 }
+
+
 @media (max-width: 767px) {
   .section-title h4 {
-    font-size: 16px; } }
+    font-size: 16px; } 
+}
 
-    .section-p p {
-      text-align: center;
-      padding: 0;
-      margin: 10;
-      font-size: 18px;
-      font-weight: 500;
-      color: #9195a2;
-    }
+.section-p {
+  padding-bottom: 10px;
+  margin: 10;
+  font-size: 15px;
+  font-weight: 500;
+  color: #686b76;
+}
 
-    .section-header p {
-      text-align: center;
-      padding: 0;
-      margin: 10;
-      font-size: 18px;
-      font-weight: 500;
-      color: #9195a2;
-    }
+.section-header p {
+  text-align: center;
+  padding: 0;
+  margin: 10;
+  font-size: 18px;
+  font-weight: 500;
+  color: #9195a2;
+}
 
 .section-with-bg {
   background-color: #fefefe;
 }
 
 .container {
-  width: 90%;
+  width: 100%;
   margin: 0 auto;
 }
 
@@ -352,7 +340,7 @@ Prelaoder
 .navbar .dropdown .dropdown ul {
   top: 0;
   left: calc(100% - 30px);
-  visibility: visible;
+  visibility: hidden;
 }
 
 .navbar .dropdown .dropdown:hover>ul {
@@ -664,6 +652,131 @@ Prelaoder
   }
 }
 
+.join-us .infos h4 {
+  font-size: 18px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.join-us .php-email-form {
+  background: #f3f6fc;
+  padding: 40px;
+  margin-bottom: 20px;
+  height: auto;
+}
+
+@media (max-width: 575px) {
+  .join-us .php-email-form {
+    padding: 20px;
+  }
+}
+
+.join-us .php-email-form h3 {
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.join-us .php-email-form h4 {
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 20px 0 0 0;
+}
+
+.join-us .php-email-form p {
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.join-us .php-email-form .error-message {
+  display: none;
+  color: #fff;
+  background: #f82249;
+  text-align: left;
+  padding: 15px;
+  margin-bottom: 24px;
+  font-weight: 600;
+}
+
+.join-us .php-email-form .sent-message {
+  display: none;
+  color: #fff;
+  background: #0bb08d;
+  text-align: center;
+  padding: 15px;
+  margin-bottom: 24px;
+  font-weight: 600;
+}
+
+.join-us .php-email-form .loading {
+  display: none;
+  background: #fff;
+  text-align: center;
+  padding: 15px;
+  margin-bottom: 24px;
+}
+
+.join-us .php-email-form .loading:before {
+  content: "";
+  display: inline-block;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  margin: 0 10px -6px 0;
+  border: 3px solid #0bb08d;
+  border-top-color: #fff;
+  animation: animate-loading 1s linear infinite;
+}
+
+.join-us .php-email-form input,
+.join-us .php-email-form textarea {
+  border-radius: 0;
+  box-shadow: none;
+  font-size: 14px;
+  border-radius: 0;
+}
+
+.join-us .php-email-form input:focus,
+.join-us .php-email-form textarea:focus {
+  border-color: #16979c;
+}
+
+.join-us .php-email-form input {
+  padding: 12px 15px;
+}
+
+.join-us .php-email-form textarea {
+  padding: 12px 15px;
+}
+
+.join-us .php-email-form button[type=submit] {
+  background: #16979c;
+  border: 0;
+  padding: 10px 30px;
+  color: #fff;
+  transition: 0.4s;
+  border-radius: 4px;
+}
+
+.join-us .php-email-form button[type=submit]:hover {
+  background: rgba(4, 190, 190, 0.746);
+}
+
+@keyframes animate-loading {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+
 /*--------------------------------------------------------------
 # About Section
 --------------------------------------------------------------*/
@@ -696,7 +809,7 @@ Prelaoder
   font-family: 'Poppins', sans-serif;
   font-weight: 300;
   font-size: 25px;
-  margin-bottom: 20px;
+  // margin-bottom: 20px;
 }
 
 @media (max-width: 768px) {
@@ -763,14 +876,12 @@ Prelaoder
   background-color: #ffffff;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   padding: 20px;
-  height: 95%;
+  height: 400px;
+  width: auto;
   border-radius: 4px;
   overflow: hidden;
   transition: 0.3s;
-  margin-top: 10px;
-  margin-right: 15px;
-  margin-bottom: 10px;
-  margin-left: 15px;
+  margin: 10px 20px;
   border: 1px solid #eee;
 }
 
@@ -800,7 +911,7 @@ Prelaoder
   font-size: 20px;
   font-weight: 600;
   padding: 0;
-  margin: 0 0 20px 0;
+  // margin: 0 0 20px 0;
 }
 
 .events .title a {
@@ -822,9 +933,9 @@ Prelaoder
   margin-right: 15px;
 }
 
-.events article:hover .post-img img {
-  transform: scale(1.1);
-}
+// .events article:hover .post-img img {
+//   transform: scale(1.1);
+// }
 
 /* .events .post-author {
   font-weight: 600;
@@ -885,6 +996,13 @@ Prelaoder
 .events .carousel-control-next:hover{
   background-color: #16979c;
 }
+
+@media (max-width: 768px) {
+  .events .carousel-control-prev,
+  .events .carousel-control-next {
+    display: none;
+  }
+}
 .events .carousel-indicators {
   bottom: -10px;
 }
@@ -898,7 +1016,8 @@ Prelaoder
 }
 .future-event {
   cursor: pointer;
-    box-shadow: 0 0 0 rgba(18, 130, 117, 0.8);
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    // box-shadow: 0 0 0 rgba(18, 130, 117, 0.8);
     animation: pulse 2s infinite;
 }
 
@@ -937,20 +1056,134 @@ Prelaoder
   vertical-align: baseline;
   border-radius: 0.25em;
 }
-// .product-item {
-//   .product-item-content {
-//       border: 1px solid var(--surface-d);
-//       border-radius: 3px;
-//       margin: .3rem;
-//       text-align: center;
-//       padding: 2rem 0;
-//   }
 
-//   .product-image {
-//       width: 50%;
-//       box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23)
-//   }
-// }
+/*--------------------------------------------------------------
+# Portfolio Details
+--------------------------------------------------------------*/
+.portfolio-details {
+  padding-top: 40px;
+}
+
+.portfolio-details .portfolio-details-slider img {
+  width: 100%;
+}
+
+.portfolio-details .portfolio-details-slider .swiper-pagination {
+  margin-top: 20px;
+  position: relative;
+}
+
+.portfolio-details .portfolio-details-slider .swiper-pagination .swiper-pagination-bullet {
+  width: 12px;
+  height: 12px;
+  background-color: #fff;
+  opacity: 1;
+  border: 1px solid #f82249;
+}
+
+.portfolio-details .portfolio-details-slider .swiper-pagination .swiper-pagination-bullet-active {
+  background-color: #f82249;
+}
+
+.portfolio-details .portfolio-info {
+  padding: 30px;
+  box-shadow: 0px 0 30px rgba(85, 98, 112, 0.08);
+}
+
+.portfolio-details .portfolio-info h3 {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #eee;
+}
+
+.portfolio-details .portfolio-info ul {
+  list-style: none;
+  padding: 0;
+  font-size: 15px;
+}
+
+.portfolio-details .portfolio-info ul li+li {
+  margin-top: 10px;
+}
+
+.portfolio-details .portfolio-description {
+  padding-top: 30px;
+}
+
+.portfolio-details .portfolio-description h2 {
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.portfolio-details .portfolio-description p {
+  padding: 0;
+}
+
+:host ::ng-deep .custom-galleria {
+  &.p-galleria {
+      &.fullscreen {
+          display: flex;
+          flex-direction: column;
+
+          .p-galleria-content {
+              flex-grow: 1;
+              justify-content: center;
+          }
+      }
+
+      .p-galleria-content {
+          position: relative;
+      }
+
+      .p-galleria-thumbnail-wrapper {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+      }
+
+      .p-galleria-thumbnail-items-container {
+          width: 100%;
+      }
+
+      .custom-galleria-footer {
+          display: flex;
+          align-items: center;
+          background-color: rgba(0, 0, 0, .9);
+          color: #ffffff;
+
+          > button {
+              background-color: transparent;
+              color: #ffffff;
+              border: 0 none;
+              border-radius: 0;
+              margin: .2rem 0;
+
+              &.fullscreen-button {
+                  margin-left: auto;
+              }
+
+              &:hover {
+                  background-color: rgba(255, 255, 255, 0.1);
+              }
+          }
+      }
+
+      .title-container {
+          > span {
+              font-size: .9rem;
+              padding-left: .829rem;
+
+              &.title {
+                  font-weight: bold;
+              }
+          }
+      }
+  }
+}
 
 /*--------------------------------------------------------------
 # Breadcrumbs
@@ -1158,6 +1391,7 @@ Prelaoder
   background-size: cover;
   overflow: hidden;
   position: relative;
+  flex-direction: column;
 }
 
 #subscribe:before {
@@ -1186,21 +1420,28 @@ Prelaoder
   color: #16979c;
   border: 0;
   outline: none;
-  margin: 0;
+  margin: 0 0 10px;
   padding: 9px 20px;
   border-radius: 50px;
   font-size: 14px;
+  width: 250px;
+  // width: 50%;
+  // margin-bottom: 10px;
 }
 
 @media (min-width: 767px) {
   #subscribe input {
-    min-width: 400px;
+    min-width: 300px;
+  }
+
+  #subscribe button {
+    min-width: 150px;
   }
 }
 
 #subscribe button {
   border: 2px solid #16979c;
-  padding: 9px 25px;
+  padding: 9px 15px;
   cursor: pointer;
   background: #16979c;
   color: #fff;
@@ -1208,6 +1449,7 @@ Prelaoder
   outline: none;
   font-size: 14px;
   border-radius: 50px;
+  width: 100px;
 }
 
 #subscribe button:hover {
@@ -1215,10 +1457,16 @@ Prelaoder
 }
 
 @media (max-width: 460px) {
-  #subscribe button {
-    margin-top: 10px;
-  }
+  // #subscribe button {
+  //   margin-top: 10px;
+  // }
 }
+
+.newsletter-recaptcha {
+  transform: scale(0.8); 
+  position: relative;
+}
+
 
 /*--------------------------------------------------------------
 # Signin Section
@@ -1364,15 +1612,15 @@ Prelaoder
     font-size: 14px;
   }
 
-  .contact .php-email-form {
+  .contact .email-form {
     width: 100%;
   }
 
-  .contact .php-email-form .form-group {
+  .contact .email-form .form-group {
     padding-bottom: 8px;
   }
 
-  .contact .php-email-form .error-message {
+  .contact .email-form .error-message {
     display: none;
     color: #fff;
     background: #df1529;
@@ -1381,11 +1629,11 @@ Prelaoder
     font-weight: 600;
   }
 
-  .contact .php-email-form .error-message br+br {
+  .contact .email-form .error-message br+br {
     margin-top: 25px;
   }
 
-  .contact .php-email-form .sent-message {
+  .contact .email-form .sent-message {
     display: none;
     color: #fff;
     background: #16979c;
@@ -1394,14 +1642,14 @@ Prelaoder
     font-weight: 600;
   }
 
-  .contact .php-email-form .loading {
+  .contact .email-form .loading {
     display: none;
     background: #fff;
     text-align: center;
     padding: 15px;
   }
 
-  .contact .php-email-form .loading:before {
+  .contact .email-form .loading:before {
     content: "";
     display: inline-block;
     border-radius: 50%;
@@ -1413,24 +1661,24 @@ Prelaoder
     animation: animate-loading 1s linear infinite;
   }
 
-  .contact .php-email-form input,
-  .contact .php-email-form textarea {
+  .contact .email-form input,
+  .contact .email-form textarea {
     border-radius: 5px;
     box-shadow: none;
     font-size: 14px;
     padding: 12px 15px;
   }
 
-  .contact .php-email-form input:focus,
-  .contact .php-email-form textarea:focus {
+  .contact .email-form input:focus,
+  .contact .email-form textarea:focus {
     border-color: #16979c;
   }
 
-  .contact .php-email-form textarea {
+  .contact .email-form textarea {
     padding: 10px 12px;
   }
 
-  .contact .php-email-form button[type=submit] {
+  .contact .email-form button[type=submit] {
     background: #16979c;
     border: 2px solid #16979c;
     padding: 12px 40px;
@@ -1439,9 +1687,10 @@ Prelaoder
     border-radius: 10px;
   }
 
-  .contact .php-email-form button[type=submit]:hover {
+  .contact .email-form button[type=submit]:hover {
     background: none;
-    color:#16979c
+    color:#16979c;
+    cursor: pointer;
   }
 
   @keyframes animate-loading {
@@ -1452,6 +1701,11 @@ Prelaoder
     100% {
       transform: rotate(360deg);
     }
+  }
+  .custom-recaptcha {
+    transform: scale(0.8); 
+    position: relative;
+    bottom: 10px;
   }
   .map-area {
     position: relative;

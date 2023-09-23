@@ -9,6 +9,6 @@ export interface Event {
   status: boolean;
   type: string;
   active:boolean;
-  image: string
-
+  image: string;
+  partner_id: number;
 }

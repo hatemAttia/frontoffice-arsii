@@ -1,38 +1,38 @@
-<app-breadcrumbs></app-breadcrumbs>
 <section id="portfolio-details" class="portfolio-details">
-  <div class="container" data-aos="fade-up">
-    <div class="section-header">
-      <h3>Plus de détails</h3>
-    </div>
-  </div>
-  <div class="container" data-aos="fade-up">
+  <div class="container">
 
-    <div class="row gy-4" >
+    <div class="row gy-4">
 
-      <div class="col-lg-8">
-        <div class="slides-1 portfolio-details-slider swiper">
+      <div class="col">
+        <div class="portfolio-details-slider swiper">
           <div class="swiper-wrapper align-items-center">
+
             <div class="swiper-slide">
-              <img [src]="event.image" alt="{{ event.title }}">
+              <img src="assets/img/events/AI-Challenge.png" alt="">
+              <!-- <img [src]="event.image" alt="{{ event.title }}"> -->
             </div>
+
           </div>
           <div class="swiper-pagination"></div>
         </div>
       </div>
-
-      <div class="col-lg-4">
+    </div>
+      <div class="row gy-4">
+      <div class="col">
         <div class="portfolio-info">
           <h3>{{ event.title }}</h3>
           <ul>
-            <li><strong>Type de l'évènement</strong>: {{ event.type }}</li>
-            <!-- <li><strong>Formateur</strong>: {{ event.former.firstName }} {{ event.former.lastName }}</li> -->
-            <li><strong>Date de la formation</strong>: {{ event.date }}</li>
-            <!-- <li><strong>Lien d'inscription</strong>: <a href="{{ event.registrationLink }}">{{ event.registrationLink }}</a></li> -->
+            <li><strong>Date</strong>: {{ event.date | date: 'dd LLLL yyyy, HH:mm' }}</li>
+            <li><strong>Localisation: {{ event.location }}</strong></li>
+            <li><strong>Partenaire</strong>: {{event.partner_id}}</li>
+            <li><strong>Lien d'inscription</strong>: <a href="#">www.example.com</a></li>
           </ul>
         </div>
         <div class="portfolio-description">
-          <h2>{{ event.title }}</h2>
-          <p>{{ event.description }}</p>
+          <!-- <h2>This is an example of portfolio detail</h2> -->
+          <p>
+            {{ event.description }}
+          </p>
         </div>
       </div>
 
