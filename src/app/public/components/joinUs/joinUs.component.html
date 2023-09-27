@@ -8,8 +8,118 @@
     <!-- <div  class="section-p">
       <p>L’association ouvre l’inscription à toute personne intéressée par l’ingénierie, la recherche scientifique ou l’innovation technologique.</p>
     </div> -->
-    <div class="row g-0">
-      <div class="col-lg-5 infos" data-aos="fade-up" data-aos-delay="200">
+    <div class="row gy-4 form-container">
+        <form [formGroup]="joinUsForm" (ngSubmit)="submitForm()" class="email-form">
+          <h3>Adhésion {{ currentYear }}</h3>
+          <p>L’association ouvre l’inscription à toute personne intéressée par l’ingénierie, la recherche scientifique ou l’innovation technologique.</p>
+          <ol>
+            <li>
+              Remplir formulaire.
+            </li>
+            <li>
+              Payer la cotisation annuelle: <strong>25 DT</strong>
+            </li>
+          </ol>
+          <div class="row gy-4">
+            <div class="form-group  col-md-4">
+              <input type="text" id="lastName" formControlName="lastName" class="form-control" placeholder="Nom (*)" required>
+            </div>
+            <div class="form-group  col-md-4">
+              <input type="text" id="firstName" formControlName="firstName" class="form-control" placeholder="Prénom (*)" required>
+            </div>
+            <div class="form-group  col-md-4">
+              <input type="text" id="phoneNumber" formControlName="phoneNumber" class="form-control" placeholder="Téléphone (*)" required>
+            </div>
+            <div class="form-group col-md-4">
+              <!-- <label for="dateOfBirth">Date de naissance (*)</label> -->
+              <input type="date" id="dateOfBirth" formControlName="dateOfBirth" class="form-control" required>
+              <!-- <div *ngIf="joinUsForm.get('dateOfBirth')?.hasError('required')" class="text-danger">
+                La date de naissance est obligatoire.
+              </div> -->
+            </div>
+            <div class="form-group  col-md-4">
+              <input type="email" id="email" formControlName="email" class="form-control" placeholder="Email (*)" required>
+            </div>
+            <div class="form-group  col-md-4">
+              <input type="password" id="password" formControlName="password" class="form-control" placeholder="Mot de passe (*)" required>
+            </div>
+            <div class="form-group  col-md-4">
+              <input type="password" id="confirm_password" formControlName="confirm_password" class="form-control" placeholder="Confirmer le mot de passe (*)" required>
+            </div>
+            <div *ngIf="joinUsForm.hasError('passwordMismatch')" class="text-danger">
+              Les mots de passe ne correspondent pas.
+            </div>
+            <div class="form-group  col-md-4">
+              <input type="text" id="userName" formControlName="userName" class="form-control" placeholder="Nom d'utilisateur (*)" required>
+            </div>
+            <div class="form-group col-md-4">
+              <select id="office" formControlName="office" class="form-control" required>
+                <option value="">Sélectionnez un office</option>
+                <option *ngFor="let office of officeArsii" [value]="office">{{ office }}</option>
+              </select>
+            </div>
+            <div class="form-group col-md-4">
+              <!-- <label for="region">Région (*)</label> -->
+              <select id="region" formControlName="region" class="form-control" required>
+                <option value="">Sélectionnez une région</option>
+                <option *ngFor="let region of regionsTunisie" [value]="region">{{ region }}</option>
+              </select>
+            </div>
+            <div class="form-group  col-md-4">
+              <input id="job" formControlName="job" class="form-control" placeholder="Situation Professionnelle" required>
+            </div>
+            <div class="form-group col-md-4">
+              <input type="text" id="universityOrCompany" formControlName="universityOrCompany" class="form-control" placeholder="Établissement">
+            </div>
+            <div class="form-group col-md-4">
+              <label>Genre (*)</label>
+              <div class="radio-group">
+                <label>
+                  <input type="radio" formControlName="gender" value="Masculin"> Masculin
+                </label>
+                <label>
+                  <input type="radio" formControlName="gender" value="Féminin"> Féminin
+                </label>
+              </div>
+              <!-- <div *ngIf="joinUsForm.get('gender')?.hasError('required')" class="text-danger">
+                Le genre est obligatoire.
+              </div> -->
+            </div>
+            <!-- <div *ngIf="joinUsForm.get('situationProfessionnelle')!.value === 'etudiant'" class="form-group  col-md-4">
+              <input type="text" id="cycle" formControlName="cycle" class="form-control" placeholder="Cycle">
+            </div>
+          
+            <div *ngIf="joinUsForm.get('situationProfessionnelle')!.value === 'etudiant'" class="form-group  col-md-4">
+              <input type="text" id="niveau" formControlName="niveau" class="form-control" placeholder="Niveau">
+            </div>
+          
+            <div *ngIf="joinUsForm.get('situationProfessionnelle')!.value === 'etudiant'" class="form-group  col-md-4">
+              <input type="text" id="specialite" formControlName="specialite" class="form-control" placeholder="Spécialité">
+            </div>
+          
+            <div *ngIf="joinUsForm.get('situationProfessionnelle')!.value === 'etudiant'" class="form-group  col-md-4">
+              <input type="text" id="etablissement" formControlName="etablissement" class="form-control" placeholder="Établissement">
+            </div>
+          
+            <div *ngIf="joinUsForm.get('situationProfessionnelle')!.value === 'salarie'" class="form-group  col-md-4">
+              <input type="text" id="profession" formControlName="profession" class="form-control" placeholder="Profession">
+            </div>
+          
+            <div *ngIf="joinUsForm.get('situationProfessionnelle')!.value === 'salarie'" class="form-group  col-md-4">
+              <input type="text" id="etablissementSalarie" formControlName="etablissementSalarie" class="form-control" placeholder="Établissement">
+            </div>
+           -->
+            <div class="col-md-12" text-center>
+              <re-captcha [siteKey]="recaptchaSiteKey" (resolved)="onRecaptchaResolved($event)" class="custom-recaptcha"></re-captcha>
+              <button type="submit" [disabled]="!joinUsForm.valid || !isRecaptchaResolved">Soumettre</button>
+            </div>
+            
+          </div>
+        </form>
+    </div>
+    <div class="row gy-4 infos-container">
+      <div class="col-lg-6 infos" data-aos="fade-up" data-aos-delay="200">
+        
         <h4>
           ADHÉRER ARSII POUR BENÉFICIER
         </h4>
@@ -27,25 +137,8 @@
             Possibilité d’adhérer au bureau exécutif d’ARSII.
           <br>
         </div>
-        <h4>
-          MODALITÉ D’INSCRIPTION
-        </h4>
-        <div class="section-p">
-          <p> 
-            L’association ouvre l’inscription à toute personne intéressée par l’informatique, l’ingénierie, la recherche scientifique ou l’innovation technologique.
-            <br>
-            Pour adhérer, il suffit de :
-          </p>
-          <ol>
-            <li>
-              Remplir formulaire.
-            </li>
-            <li>
-              Payer la cotisation annuelle . 25 DT
-            </li>
-          </ol>
-
-        </div>
+        
+      </div>
         <!-- <h4>
           MODALITÉ DE PAYEMENT
         </h4>
@@ -60,6 +153,8 @@
             En espèces (contacter le comité d’adhésion)
           <br>
         </div> -->
+      <div class="col-lg-4 infos" data-aos="fade-up" data-aos-delay="200">
+        
         <h4>
           PLUS D’INFORMATIONS
         </h4>
@@ -71,74 +166,11 @@
           Mme Wafa CHLAGOU : <strong>+216 97 934 466</strong> <br>
           Mlle Rahma MILI : <strong>+216 50 712 963</strong> <br>
         </div>
-      </div>
-      <div class="col-lg-7">
-        <form [formGroup]="joinUsForm" (ngSubmit)="submitForm()" class="php-email-form">
-          <h3>Adhésion {{ currentYear }}</h3>
-          <!-- <p>L’association ouvre l’inscription à toute personne intéressée par l’ingénierie, la recherche scientifique ou l’innovation technologique.</p> -->
-          <div class="row gy-4">
-            <div class="form-group col-lg-4 col-md-6">
-              <input type="text" id="lastName" formControlName="lastName" class="form-control" placeholder="Nom">
-            </div>
-            <div class="form-group col-lg-4 col-md-6">
-              <input type="text" id="firstName" formControlName="firstName" class="form-control" placeholder="Prénom">
-            </div>
-            <div class="form-group col-lg-4 col-md-6">
-              <input type="email" id="email" formControlName="email" class="form-control" placeholder="Email">
-            </div>
-            <div class="form-group col-lg-4 col-md-6">
-              <input type="password" id="password" formControlName="password" class="form-control" placeholder="Mot de passe">
-            </div>
-            <div class="form-group col-lg-4 col-md-6">
-              <input type="password" id="confirm_password" formControlName="confirm_password" class="form-control" placeholder="Confirmer le mot de passe">
-            </div>
-            <div *ngIf="joinUsForm.hasError('passwordMismatch')" class="text-danger">
-              Les mots de passe ne correspondent pas.
-            </div>
-            <div class="col-md-12" text-center>
-              <re-captcha [siteKey]="recaptchaSiteKey" (resolved)="onRecaptchaResolved($event)" class="custom-recaptcha"></re-captcha>
-              <button type="submit" [disabled]="!joinUsForm.valid || !isRecaptchaResolved">Soumettre</button>
-            </div>
-            
-          </div>
-        </form>
-
+      
       </div>
     </div>
+    
   </div>
 
-  <!-- Modal Order Form -->
-  <div id="buy-ticket-modal" class="modal fade">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h4 class="modal-title">Buy Tickets</h4>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <form method="POST" action="#">
-            <div class="form-group ">
-              <input type="text" class="form-control" name="your-name" placeholder="Your Name">
-            </div>
-            <div class="form-group mt-3">
-              <input type="text" class="form-control" name="your-email" placeholder="Your Email">
-            </div>
-            <div class="form-group mt-3">
-              <select id="ticket-type" name="ticket-type" class="form-select">
-                <option value="">-- Select Your Ticket Type --</option>
-                <option value="standard-access">Standard Access</option>
-                <option value="pro-access">Pro Access</option>
-                <option value="premium-access">Premium Access</option>
-              </select>
-            </div>
-            <div class="text-center mt-3">
-              <button type="submit" class="btn">Buy Now</button>
-            </div>
-          </form>
-        </div>
-      </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-  </div><!-- /.modal -->
-
-</section><!-- End Buy Ticket Section -->
-
+</section>
+<p-scrollTop></p-scrollTop>

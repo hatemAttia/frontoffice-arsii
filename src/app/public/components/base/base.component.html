@@ -10,10 +10,10 @@
 
     <nav id="navbar" class="navbar order-last order-lg-0">
       <ul>
-        <li><a class="nav-link scrollto active" href="#">Accueil</a></li>
+        <li><a class="nav-link scrollto" href="#home">Accueil</a></li>
         <li class="dropdown">
           <a href=""
-            ><span>Présentaion</span> <i class="bi bi-chevron-down"></i
+            ><span>Présentation</span> <i class="bi bi-chevron-down"></i
           ></a>
           <ul>
             <li><a href="#objectifs">Objectifs</a></li>
@@ -21,10 +21,6 @@
             <li class="dropdown"><a href=""><span>Bureaux Régionaux</span> <i class="bi bi-chevron-right"></i></a>
               <ul>
                 <li><a href="#">Bureau ARSII SFAX</a></li>
-                <li><a href="#">Deep Drop Down 2</a></li>
-                <!--<li><a href="#">Deep Drop Down 3</a></li>
-                <li><a href="#">Deep Drop Down 4</a></li>
-                <li><a href="#">Deep Drop Down 5</a></li> -->
               </ul>
             </li>
             <li><a href="#">Membres</a></li>
@@ -51,8 +47,9 @@
       </ul>
       <i class="bi bi-list mobile-nav-toggle"></i>
     </nav>
+    <a class="signin scrollto" routerLink="/auth/signin">Espace Membre</a>
+    <a class="signin scrollto" routerLink="/join-us">Rejoignez-Nous</a>
     <!-- .navbar -->
-    <a class="signin scrollto" routerLink="/connection">Espace Membre</a>
   </div>
 </header>
 
@@ -66,4 +63,3 @@
       [threshold]="100"
       icon="pi pi-arrow-up"
     ></p-scrollTop>
-<!-- <div id="preloader"></div> -->

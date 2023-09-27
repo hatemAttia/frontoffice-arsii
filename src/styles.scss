@@ -115,7 +115,7 @@ Prelaoder
 .section-p {
   padding-bottom: 10px;
   margin: 10;
-  font-size: 15px;
+  font-size: 12px;
   font-weight: 500;
   color: #686b76;
 }
@@ -204,7 +204,19 @@ Prelaoder
   font-size: 13px;
   white-space: nowrap;
 }
-
+.hovered {
+  color: #fff;
+  background: none;
+  padding: 7px 22px;
+  margin: 0 0 0 15px;
+  border-radius: 50px;
+  border: 2px solid #16979c;
+  transition: all ease-in-out 0.3s;
+  font-weight: 500;
+  line-height: 1;
+  font-size: 13px;
+  white-space: nowrap;
+}
 .signin:hover {
   background: none;
   color: #fff;
@@ -651,35 +663,59 @@ Prelaoder
     opacity: 0;
   }
 }
+/*--------------------------------------------------------------
+# Join-us Section
+--------------------------------------------------------------*/
+.join-us {
+  margin-bottom: 20px;
+}
+
+.join-us .infos-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 20px;
+}
 
 .join-us .infos h4 {
-  font-size: 18px;
+  font-size: 15px;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 1px;
 }
 
-.join-us .php-email-form {
+.join-us .form-container {
+  justify-content: center;
+  align-items: center;
+}
+.join-us .email-form {
+  border-radius: 5px;
   background: #f3f6fc;
   padding: 40px;
   margin-bottom: 20px;
+  position: relative;
   height: auto;
+  width: 80%;
+}
+
+.join-us .email-form li {
+  font-size: 14px;
 }
 
 @media (max-width: 575px) {
-  .join-us .php-email-form {
+  .join-us .email-form {
     padding: 20px;
   }
 }
 
-.join-us .php-email-form h3 {
+.join-us .email-form h3 {
   font-size: 14px;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 1px;
 }
 
-.join-us .php-email-form h4 {
+.join-us .email-form h4 {
   font-size: 14px;
   font-weight: 700;
   text-transform: uppercase;
@@ -687,12 +723,21 @@ Prelaoder
   margin: 20px 0 0 0;
 }
 
-.join-us .php-email-form p {
+.join-us .email-form p {
   font-size: 14px;
   margin-bottom: 20px;
 }
 
-.join-us .php-email-form .error-message {
+.join-us .email-form label {
+  // padding-bottom: 10px;
+  margin: 10px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #686b76;
+  
+}
+
+.join-us .form-container  .email-form .error-message {
   display: none;
   color: #fff;
   background: #f82249;
@@ -702,7 +747,7 @@ Prelaoder
   font-weight: 600;
 }
 
-.join-us .php-email-form .sent-message {
+.join-us .email-form .sent-message {
   display: none;
   color: #fff;
   background: #0bb08d;
@@ -712,7 +757,7 @@ Prelaoder
   font-weight: 600;
 }
 
-.join-us .php-email-form .loading {
+.join-us .email-form .loading {
   display: none;
   background: #fff;
   text-align: center;
@@ -720,7 +765,7 @@ Prelaoder
   margin-bottom: 24px;
 }
 
-.join-us .php-email-form .loading:before {
+.join-us .email-form .loading:before {
   content: "";
   display: inline-block;
   border-radius: 50%;
@@ -732,28 +777,21 @@ Prelaoder
   animation: animate-loading 1s linear infinite;
 }
 
-.join-us .php-email-form input,
-.join-us .php-email-form textarea {
+.join-us .email-form input,
+.join-us .email-form select {
   border-radius: 0;
   box-shadow: none;
   font-size: 14px;
   border-radius: 0;
+  padding: 12px 15px;
 }
 
-.join-us .php-email-form input:focus,
-.join-us .php-email-form textarea:focus {
+.join-us .email-form input:focus,
+.join-us .email-form select:focus {
   border-color: #16979c;
 }
 
-.join-us .php-email-form input {
-  padding: 12px 15px;
-}
-
-.join-us .php-email-form textarea {
-  padding: 12px 15px;
-}
-
-.join-us .php-email-form button[type=submit] {
+.join-us .email-form button[type=submit] {
   background: #16979c;
   border: 0;
   padding: 10px 30px;
@@ -762,8 +800,9 @@ Prelaoder
   border-radius: 4px;
 }
 
-.join-us .php-email-form button[type=submit]:hover {
+.join-us .email-form button[type=submit]:hover {
   background: rgba(4, 190, 190, 0.746);
+  cursor: pointer;
 }
 
 @keyframes animate-loading {
@@ -908,7 +947,7 @@ Prelaoder
 }
 
 .events .title {
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 600;
   padding: 0;
   // margin: 0 0 20px 0;
@@ -1275,7 +1314,7 @@ Prelaoder
   position: relative;
   border: 4px solid #ffffff;
   box-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.2);
-  max-height: 300px;
+  // max-height: 300px;
 }
 
 @media (max-width: 1024px) {
@@ -1383,9 +1422,9 @@ Prelaoder
 }
 
 /*--------------------------------------------------------------
-# Subscribe Section
+# Newsletter Section
 --------------------------------------------------------------*/
-#subscribe {
+#newsletter {
   padding: 60px;
   background: url(assets/img/subscribe-bg.jpg) center center no-repeat;
   background-size: cover;
@@ -1394,7 +1433,7 @@ Prelaoder
   flex-direction: column;
 }
 
-#subscribe:before {
+#newsletter:before {
   content: "";
   background: rgba(6, 12, 34, 0.6);
   position: absolute;
@@ -1405,17 +1444,17 @@ Prelaoder
 }
 
 @media (min-width: 1024px) {
-  #subscribe {
+  #newsletter {
     background-attachment: fixed;
   }
 }
 
-#subscribe .section-header h2,
-#subscribe p {
+#newsletter .section-header h2,
+#newsletter p {
   color: #fff;
 }
 
-#subscribe input {
+#newsletter input {
   background: #fff;
   color: #16979c;
   border: 0;
@@ -1430,16 +1469,16 @@ Prelaoder
 }
 
 @media (min-width: 767px) {
-  #subscribe input {
+  #newsletter input {
     min-width: 300px;
   }
 
-  #subscribe button {
+  #newsletter button {
     min-width: 150px;
   }
 }
 
-#subscribe button {
+#newsletter button {
   border: 2px solid #16979c;
   padding: 9px 15px;
   cursor: pointer;
@@ -1452,12 +1491,12 @@ Prelaoder
   width: 100px;
 }
 
-#subscribe button:hover {
+#newsletter button:hover {
   background: none;
 }
 
 @media (max-width: 460px) {
-  // #subscribe button {
+  // #newsletter button {
   //   margin-top: 10px;
   // }
 }
@@ -1662,7 +1701,7 @@ Prelaoder
   }
 
   .contact .email-form input,
-  .contact .email-form textarea {
+  .contact .email-form select {
     border-radius: 5px;
     box-shadow: none;
     font-size: 14px;
@@ -1670,11 +1709,11 @@ Prelaoder
   }
 
   .contact .email-form input:focus,
-  .contact .email-form textarea:focus {
+  .contact .email-form select:focus {
     border-color: #16979c;
   }
 
-  .contact .email-form textarea {
+  .contact .email-form select {
     padding: 10px 12px;
   }
 
@@ -1703,7 +1742,7 @@ Prelaoder
     }
   }
   .custom-recaptcha {
-    transform: scale(0.8); 
+    // transform: scale(0.9); 
     position: relative;
     bottom: 10px;
   }

@@ -3,7 +3,6 @@
   <!--  Section Title -->
   <div class="container" data-aos="fade-up">
   <div class="section-header">
-    <span>Evènements</span>
     <h3>Evènements</h3>
   </div>
   </div><!-- End Section Title -->
@@ -17,11 +16,11 @@
             <span class="new-label future-event label" *ngIf="isFutureEvent(event.date)">Nouveau</span>
             <article [ngClass]="{'future-event': isFutureEvent(event.date)}">
               <div class="post-img">
-                <img [src]="event.image" alt="" class="img-fluid">
+                <img [src]="'/api/arsii/admin/event/img/'+event.image" alt="" class="img-fluid">
                 <!-- <img src="assets/img/events/AI-Challenge.png" alt="{{ event.title }}" class="img-fluid"> -->
               </div>
 
-              <p class="post-category">{{ event.type}}</p>
+              <!-- <p class="post-category">{{ event.type}}</p> -->
 
               <h2 class="title">
                 <!-- <a [routerLink]="['/events-details', event.id]">{{ event.title }}</a> -->
@@ -41,7 +40,7 @@
 
                 </div>
               </div>
-              <a (click)="show(event.id)" class="readmore stretched-link"><span>Voir Détails</span><i class="bi bi-arrow-right"></i></a>
+              <!-- <a (click)="show(event.id)" class="readmore stretched-link"><span>Voir Détails</span><i class="bi bi-arrow-right"></i></a> -->
             </article>
           </div>
 

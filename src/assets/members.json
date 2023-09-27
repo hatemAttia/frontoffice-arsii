@@ -1,13 +1,7 @@
 {
 	"data": [
-		{
-			"id": "1000",
-			"lastName": "Maalel",
-			"firstName": "Ahmed",
-			"post": "Président",
-			"photo": "/assets/img/members/AhmedMaalel.jpeg"
-		},
-    {
+		
+    	{
 			"id": "1001",
 			"lastName": "Blaiech",
 			"firstName": "Ahmed Ghazi",

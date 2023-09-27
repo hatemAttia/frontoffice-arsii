@@ -1,15 +1,33 @@
 import { Component, OnInit, HostListener,ElementRef, Renderer2, AfterViewInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 
 
 @Component({
   selector: 'app-base',
   templateUrl: './base.component.html',
 })
-export class BaseComponent implements OnInit {
+export class BaseComponent implements AfterViewInit {
   isScrolled = false;
   private isMobileNavOpen = false;
+  private navbarlinks?: NodeListOf<HTMLAnchorElement>;
 
+  constructor(private renderer: Renderer2, 
+    private el: ElementRef,
+    private router: Router,
+    private route: ActivatedRoute ) {
+      this.router.events.subscribe(event => {
+        if (event instanceof NavigationEnd) {
+          // Vérifiez si l'URL actuelle correspond à la route vide
+          if (this.router.url === '/') {
+            this.navbarlinksActive();
+          } else {
+            // Réinitialisez la classe active si la route n'est pas vide
+            this.resetNavbarlinks();
+          }
+        }
+      });
+     }
+  
   @HostListener('window:scroll', [])
   onWindowScroll() {
 
@@ -19,14 +37,43 @@ export class BaseComponent implements OnInit {
       this.isScrolled = false;
     }
   }
-  constructor(private renderer: Renderer2, private el: ElementRef, private router: Router) { }
-  ngOnInit(): void {
+
+
+  private navbarlinksActive = () => {
+    if (!this.navbarlinks) return;
+
+    const position = window.scrollY + 200;
+    this.navbarlinks.forEach(navbarlink => {
+      if (!(navbarlink instanceof HTMLAnchorElement)) return;
+
+      if (!navbarlink.hash) return;
+      const section = document.querySelector(navbarlink.hash);
+      
+      
+      if (!(section instanceof HTMLElement)) return;
+      
+      if (
+        position >= section.offsetTop &&
+        position <= section.offsetTop + section.offsetHeight
+      ) {
+        navbarlink.classList.add('active');
+      } else {
+        navbarlink.classList.remove('active');
+      }
+    });
+  }
+  private resetNavbarlinks() {
+    if (!this.navbarlinks) return;
+
+    this.navbarlinks.forEach(navbarlink => {
+      navbarlink.classList.remove('active');
+    });
   }
 
   ngAfterViewInit(): void {
-
+    this.navbarlinks = this.el.nativeElement.querySelectorAll('#navbar .scrollto');
     this.el.nativeElement.querySelector('.mobile-nav-toggle')
-      .addEventListener('click', (e: Event) => {
+    .addEventListener('click', (e: Event) => {
         this.toggleMobileNav();
       });
 
@@ -38,6 +85,12 @@ export class BaseComponent implements OnInit {
         // this.toggleMobileNav();
       });
     });
+
+    this.navbarlinksActive();
+  
+    window.addEventListener('load', this.navbarlinksActive);
+    window.addEventListener('scroll', this.navbarlinksActive);
+    
   }
 
   private toggleMobileNav() {

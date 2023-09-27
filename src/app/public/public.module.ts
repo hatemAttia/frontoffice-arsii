@@ -16,6 +16,7 @@ import { ClubsComponent } from './components/clubs/clubs.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { MembersComponent } from './components/members/members.component';
 import { EventsDetailsComponent } from './components/events-details/events-details.component';
+import { FormationsDetailsComponent } from './components/formations-details/formations-details.component';
 import { ActualityComponent } from './components/actuality/actuality.component';
 import { FormationComponent } from './components/formation/formation.component';
 import { NgbModule, NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
@@ -53,6 +54,7 @@ import { FormationService } from './services/formation.service';
     FooterComponent,
     MembersComponent,
     EventsDetailsComponent,
+    FormationsDetailsComponent,
     ActualityComponent,
     FormationComponent,
     BaseComponent,

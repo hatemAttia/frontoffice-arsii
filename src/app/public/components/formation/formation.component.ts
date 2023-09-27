@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { Formation } from '../../types/formation';
 import { FormationService } from '../../services/formation.service';
 import { format } from 'date-fns';
+import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
+import { FormationsDetailsComponent } from '../formations-details/formations-details.component';
 
 @Component({
   selector: 'app-formation',
@@ -11,7 +13,8 @@ import { format } from 'date-fns';
 export class FormationComponent implements OnInit {
   formations: Formation[]=[];
   responsiveOptions;
-  constructor(private router: Router, private formationService: FormationService) {
+  constructor(private router: Router, private formationService: FormationService, 
+    public dialogService: DialogService) {
     this.responsiveOptions = [
       {
           breakpoint: '1024px',
@@ -20,8 +23,8 @@ export class FormationComponent implements OnInit {
       },
       {
           breakpoint: '768px',
-          numVisible: 2,
-          numScroll: 2
+          numVisible: 1,
+          numScroll: 1
       },
       {
           breakpoint: '560px',
@@ -38,14 +41,28 @@ export class FormationComponent implements OnInit {
     });
   }
 
+  ref!: DynamicDialogRef;
+
   isFutureFormation(formationDate: string): boolean {
     const formationDateObj = new Date(formationDate);
     return formationDateObj > new Date();
   }
+  show(formationId: number) {
+    this.ref = this.dialogService.open(FormationsDetailsComponent, {
+        data: {
+          formationId: formationId
+        },
+        header: 'Détails',
+        width: '70%',
+        contentStyle: {"max-height": "500px", "overflow": "auto"},
+        baseZIndex: 10000
+    });
+  }
 
-  formatDate(dateString: string): string {
-    const formationDate = new Date(dateString);
-    return format(formationDate, 'dd LLLL yyyy, HH:mm');
+  ngOnDestroy() {
+      if (this.ref) {
+          this.ref.close();
+      }
   }
 
   navigateTo(path: string) {

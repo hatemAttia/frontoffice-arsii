@@ -2,9 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { EventService } from '../../services/event.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Event } from '../../types/event';
-import { format } from 'date-fns';
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
-import { MessageService } from 'primeng/api';
 import { EventsDetailsComponent } from '../events-details/events-details.component';
 
 @Component({
@@ -60,12 +58,12 @@ export class EventsComponent implements OnInit {
         data: {
           eventId: eventId
         },
-        header: 'Détails',
+        header: 'Evènement',
         width: '70%',
         contentStyle: {"max-height": "500px", "overflow": "auto"},
         baseZIndex: 10000
     });
-}
+  }
 
   ngOnDestroy() {
       if (this.ref) {

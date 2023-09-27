@@ -8,6 +8,17 @@ import { MemberService } from '../../services/member.service';
 })
 export class MembersComponent implements OnInit {
   members: User[] = [];
+  president!: User;
+  vicePresidents: User[] = [];
+  generalSecretary: User[] = [];
+  treasurers: User[] = [];
+  projectManager: User[] = [];
+  assistantTreasurers: User[] = [];
+  deputySecretaryGeneral: User[] = [];
+  rdManager: User[] = [];
+  logisticsManager: User[] = [];
+  trainingManager: User[] = [];
+  opportInterManager: User[] = [];
   responsiveOptions;
   constructor(private memberService: MemberService) {
     this.responsiveOptions = [
@@ -37,6 +48,40 @@ export class MembersComponent implements OnInit {
     this.memberService.getMembers().then(members => {
 			this.members = members;
 		});
+    this.memberService.getPresident().subscribe(president => {
+      this.president = president;
+    });
+
+    this.memberService.getVicePresident().subscribe(vicePresidents => {
+      this.vicePresidents = vicePresidents;
+    });
+    this.memberService.getVicePresident().subscribe(treasurers => {
+      this.treasurers = treasurers;
+    });
+    this.memberService.getVicePresident().subscribe(generalSecretary => {
+      this.generalSecretary = generalSecretary;
+    });
+    this.memberService.getVicePresident().subscribe(projectManager => {
+      this.projectManager = projectManager;
+    });
+    this.memberService.getVicePresident().subscribe(rdManager => {
+      this.rdManager = rdManager;
+    });
+    this.memberService.getVicePresident().subscribe(deputySecretaryGeneral => {
+      this.deputySecretaryGeneral = deputySecretaryGeneral;
+    });
+    this.memberService.getVicePresident().subscribe(trainingManager => {
+      this.trainingManager = trainingManager;
+    });
+    this.memberService.getVicePresident().subscribe(logisticsManager => {
+      this.logisticsManager = logisticsManager;
+    });
+    this.memberService.getVicePresident().subscribe(assistantTreasurers => {
+      this.assistantTreasurers = assistantTreasurers;
+    });
+    this.memberService.getVicePresident().subscribe(opportInterManager => {
+      this.opportInterManager = opportInterManager;
+    });
   }
 
 }

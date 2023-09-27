@@ -18,9 +18,12 @@ export class JoinUsComponent implements OnInit {
   isLoading = false;
   hasError = false;
   isSuccess = false;
+  regionsTunisie: string[] = ['Ariana', 'Béja', 'Ben Arous', 'Bizerte', 'Gabès', 'Gafsa', 'Jendouba', 'Kairouan', 'Kasserine', 'Kébili', 'Le Kef', 'Mahdia', 'Manouba', 'Médenine', 'Monastir', 'Nabeul', 'Sfax', 'Sidi Bouzid', 'Siliana', 'Sousse', 'Tataouine', 'Tozeur', 'Tunis', 'Zaghouan'];
+  officeArsii: string[] = ['Office Sousse', 'Office Sfax', 'Office Tunis'];
 
   constructor(private fb: FormBuilder,private joinUsService: JoinUsService) {
     this.currentYear = new Date().getFullYear();
+    
   }
 
 
@@ -29,11 +32,20 @@ export class JoinUsComponent implements OnInit {
       lastName: ['', Validators.required],
       firstName: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required]],
+      phoneNumber: ['', Validators.required],
+      dateOfBirth: ['', Validators.required],
+      gender: ['', Validators.required],
+      password: ['', [Validators.required, Validators.minLength(8)]],
       confirm_password: ['', [Validators.required]],
+      userName: ['', [Validators.required]],
+      region: ['', [Validators.required]],
+      office: [''],
+      job: ['', Validators.required],
+      universityOrCompany: [''],
     }, {
       validator: this.passwordMatchValidator 
-    });
+    }
+    );
   }
   passwordMatchValidator(control: AbstractControl): { [key: string]: boolean } | null {
     const password = control.get('password');
@@ -68,6 +80,10 @@ export class JoinUsComponent implements OnInit {
           this.errorMessage = 'Une erreur s\'est produite. Veuillez réessayer plus tard.'; 
         }
       );
+      this.joinUsForm.reset();
+    } 
+    else {
+
     }
   }
   onRecaptchaResolved(event: any) {

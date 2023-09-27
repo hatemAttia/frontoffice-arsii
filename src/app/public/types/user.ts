@@ -3,9 +3,9 @@ export interface User {
   dateOfBirth: Date
   email: string,
   firstName: string,
+  lastName: string,
   gender: string,
   job: string,
-  lastName: string,
   office: string,
   password: string,
   phoneNumber: string,

@@ -12,7 +12,7 @@ export class OpportunitiesComponent implements OnInit {
 
   opportunities: Opportunity[]=[];
   responsiveOptions;
-  constructor(private router: Router, private eventService: OpportunityService) {
+  constructor(private router: Router, private opportunityService: OpportunityService) {
     this.responsiveOptions = [
       {
           breakpoint: '1024px',
@@ -33,20 +33,20 @@ export class OpportunitiesComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    this.eventService.getOpportunities().subscribe((data: Opportunity[]) => {
+    this.opportunityService.getOpportunities().subscribe((data: Opportunity[]) => {
       console.log(data);
       this.opportunities = data;
     });
   }
 
-  isFutureOpportunity(eventDate: string): boolean {
-    const eventDateObj = new Date(eventDate);
-    return eventDateObj > new Date();
+  isFutureOpportunity(opportunityDate: string): boolean {
+    const opportunityDateObj = new Date(opportunityDate);
+    return opportunityDateObj > new Date();
   }
 
   formatDate(dateString: string): string {
-    const eventDate = new Date(dateString);
-    return format(eventDate, 'dd LLLL yyyy, HH:mm');
+    const opportunityDate = new Date(dateString);
+    return format(opportunityDate, 'dd LLLL yyyy, HH:mm');
   }
 
 }
