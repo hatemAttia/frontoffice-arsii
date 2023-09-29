@@ -15,7 +15,7 @@ export class JoinUsService {
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
       Authorization:
-        'Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTY5NTkzOTAxOSwiZXhwIjoxNjk1OTQ5MDk5fQ.bEgaQvKtkiTXU2ugu84hzty_O4sw2YRaJgmMuiMyH7I',
+      'Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzdHJpbmciLCJpYXQiOjE2OTU5OTY1MjYsImV4cCI6MTY5NjAwNjYwNn0._rAtc6jyWUaYMynrLbiMUHWfPUKg5e62eDFWLMNNh9s',
     });
     return headers;
   }

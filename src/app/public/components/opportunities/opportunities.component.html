@@ -13,11 +13,11 @@
         <ng-template let-opportunity pTemplate="item" >
   
             <div data-aos="none" data-aos-delay="100">
-              <span class="new-label future-event label" *ngIf="isFutureOpportunity(opportunity.created_at)">Nouveau</span>
-              <article [ngClass]="{'future-event': isFutureOpportunity(opportunity.created_at)}">
-              <!-- <article> -->
+              <!-- <span class="new-label future-event label" *ngIf="isFutureOpportunity(opportunity.created_at)">Nouveau</span> -->
+              <!-- <article [ngClass]="{'future-event': isFutureOpportunity(opportunity.created_at)}"> -->
+              <article>
                 <div class="post-img">
-                  <!-- <img [src]="'/api/arsii/admin/formation/img/'+opportunity.image" alt="{{ opportunity.title }}" class="img-fluid"> -->
+                  <!-- <img [src]="'/api/arsii/admin/opportunity/img/'+opportunity.image" alt="{{ opportunity.title }}" class="img-fluid"> -->
                   <img src="assets/img/stages.jpg" alt="{{ opportunity.title }}" class="img-fluid">
                 </div>
   

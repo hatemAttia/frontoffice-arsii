@@ -17,7 +17,7 @@ export class EventService {
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
       Authorization:
-        'Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTY5NTk1MDMzNywiZXhwIjoxNjk1OTYwNDE3fQ.Ly6v2oJ7C-DJ8k38PY1K6DYhtLXzG9DZSxfS3HHZqa0',
+        'Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTY5NTk4NTc4MCwiZXhwIjoxNjk1OTk1ODYwfQ.NpYMdQdXnnlBmMU0Cu8QCxrE0d-sMkrkOXYqdqmUWi0',
     });
     return headers;
   }

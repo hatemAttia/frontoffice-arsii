@@ -44,11 +44,6 @@ export class OpportunitiesComponent implements OnInit {
     return opportunityDateObj > new Date();
   }
 
-  formatDate(dateString: string): string {
-    const opportunityDate = new Date(dateString);
-    return format(opportunityDate, 'dd LLLL yyyy, HH:mm');
-  }
-
   translateType(type: string): string {
     switch (type) {
       case 'Summer_internship':
