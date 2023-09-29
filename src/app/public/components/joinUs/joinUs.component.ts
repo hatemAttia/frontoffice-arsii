@@ -12,6 +12,7 @@ export class JoinUsComponent implements OnInit {
   joinUsForm!: FormGroup;
   currentYear!: number;
   errorMessage='';
+  // successMessage: string | null = null;
   recaptchaSiteKey: string = '6LdvMzcoAAAAAKCCiDznKQlqz5oovlC2ArYIXyN4'; 
   isRecaptchaResolved: boolean = false;
   successMessage: string = '';
@@ -46,24 +47,6 @@ export class JoinUsComponent implements OnInit {
       validators: this.passwordMatchValidator 
     }
     );
-    // this.joinUsForm = this.fb.group({
-    //   lastName: ['', Validators.required],
-    //   firstName: ['', Validators.required],
-    //   email: ['', [Validators.required, Validators.email]],
-    //   phoneNumber: ['', [Validators.required, Validators.minLength(8)]],
-    //   dateOfBirth: ['', Validators.required],
-    //   gender: ['male', Validators.required],
-    //   password: ['', [Validators.required, Validators.minLength(8)]],
-    //   confirm_password: ['', [Validators.required]],
-    //   userName: ['', [Validators.required]],
-    //   region: ['', [Validators.required]],
-    //   office: ['OFFICE_SOUSSE'],
-    //   job: ['', Validators.required],
-    //   universityOrCompany: [''],
-    // }, {
-    //   validator: this.passwordMatchValidator 
-    // }
-    // );
   }
   passwordMatchValidator(control: AbstractControl): { [key: string]: boolean } | null {
     const password = control.get('password');
@@ -88,7 +71,7 @@ export class JoinUsComponent implements OnInit {
           console.log('Réponse du serveur :', response);
           this.joinUsForm.reset(); 
           this.isSuccess = true; 
-          this.successMessage = 'Votre message a bien été envoyé. Merci !'; 
+          this.successMessage = "L'adhésion a été effectuée avec succès."; 
           this.isRecaptchaResolved = false;
         },
         (error) => {
@@ -97,7 +80,11 @@ export class JoinUsComponent implements OnInit {
           this.errorMessage = 'Une erreur s\'est produite. Veuillez réessayer plus tard.'; 
         }
       );
+    }
+    else {
+      this.successMessage = "Une erreur s'est produite lors de l'adhésion. Veuillez réessayer.";
     } 
+    
   }
   onRecaptchaResolved(event: any) {
     this.isRecaptchaResolved = true;

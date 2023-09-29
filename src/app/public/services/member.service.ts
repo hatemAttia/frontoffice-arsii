@@ -13,7 +13,7 @@ export class MemberService {
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
       Authorization:
-        'Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTY5NTkzOTAxOSwiZXhwIjoxNjk1OTQ5MDk5fQ.bEgaQvKtkiTXU2ugu84hzty_O4sw2YRaJgmMuiMyH7I',
+        'Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTY5NjAxMjg1OSwiZXhwIjoxNjk2MDIyOTM5fQ.NVRDoqwuLHecKlMcjGZJZnRO6NXLuJPKjRnOLFiMj_0',
     });
     return headers;
   }
@@ -31,5 +31,4 @@ export class MemberService {
     .then(res => <User[]>res.data)
     .then(data => { return data; });
   }
-
 }

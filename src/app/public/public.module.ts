@@ -35,6 +35,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { RecaptchaModule, RecaptchaFormsModule, RECAPTCHA_SETTINGS, RecaptchaSettings } from 'ng-recaptcha';
 import { DialogService, DynamicDialogModule } from 'primeng/dynamicdialog';
 import { MemberService } from './services/member.service';
+import { JoinUsService } from './services/join-us.service';
+import { OpportunityService } from './services/opportunity.service';
+import { ClubService } from './services/club.service';
 
 
 
@@ -78,6 +81,6 @@ import { MemberService } from './services/member.service';
     TableModule,
     ButtonModule
   ],
-  providers: [EventService, PartnerService, MemberService, DialogService]
+  providers: [EventService, PartnerService, MemberService, JoinUsService, OpportunityService, ClubService, DialogService]
 })
 export class PublicModule { }

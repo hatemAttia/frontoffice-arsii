@@ -17,11 +17,9 @@ export class BaseComponent implements AfterViewInit {
     private route: ActivatedRoute ) {
       this.router.events.subscribe(event => {
         if (event instanceof NavigationEnd) {
-          // Vérifiez si l'URL actuelle correspond à la route vide
           if (this.router.url === '/') {
             this.navbarlinksActive();
           } else {
-            // Réinitialisez la classe active si la route n'est pas vide
             this.resetNavbarlinks();
           }
         }
@@ -101,6 +99,16 @@ export class BaseComponent implements AfterViewInit {
     toggleButton.classList.toggle('bi-list');
     toggleButton.classList.toggle('bi-x');
     this.isMobileNavOpen = !this.isMobileNavOpen;
+
+    const signInLinks = this.el.nativeElement.querySelectorAll('.signin .scrollto');
+    const mobileNavbar = this.el.nativeElement.querySelector('#navbar .mobile-nav-toggle ul');
+    
+    signInLinks.forEach((link: HTMLElement) => {
+      if (this.isMobileNavOpen) {
+        mobileNavbar.appendChild(link.cloneNode(true)); 
+        link.remove(); 
+      } 
+    });
   }
 
   private activateMobileNavDropdown(link: HTMLElement) {

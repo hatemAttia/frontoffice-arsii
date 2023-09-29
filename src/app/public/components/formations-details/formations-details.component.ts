@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Event } from '../../types/event';
-import { Galleria} from 'primeng/galleria';
-import { PhotoService } from '../../services/photo.service';
 import { DynamicDialogConfig, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { EventService } from '../../services/event.service';
 

@@ -129,6 +129,9 @@
             <div class="col-md-12" text-center>
               <re-captcha [siteKey]="recaptchaSiteKey" (resolved)="onRecaptchaResolved($event)" class="custom-recaptcha"></re-captcha>
               <button type="submit" >Soumettre</button>
+              <div *ngIf="successMessage" class="alert {{ successMessage.includes('succès') ? 'alert-success' : 'alert-danger' }}">
+                {{ successMessage }}
+              </div>
             </div>
           </div>
         </form>

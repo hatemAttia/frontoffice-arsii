@@ -191,7 +191,7 @@ Prelaoder
 /*--------------------------------------------------------------
 # Buy Tickets
 --------------------------------------------------------------*/
-.signin {
+#navbar .signin {
   color: #fff;
   background: #16979c;
   padding: 7px 22px;
@@ -217,18 +217,19 @@ Prelaoder
   font-size: 13px;
   white-space: nowrap;
 }
-.signin:hover {
+#navbar .signin:hover {
   background: none;
   color: #fff;
 }
 
-.signin:focus {
+#navbar .signin:focus {
   color: #fff;
 }
 
 @media (max-width: 992px) {
-  .signin {
-    margin: 0 15px 0 0;
+  #navbar .signin {
+    margin: 0 15px 10px 0;
+    width: 30%;
   }
 }
 

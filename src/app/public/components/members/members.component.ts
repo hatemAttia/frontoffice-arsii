@@ -72,11 +72,7 @@ export class MembersComponent implements OnInit {
         ...this.trainingManagers,
         ...this.opportInterManagers
       ];
-      
-      
-      // Maintenant, this.allMembers contient tous les membres des différentes catégories
       console.log(this.allMembers);
-      
     });
     // localStorage.setItem('access_token', 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTY5NTk1MDMzNywiZXhwIjoxNjk1OTYwNDE3fQ.Ly6v2oJ7C-DJ8k38PY1K6DYhtLXzG9DZSxfS3HHZqa0');
     this.memberService.getMembers().then(members_static => {

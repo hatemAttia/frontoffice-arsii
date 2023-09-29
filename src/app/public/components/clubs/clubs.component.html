@@ -1,1 +1,35 @@
-<p>clubs works!</p>
+<section id="team" class="team">
+
+    <!--  Section Title -->
+    <div class="container" data-aos="fade-up">
+      <div class="section-header">
+        <h3>Clubs</h3>
+      </div>
+    </div><!-- End Section Title -->
+    <div class="container">
+        <p-carousel [value]="clubs" styleClass="custom-carousel" [numVisible]="3" [numScroll]="1" [circular]="true" [autoplayInterval]="2000" [responsiveOptions]="responsiveOptions">
+            <ng-template let-club pTemplate="item">
+                <div class="member-item">
+                    <div class="member-info text-center">
+                        <div class="p-mb-3">
+                          <div class="member-img">
+                            <img src="assets/img/issatso.png"  class="img-fluid" alt="">
+                            <!-- <img [src]="'/api/arsii/admin/event/img/'+club.logo"  class="img-fluid" alt=""> -->
+                            <div class="social">
+                              <a href="#"><i class="bi bi-instagram"></i></a>
+                              <a href=""><i class="bi bi-zoom-in"></i></a>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="">
+                            <h4 class="p-mb-1">{{club.name }}</h4>
+                            <span class="p-mt-0 p-mb-3">{{ club.location }}</span>
+                            <!-- <span [class]="'product-badge status-'+product.inventoryStatus.toLowerCase()">{{product.inventoryStatus}}</span> -->
+      
+                        </div>
+                    </div>
+                </div>
+            </ng-template>
+        </p-carousel>
+    </div>
+</section>
