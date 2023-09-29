@@ -21,7 +21,7 @@
                   <img src="assets/img/stages.jpg" alt="{{ opportunity.title }}" class="img-fluid">
                 </div>
   
-                <p class="post-category">{{ opportunity.type}}</p>
+                <p class="post-category">{{ translateType(opportunity.type)}}</p>
   
                 <h2 class="title">
                   <a [routerLink]="['/auth/signin', opportunity.id]">{{ opportunity.title }}</a>
@@ -30,7 +30,7 @@
                 <div class="d-flex align-items-center">
                   <!-- <img src="assets/img/blog/blog-author-3.jpg" alt="" class="img-fluid post-author-img flex-shrink-0"> -->
                   <div class="post-meta">
-                    <!-- <p class="post-author">{{ opportunity.former.firstName}} {{ opportunity.former.lastName}}</p> -->
+                    <p class="post-author">{{ opportunity.company}}</p>
   
                     <p class="post-date">
                       <time ><i class="bi bi-clock-fill"></i> {{ opportunity.created_at }}</time>

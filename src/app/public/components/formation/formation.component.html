@@ -14,10 +14,11 @@
       <ng-template let-formation pTemplate="item">
 
           <div data-aos="none" data-aos-delay="100">
-            <article>
+            <span class="new-label future-event label" *ngIf="isFutureFormation(formation.date)">Nouveau</span>
+            <article [ngClass]="{'future-event': isFutureFormation(formation.date)}">
 
               <div class="post-img">
-                <img [src]="'/api/arsii/admin/formation/img/'+formation.image" alt="" class="img-fluid">
+                <img [src]="'/api/arsii/visitor/img/'+formation.image" alt="" class="img-fluid">
               </div>
 
               <!-- <p class="post-category">{{ formation.typeEvent}}</p> -->

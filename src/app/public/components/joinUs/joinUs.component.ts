@@ -8,7 +8,7 @@ import { JoinUsService } from '../../services/join-us.service';
   templateUrl: './joinUs.component.html'
 })
 export class JoinUsComponent implements OnInit {
-
+  formSubmitted = false;
   joinUsForm!: FormGroup;
   currentYear!: number;
   errorMessage: string = '';
@@ -19,7 +19,18 @@ export class JoinUsComponent implements OnInit {
   hasError = false;
   isSuccess = false;
   regionsTunisie: string[] = ['Ariana', 'Béja', 'Ben Arous', 'Bizerte', 'Gabès', 'Gafsa', 'Jendouba', 'Kairouan', 'Kasserine', 'Kébili', 'Le Kef', 'Mahdia', 'Manouba', 'Médenine', 'Monastir', 'Nabeul', 'Sfax', 'Sidi Bouzid', 'Siliana', 'Sousse', 'Tataouine', 'Tozeur', 'Tunis', 'Zaghouan'];
-  officeArsii: string[] = ['Office Sousse', 'Office Sfax', 'Office Tunis'];
+  officeArsii: string[] = ['OFFICE_SFAX','OFFICE_SOUSSE','OFFICE_TUNIS'];
+  errorMessages = {
+    lastName: [
+      { type: 'required', message: 'Le nom est obligatoire.' }
+    ],
+    firstName: [
+      { type: 'required', message: 'Le prénom est obligatoire.' }
+    ],
+    phoneNumber: [
+      { type: 'required', message: 'Le numéro de téléphone est obligatoire.' }
+    ],
+  };
 
   constructor(private fb: FormBuilder,private joinUsService: JoinUsService) {
     this.currentYear = new Date().getFullYear();
@@ -34,12 +45,12 @@ export class JoinUsComponent implements OnInit {
       email: ['', [Validators.required, Validators.email]],
       phoneNumber: ['', Validators.required],
       dateOfBirth: ['', Validators.required],
-      gender: ['', Validators.required],
+      gender: ['female', Validators.required],
       password: ['', [Validators.required, Validators.minLength(8)]],
       confirm_password: ['', [Validators.required]],
       userName: ['', [Validators.required]],
       region: ['', [Validators.required]],
-      office: [''],
+      office: ['OFFICE_SOUSSE'],
       job: ['', Validators.required],
       universityOrCompany: [''],
     }, {
@@ -56,12 +67,13 @@ export class JoinUsComponent implements OnInit {
     }
 
     if (password.value === confirm_password.value) {
-      return null; // Les mots de passe correspondent
+      return null; 
     } else {
-      return { passwordMismatch: true }; // Les mots de passe ne correspondent pas
+      return { passwordMismatch: true };
     }
   }
   submitForm(): void {
+    this.formSubmitted = true;
     if (this.joinUsForm.valid && this.isRecaptchaResolved) {
       const formData = this.joinUsForm.value;
       console.log(this.joinUsForm.value);
@@ -83,7 +95,7 @@ export class JoinUsComponent implements OnInit {
       this.joinUsForm.reset();
     } 
     else {
-
+      
     }
   }
   onRecaptchaResolved(event: any) {

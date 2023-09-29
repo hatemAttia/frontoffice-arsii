@@ -17,12 +17,16 @@
               Remplir formulaire.
             </li>
             <li>
-              Payer la cotisation annuelle: <strong>25 DT</strong>
+              Payer la cotisation annuelle: <strong>30 DT</strong>
             </li>
           </ol>
           <div class="row gy-4">
             <div class="form-group  col-md-4">
               <input type="text" id="lastName" formControlName="lastName" class="form-control" placeholder="Nom (*)" required>
+              <div *ngIf="formSubmitted && joinUsForm.get('lastName')!.hasError('required')" class="text-danger">
+                {{ errorMessages.lastName[0].message }}
+              </div>
+              
             </div>
             <div class="form-group  col-md-4">
               <input type="text" id="firstName" formControlName="firstName" class="form-control" placeholder="Prénom (*)" required>
@@ -75,10 +79,10 @@
               <label>Genre (*)</label>
               <div class="radio-group">
                 <label>
-                  <input type="radio" formControlName="gender" value="Masculin"> Masculin
+                  <input type="radio" formControlName="gender" value="male"> Masculin
                 </label>
                 <label>
-                  <input type="radio" formControlName="gender" value="Féminin"> Féminin
+                  <input type="radio" formControlName="gender" value="female"> Féminin
                 </label>
               </div>
               <!-- <div *ngIf="joinUsForm.get('gender')?.hasError('required')" class="text-danger">
@@ -113,12 +117,11 @@
               <re-captcha [siteKey]="recaptchaSiteKey" (resolved)="onRecaptchaResolved($event)" class="custom-recaptcha"></re-captcha>
               <button type="submit" [disabled]="!joinUsForm.valid || !isRecaptchaResolved">Soumettre</button>
             </div>
-            
           </div>
         </form>
     </div>
     <div class="row gy-4 infos-container">
-      <div class="col-lg-6 infos" data-aos="fade-up" data-aos-delay="200">
+      <div class="col-lg-6 infos" data-aos="fade-in" data-aos-delay="200">
         
         <h4>
           ADHÉRER ARSII POUR BENÉFICIER

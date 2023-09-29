@@ -7,30 +7,30 @@
     </div>
   </div><!-- End Section Title -->
   <div class="container">
-      <div *ngIf="president" class="row gy-5 member-item text-center justify-content-center">
-        <div class="col-lg-4 col-md-6 member" data-aos="fade-up" data-aos-delay="100">
-          <div class="member-img">
-            <img src="assets/img/members/AhmedMaalel.jpeg" class="img-fluid" alt="">
-            <div class="social">
-              <a href="#"><i class="bi bi-linkedin"></i></a>
-              <a href=""><i class="bi bi-zoom-in"></i></a>
+      <div  class="row gy-0 text-center justify-content-center">
+        <div *ngIf="president" class="col-lg-4 col-md-4 col-xs-3 member-item" data-aos="fade-up" data-aos-delay="100">
+          <div class="member-info text-center">
+            <div class="mb-3">
+              <div class="member-img">
+                <img [src]="'/api/arsii/admin/event/img/'+president.image" class="img-fluid" alt="">
+                <div class="social">
+                  <a href="#"><i class="bi bi-linkedin"></i></a>
+                  <a href=""><i class="bi bi-zoom-in"></i></a>
+                </div>
+              </div>
             </div>
+            <h4 class="mb-1"> {{ president.firstName}} {{ president.lastName}}</h4>
+            <span class="mt-0 mb-3">Président national</span>
           </div>
         </div>
-        <div class="member-info text-center">
-            <h4 class="p-mb-1"> {{ president.firstName}} </h4>
-            <span class="p-mt-0 p-mb-3">Président</span>
-            <!-- <span [class]="'product-badge status-'+product.inventoryStatus.toLowerCase()">{{product.inventoryStatus}}</span> -->
-
-        </div>
       </div>
-    <p-carousel [value]="members" styleClass="custom-carousel" [numVisible]="3" [numScroll]="1" [circular]="true" [autoplayInterval]="2000" [responsiveOptions]="responsiveOptions">
+    <p-carousel [value]="allMembers" styleClass="custom-carousel" [numVisible]="3" [numScroll]="1" [circular]="true" [autoplayInterval]="2000" [responsiveOptions]="responsiveOptions">
       <ng-template let-member pTemplate="item">
           <div class="member-item">
               <div class="member-info text-center">
                   <div class="p-mb-3">
                     <div class="member-img">
-                      <img [src]="member.photo"  class="img-fluid" alt="">
+                      <img [src]="'/api/arsii/admin/event/img/'+member.image"  class="img-fluid" alt="">
                       <div class="social">
                         <a href="#"><i class="bi bi-linkedin"></i></a>
                         <a href=""><i class="bi bi-zoom-in"></i></a>
@@ -39,7 +39,7 @@
                   </div>
                   <div class="">
                       <h4 class="p-mb-1">{{member.firstName }}  {{ member.lastName}}</h4>
-                      <span class="p-mt-0 p-mb-3">{{member.post}}</span>
+                      <span class="p-mt-0 p-mb-3">{{translatePost(member.post)}}</span>
                       <!-- <span [class]="'product-badge status-'+product.inventoryStatus.toLowerCase()">{{product.inventoryStatus}}</span> -->
 
                   </div>
@@ -49,211 +49,5 @@
     </p-carousel>
 
   </div>
-  <!-- <div class="container">
-
-    <div class="row gy-5">
-
-      <div class="col-lg-4 col-md-6 member-item" data-aos="fade-up" data-aos-delay="100">
-        <div class="member-img">
-          <img src="assets/img/members/AhmedMaalel.jpeg" class="img-fluid" alt="">
-          <div class="social">
-            <a href="#"><i class="bi bi-linkedin"></i></a>
-          </div>
-        </div>
-        <div class="member-info text-center">
-          <h4>Ahmed Maalel</h4>
-          <span>PRÉSIDENT NATIONAL</span>
-
-            <p>Maître-Assistant en Informatique</p>
-            <p>Habilité à Diriger des Recherches (HDR)</p>
-            <p>Membre du Labo. RIADI-ENSI</p>
-
-        </div>
-      </div>
-
-      <div class="col-lg-4 col-md-6 member-item" data-aos="fade-up" data-aos-delay="200">
-        <div class="member-img">
-          <img src="assets/img/members/ahmedghazi.jpg" class="img-fluid" alt="">
-          <div class="social">
-            <a href="#"><i class="bi bi-facebook"></i></a>
-            <a href="#"><i class="bi bi-instagram"></i></a>
-            <a href="#"><i class="bi bi-linkedin"></i></a>
-          </div>
-        </div>
-        <div class="member-info text-center">
-          <h4>Ahmed Ghazi BLAIECH</h4>
-          <span>VICE-PRÉSIDENT</span>
-          <p>Responsable de la recherche scientifique</p>
-
-            <p>Maître-Assistant en Informatique</p>
-
-            <p>Habilité à Diriger des Recherches (HDR)</p>
-        </div>
-      </div>
-
-      <div class="col-lg-4 col-md-6 member-item" data-aos="fade-up" data-aos-delay="300">
-        <div class="member-img">
-          <img src="assets/img/members/fatma.jpg" class="img-fluid" alt="">
-          <div class="social">
-            <a href="#"><i class="bi bi-facebook"></i></a>
-            <a href="#"><i class="bi bi-instagram"></i></a>
-            <a href="#"><i class="bi bi-linkedin"></i></a>
-          </div>
-        </div>
-        <div class="member-info text-center">
-          <h4>Fatma Sbiaa</h4>
-          <span>TRÉSORIÈRE</span>
-          <p>Responsable des projets R&I</p>
-
-            <p>Docteur en Informatique</p>
-        </div>
-      </div>
-
-      <div class="col-lg-4 col-md-6 member-item" data-aos="fade-up" data-aos-delay="400">
-        <div class="member-img">
-          <img src="assets/img/members/souha.jpeg" class="img-fluid" alt="">
-          <div class="social">
-            <a href="#"><i class="bi bi-twitter"></i></a>
-            <a href="#"><i class="bi bi-facebook"></i></a>
-            <a href="#"><i class="bi bi-instagram"></i></a>
-            <a href="#"><i class="bi bi-linkedin"></i></a>
-          </div>
-        </div>
-        <div class="member-info text-center">
-          <h4>Souha bennani</h4>
-          <span>SECRÉTAIRE GÉNERALE</span>
-          <p>Responsable de Com</p>
-
-           <p>Docteur en Informatique,<br> Membre du Labo. RIADI-ENSI</p>
-        </div>
-      </div>
-
-
-      <div class="col-lg-4 col-md-6 member-item" data-aos="fade-up" data-aos-delay="500">
-        <div class="member-img">
-          <img src="assets/img/members/yosra2.jpeg" class="img-fluid" alt="">
-          <div class="social">
-            <a href="#"><i class="bi bi-facebook"></i></a>
-            <a href="#"><i class="bi bi-instagram"></i></a>
-            <a href="#"><i class="bi bi-linkedin"></i></a>
-          </div>
-        </div>
-        <div class="member-info text-center">
-          <h4>Yosra BAROUNI</h4>
-          <span>RESPONSABLE DES PROJETS</span>
-          <p>Maître Assistante en Informatique</p>
-        </div>
-      </div>
-      <div class="col-lg-4 col-md-6 member-item" data-aos="fade-up" data-aos-delay="600">
-        <div class="member-img">
-          <img src="assets/img/members/rahma.jpg" class="img-fluid" alt="">
-          <div class="social">
-            <a href="#"><i class="bi bi-twitter"></i></a>
-            <a href="#"><i class="bi bi-facebook"></i></a>
-            <a href="#"><i class="bi bi-instagram"></i></a>
-            <a href="#"><i class="bi bi-linkedin"></i></a>
-          </div>
-        </div>
-        <div class="member-info text-center">
-          <h4>Rahma Mili</h4>
-          <span>TRESORIÈRE ADJOINTE</span>
-          <p>Responsable du Dev. des compétences</p>
-
-            <p>Doctorante en Informatique,<br> Membre du labo. MIRACL, ISIM Sfax</p>
-        </div>
-      </div>
-      <div class="col-lg-4 col-md-6 member-item" data-aos="fade-up" data-aos-delay="700">
-        <div class="member-img">
-          <img src="assets/img/members/mahbouba.jpg" class="img-fluid" alt="">
-          <div class="social">
-            <a href="#"><i class="bi bi-twitter"></i></a>
-            <a href="#"><i class="bi bi-facebook"></i></a>
-            <a href="#"><i class="bi bi-instagram"></i></a>
-            <a href="#"><i class="bi bi-linkedin"></i></a>
-          </div>
-        </div>
-        <div class="member-info text-center">
-          <h4>Mahbouba HATTAB</h4>
-          <span>SECRÉTAIRE GÉNERALE ADJOINTE</span>
-          <p>Responsable Logistique</p>
-
-            <p>Doctorante en Informatique</p>
-        </div>
-      </div>
-      <div class="col-lg-4 col-md-6 member-item" data-aos="fade-up" data-aos-delay="800">
-        <div class="member-img">
-          <img src="assets/img/members/nourchene2.jpeg" class="img-fluid" alt="">
-          <div class="social">
-            <a href="#"><i class="bi bi-twitter"></i></a>
-            <a href="#"><i class="bi bi-facebook"></i></a>
-            <a href="#"><i class="bi bi-instagram"></i></a>
-            <a href="#"><i class="bi bi-linkedin"></i></a>
-          </div>
-        </div>
-        <div class="member-info text-center">
-          <h4>Nourchene OUERHANI</h4>
-          <span>RESPONSABLE R&D</span>
-          <p>Doctorante en Informatique,<br> Membre du Labo. RIADI-ENSI</p>
-
-        </div>
-      </div>
-      <div class="col-lg-4 col-md-6 member-item" data-aos="fade-up" data-aos-delay="900">
-        <div class="member-img">
-          <img src="assets/img/members/sonia3.jpg" class="img-fluid" alt="">
-          <div class="social">
-            <a href="#"><i class="bi bi-twitter"></i></a>
-            <a href="#"><i class="bi bi-facebook"></i></a>
-            <a href="#"><i class="bi bi-instagram"></i></a>
-            <a href="#"><i class="bi bi-linkedin"></i></a>
-          </div>
-        </div>
-        <div class="member-info text-center">
-          <h4>Sonia KOTEL</h4>
-          <span>RESPONSABLE LOGISTIQUE</span>
-          <p>
-
-            Docteur en Informatique</p>
-
-        </div>
-      </div>
-      <div class="col-lg-4 col-md-6 member-item" data-aos="fade-up" data-aos-delay="1000">
-        <div class="member-img">
-          <img src="assets/img/members/sonia.jpg" class="img-fluid" alt="">
-          <div class="social">
-            <a href="#"><i class="bi bi-twitter"></i></a>
-            <a href="#"><i class="bi bi-facebook"></i></a>
-            <a href="#"><i class="bi bi-instagram"></i></a>
-            <a href="#"><i class="bi bi-linkedin"></i></a>
-          </div>
-        </div>
-        <div class="member-info text-center">
-          <h4>Sonia SAHLI</h4>
-          <span>
-            RESPONSABLE DE FORMATION
-            </span>
-          <p>Maître Technologue en Informatique</p>
-
-        </div>
-      </div>
-      <div class="col-lg-4 col-md-6 member-item" data-aos="fade-up" data-aos-delay="1100">
-        <div class="member-img">
-          <img src="assets/img/members/hadil.jpg" class="img-fluid" alt="">
-          <div class="social">
-            <a href="#"><i class="bi bi-twitter"></i></a>
-            <a href="#"><i class="bi bi-facebook"></i></a>
-            <a href="#"><i class="bi bi-instagram"></i></a>
-            <a href="#"><i class="bi bi-linkedin"></i></a>
-          </div>
-        </div>
-        <div class="member-info text-center">
-          <h4>Hadil LAJILI</h4>
-          <span>RESPONSABLE DES OPPORTUNITÉS & STAGES</span>
-
-        </div>
-      </div>
-    </div>
-
-  </div> -->
-
 </section>
 

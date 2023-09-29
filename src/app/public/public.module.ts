@@ -35,7 +35,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { RecaptchaModule, RecaptchaFormsModule, RECAPTCHA_SETTINGS, RecaptchaSettings } from 'ng-recaptcha';
 import { DialogService, DynamicDialogModule } from 'primeng/dynamicdialog';
 import { MemberService } from './services/member.service';
-import { FormationService } from './services/formation.service';
+
 
 
 @NgModule({
@@ -78,6 +78,6 @@ import { FormationService } from './services/formation.service';
     TableModule,
     ButtonModule
   ],
-  providers: [EventService, PartnerService, MemberService, FormationService, DialogService]
+  providers: [EventService, PartnerService, MemberService, DialogService]
 })
 export class PublicModule { }

@@ -49,4 +49,17 @@ export class OpportunitiesComponent implements OnInit {
     return format(opportunityDate, 'dd LLLL yyyy, HH:mm');
   }
 
+  translateType(type: string): string {
+    switch (type) {
+      case 'Summer_internship':
+        return 'Stage d\'été';
+      case 'PFE':
+        return 'Projet de fin d\'étude';
+      case 'Job':
+        return 'Offre d\'emploi';
+   
+      default:
+        return 'Opportunité';
+    }
+  }
 }

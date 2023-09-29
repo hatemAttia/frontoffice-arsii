@@ -1,20 +1,20 @@
 import { Component, OnInit } from '@angular/core';
-import { FormationService } from '../../services/formation.service';
-import { Formation } from '../../types/formation';
+import { Event } from '../../types/event';
 import { Galleria} from 'primeng/galleria';
 import { PhotoService } from '../../services/photo.service';
 import { DynamicDialogConfig, DynamicDialogRef } from 'primeng/dynamicdialog';
+import { EventService } from '../../services/event.service';
 
 @Component({
   selector: 'app-formations-details',
   templateUrl: './formations-details.component.html'
 })
 export class FormationsDetailsComponent implements OnInit {
-  formation!:Formation;
+  formation!:Event;
   images!: any[];
   formationId!: number;
 
-  constructor(private formationService: FormationService,
+  constructor(private formationService: EventService,
     public ref: DynamicDialogRef, public config: DynamicDialogConfig) { 
       this.formationId = this.config.data.formationId;
     }

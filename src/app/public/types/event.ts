@@ -3,12 +3,13 @@ export interface Event {
   title: string;
   description: string;
   date: Date;
-  former: string;
-  numberOfParticipants: BigInteger;
+  formateur: string;
+  number_of_participants: number;
+  max_of_participants: number;
   location: string;
   status: boolean;
   type: string;
-  active:boolean;
+  is_activity: boolean;
   image: string;
   partner_id: number;
 }
