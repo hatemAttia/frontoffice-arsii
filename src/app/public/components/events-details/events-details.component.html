@@ -1,31 +1,35 @@
-<section id="portfolio-details" class="portfolio-details">
+<section id="portfolio-details" class="portfolio-details" *ngIf="event">
   <div class="container">
-
     <div class="row gy-4">
-
       <div class="col">
         <div class="portfolio-details-slider swiper">
           <div class="swiper-wrapper align-items-center">
-
             <div class="swiper-slide">
-              <img src="assets/img/events/AI-Challenge.png" alt="">
+              <img [src]="'/api/arsii/file/img/' + event.image" alt="" />
               <!-- <img [src]="'/api/arsii/admin/event/img/'+event.image" alt="{{ event.title }}"> -->
             </div>
-
           </div>
           <div class="swiper-pagination"></div>
         </div>
       </div>
     </div>
-      <div class="row gy-4">
+    <div class="row gy-4">
       <div class="col">
         <div class="portfolio-info">
           <!-- <h3>{{ event.title }}</h3> -->
           <ul>
-            <li><strong>Date</strong>: {{ event.date | date: 'dd LLLL yyyy, HH:mm' }}</li>
-            <li><strong>Localisation: {{ event.location }}</strong></li>
-            <li><strong>Partenaire</strong>: {{event.partner_id}}</li>
-            <li><strong>Lien d'inscription</strong>: <a href="#">www.example.com</a></li>
+            <li>
+              <strong>Date</strong>:
+              {{ event.date | date : "dd LLLL yyyy, HH:mm" }}
+            </li>
+            <li>
+              <strong>Localisation: {{ event.location }}</strong>
+            </li>
+            <li><strong>Partenaire</strong>: {{ event.partner_id }}</li>
+            <li>
+              <strong>Lien d'inscription</strong>:
+              <a href="#">www.example.com</a>
+            </li>
           </ul>
         </div>
         <div class="portfolio-description">
@@ -35,8 +39,6 @@
           </p>
         </div>
       </div>
-
     </div>
-
   </div>
 </section>

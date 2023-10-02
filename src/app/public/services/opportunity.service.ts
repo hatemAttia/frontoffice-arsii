@@ -4,20 +4,16 @@ import { Observable } from 'rxjs';
 import { Opportunity } from '../types/opportunity';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class OpportunityService {
-
-  private opportunitiesUrl = '/api/arsii/admin/opportunity';
+  private opportunitiesUrl = '/api/arsii/visitor/allOportunity';
   opportunityId!: number;
 
-
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
   createRequestOptions() {
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
-      Authorization:
-        'Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTY5NjAxMjg1OSwiZXhwIjoxNjk2MDIyOTM5fQ.NVRDoqwuLHecKlMcjGZJZnRO6NXLuJPKjRnOLFiMj_0',
     });
     return headers;
   }
@@ -30,7 +26,7 @@ export class OpportunityService {
   }
 
   getOpportunityById(opportunityId: number): Observable<Opportunity> {
-    const url = `${this.opportunitiesUrl}/${opportunityId}`; 
+    const url = `${this.opportunitiesUrl}/${opportunityId}`;
     const headers = this.createRequestOptions();
 
     return this.http.get<Opportunity>(url, { headers });

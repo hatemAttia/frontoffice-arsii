@@ -7,33 +7,34 @@ import { EventsDetailsComponent } from '../events-details/events-details.compone
 
 @Component({
   selector: 'app-events',
-  templateUrl: './events.component.html'
+  templateUrl: './events.component.html',
 })
 export class EventsComponent implements OnInit {
-  events: Event[]=[];
-  event!:Event;
+  events: Event[] = [];
+  event!: Event;
   responsiveOptions;
-  constructor( 
+  constructor(
     private eventService: EventService,
-    public dialogService: DialogService) {
+    public dialogService: DialogService
+  ) {
     this.responsiveOptions = [
       {
-          breakpoint: '1024px',
-          numVisible: 3,
-          numScroll: 3
+        breakpoint: '1024px',
+        numVisible: 3,
+        numScroll: 3,
       },
       {
-          breakpoint: '768px',
-          numVisible: 1,
-          numScroll: 1
+        breakpoint: '768px',
+        numVisible: 1,
+        numScroll: 1,
       },
       {
-          breakpoint: '560px',
-          numVisible: 1,
-          numScroll: 1
-      }
+        breakpoint: '560px',
+        numVisible: 1,
+        numScroll: 1,
+      },
     ];
-   }
+  }
 
   ngOnInit(): void {
     this.eventService.getEvents().subscribe((data: Event[]) => {
@@ -43,7 +44,7 @@ export class EventsComponent implements OnInit {
   }
 
   ref!: DynamicDialogRef;
-  
+
   isFutureEvent(eventDate: string): boolean {
     const eventDateObj = new Date(eventDate);
     return eventDateObj > new Date();
@@ -54,20 +55,19 @@ export class EventsComponent implements OnInit {
       this.event = data;
     });
     this.ref = this.dialogService.open(EventsDetailsComponent, {
-        data: {
-          eventId: eventId
-        },
-        header: this.event.title,
-        width: '70%',
-        contentStyle: {"max-height": "500px", "overflow": "auto"},
-        baseZIndex: 10000
+      data: {
+        eventId: eventId,
+      },
+      header: this.event?.title,
+      width: '70%',
+      contentStyle: { 'max-height': '500px', overflow: 'auto' },
+      baseZIndex: 10000,
     });
   }
 
   ngOnDestroy() {
-      if (this.ref) {
-          this.ref.close();
-      }
+    if (this.ref) {
+      this.ref.close();
+    }
   }
-  
 }

@@ -1,53 +1,66 @@
 <section id="events" class="events">
-
   <!--  Section Title -->
   <div class="container" data-aos="fade-up">
-  <div class="section-header">
-    <h3>Evènements</h3>
+    <div class="section-header">
+      <h3>Evènements</h3>
+    </div>
   </div>
-  </div><!-- End Section Title -->
+  <!-- End Section Title -->
 
   <div class="container">
+    <p-carousel
+      [value]="events"
+      styleClass="custom-carousel"
+      [numVisible]="3"
+      [numScroll]="1"
+      [circular]="true"
+      [autoplayInterval]="30000"
+      [responsiveOptions]="responsiveOptions"
+    >
+      <ng-template let-event pTemplate="item">
+        <div data-aos="none" data-aos-delay="100">
+          <span
+            class="new-label future-event label"
+            *ngIf="isFutureEvent(event.date)"
+            >Nouveau</span
+          >
+          <article [ngClass]="{ 'future-event': isFutureEvent(event.date) }">
+            <div class="post-img">
+              <img
+                [src]="'/api/arsii/file/img/' + event.image"
+                alt=""
+                class="img-fluid"
+              />
+              <!-- <img src="assets/img/events/AI-Challenge.png" alt="{{ event.title }}" class="img-fluid"> -->
+            </div>
 
-    <p-carousel [value]="events"  styleClass="custom-carousel" [numVisible]="3" [numScroll]="1" [circular]="true" [autoplayInterval]="2000" [responsiveOptions]="responsiveOptions">
-      <ng-template let-event pTemplate="item" >
+            <!-- <p class="post-category">{{ event.type}}</p> -->
 
-          <div data-aos="none" data-aos-delay="100">
-            <span class="new-label future-event label" *ngIf="isFutureEvent(event.date)">Nouveau</span>
-            <article [ngClass]="{'future-event': isFutureEvent(event.date)}">
-              <div class="post-img">
-                <img [src]="'/api/arsii/admin/event/img/'+event.image" alt="" class="img-fluid">
-                <!-- <img src="assets/img/events/AI-Challenge.png" alt="{{ event.title }}" class="img-fluid"> -->
+            <h2 class="title">
+              <!-- <a [routerLink]="['/events-details', event.id]">{{ event.title }}</a> -->
+              <a (click)="show(event.id)">{{ event.title }}</a>
+            </h2>
+
+            <div class="d-flex align-items-center">
+              <!-- <img src="assets/img/blog/blog-author-3.jpg" alt="" class="img-fluid post-author-img flex-shrink-0"> -->
+              <div class="post-meta">
+                <!-- <p class="post-author">{{ event.former.firstName}} {{ event.former.lastName}}</p> -->
+
+                <p class="post-date">
+                  <time
+                    ><i class="bi bi-clock-fill"></i>
+                    {{ event.date | date : "dd LLLL yyyy, HH:mm" }}</time
+                  >
+                </p>
+                <p class="post-address">
+                  <i class="bi bi-geo-alt-fill"></i> {{ event.location }}
+                </p>
               </div>
-
-              <!-- <p class="post-category">{{ event.type}}</p> -->
-
-              <h2 class="title">
-                <!-- <a [routerLink]="['/events-details', event.id]">{{ event.title }}</a> -->
-                <a (click)="show(event.id)">{{ event.title }}</a>
-
-              </h2>
-
-              <div class="d-flex align-items-center">
-                <!-- <img src="assets/img/blog/blog-author-3.jpg" alt="" class="img-fluid post-author-img flex-shrink-0"> -->
-                <div class="post-meta">
-                  <!-- <p class="post-author">{{ event.former.firstName}} {{ event.former.lastName}}</p> -->
-
-                  <p class="post-date">
-                    <time ><i class="bi bi-clock-fill"></i> {{ event.date | date: 'dd LLLL yyyy, HH:mm' }}</time>
-                  </p>
-                  <p class="post-address"><i class="bi bi-geo-alt-fill"></i> {{ event.location }}</p>
-
-                </div>
-              </div>
-              <!-- <a (click)="show(event.id)" class="readmore stretched-link"><span>Voir Détails</span><i class="bi bi-arrow-right"></i></a> -->
-            </article>
-          </div>
-
+            </div>
+            <!-- <a (click)="show(event.id)" class="readmore stretched-link"><span>Voir Détails</span><i class="bi bi-arrow-right"></i></a> -->
+          </article>
+        </div>
       </ng-template>
     </p-carousel>
   </div>
-
 </section>
-
-

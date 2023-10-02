@@ -1,31 +1,39 @@
-<section id="portfolio-details" class="portfolio-details">
+<section id="portfolio-details" class="portfolio-details" *ngIf="formation">
   <div class="container">
-
     <div class="row gy-4">
-
       <div class="col">
         <div class="portfolio-details-slider swiper">
           <div class="swiper-wrapper align-items-center">
-
-            <div class="swiper-slide">
-              <img src="assets/img/events/AI-Challenge.png" alt="">
+            <div class="swiper-slide" *ngIf="formation">
+              <img
+                [src]="'/api/arsii/file/img/' + formation.image"
+                alt=""
+                class="img-fluid"
+              />
               <!-- <img [src]="'/api/arsii/admin/formation/img/'+formation.image" alt="{{ formation.title }}"> -->
             </div>
-
           </div>
           <div class="swiper-pagination"></div>
         </div>
       </div>
     </div>
-      <div class="row gy-4">
+    <div class="row gy-4">
       <div class="col">
         <div class="portfolio-info">
           <!-- <h3>{{ formation.title }}</h3> -->
-          <ul>
-            <li><strong>Date</strong>: {{ formation.date | date: 'dd LLLL yyyy, HH:mm' }}</li>
-            <li><strong>Localisation: {{ formation.location }}</strong></li>
-            <li><strong>Partenaire</strong>: {{formation.partner_id}}</li>
-            <li><strong>Lien d'inscription</strong>: <a href="#">www.example.com</a></li>
+          <ul *ngIf="formation">
+            <li>
+              <strong>Date</strong>:
+              {{ formation.date | date : "dd LLLL yyyy, HH:mm" }}
+            </li>
+            <li>
+              <strong>Localisation: {{ formation.location }}</strong>
+            </li>
+            <li><strong>Partenaire</strong>: {{ formation.partner_id }}</li>
+            <li>
+              <strong>Lien d'inscription</strong>:
+              <a href="#">www.example.com</a>
+            </li>
           </ul>
         </div>
         <div class="portfolio-description">
@@ -35,8 +43,6 @@
           </p>
         </div>
       </div>
-
     </div>
-
   </div>
 </section>

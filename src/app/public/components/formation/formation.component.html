@@ -9,41 +9,58 @@
 
   <!-- Carousel -->
   <div class="container">
-    
-    <p-carousel [value]="formations" styleClass="custom-carousel" [numVisible]="3" [numScroll]="1" [circular]="true" [autoplayInterval]="2000" [responsiveOptions]="responsiveOptions">
+    <p-carousel
+      [value]="formations"
+      styleClass="custom-carousel"
+      [numVisible]="3"
+      [numScroll]="1"
+      [circular]="true"
+      [autoplayInterval]="30000"
+      [responsiveOptions]="responsiveOptions"
+    >
       <ng-template let-formation pTemplate="item">
+        <div data-aos="none" data-aos-delay="1000">
+          <span
+            class="new-label future-event label"
+            *ngIf="isFutureFormation(formation.date)"
+            >Nouveau</span
+          >
+          <article
+            [ngClass]="{ 'future-event': isFutureFormation(formation.date) }"
+          >
+            <div class="post-img">
+              <img
+                [src]="'/api/arsii/file/img/' + formation.image"
+                alt=""
+                class="img-fluid"
+              />
+            </div>
 
-          <div data-aos="none" data-aos-delay="100">
-            <span class="new-label future-event label" *ngIf="isFutureFormation(formation.date)">Nouveau</span>
-            <article [ngClass]="{'future-event': isFutureFormation(formation.date)}">
+            <!-- <p class="post-category">{{ formation.typeEvent}}</p> -->
 
-              <div class="post-img">
-                <img [src]="'/api/arsii/visitor/img/'+formation.image" alt="" class="img-fluid">
+            <h2 class="title">
+              <a (click)="show(formation.id)">{{ formation.title }}</a>
+            </h2>
+
+            <div class="d-flex align-items-center">
+              <!-- <img src="assets/img/blog/blog-author-3.jpg" alt="" class="img-fluid post-author-img flex-shrink-0"> -->
+              <div class="post-meta">
+                <!-- <p class="post-author">{{ formation.former.firstName}} {{ formation.former.lastName}}</p> -->
+
+                <p class="post-date">
+                  <time datetime="2022-01-01"
+                    ><i class="bi bi-clock-fill"></i>
+                    {{ formation.date | date : "dd LLLL yyyy, HH:mm" }}</time
+                  >
+                </p>
+                <p class="post-address">
+                  <i class="bi bi-geo-alt-fill"></i> {{ formation.location }}
+                </p>
               </div>
-
-              <!-- <p class="post-category">{{ formation.typeEvent}}</p> -->
-
-              <h2 class="title">
-                <a (click)="show(formation.id)">{{ formation.title }}</a>
-              </h2>
-
-              <div class="d-flex align-items-center">
-                <!-- <img src="assets/img/blog/blog-author-3.jpg" alt="" class="img-fluid post-author-img flex-shrink-0"> -->
-                <div class="post-meta">
-                  <!-- <p class="post-author">{{ formation.former.firstName}} {{ formation.former.lastName}}</p> -->
-
-                  <p class="post-date">
-                    <time datetime="2022-01-01"><i class="bi bi-clock-fill"></i> {{ formation.date | date: 'dd LLLL yyyy, HH:mm' }}</time>
-                  </p>
-                  <p class="post-address"><i class="bi bi-geo-alt-fill"></i> {{ formation.location }}</p>
-
-                </div>
-              </div>
-            </article>
-          </div>
-
+            </div>
+          </article>
+        </div>
       </ng-template>
     </p-carousel>
   </div>
 </section>
-

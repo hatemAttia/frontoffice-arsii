@@ -4,17 +4,14 @@ import { Observable } from 'rxjs';
 import { Club } from '../types/club';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ClubService {
-
-  private clubsUrl = '/api/arsii/admin/club/allclub';
+  private clubsUrl = '/api/arsii/visitor/allClub';
 
   createRequestOptions() {
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
-      Authorization:
-        'Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTY5NjAxMjg1OSwiZXhwIjoxNjk2MDIyOTM5fQ.NVRDoqwuLHecKlMcjGZJZnRO6NXLuJPKjRnOLFiMj_0',
     });
     return headers;
   }
