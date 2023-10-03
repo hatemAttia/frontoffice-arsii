@@ -11,9 +11,7 @@ export class PartnerService {
   createRequestOptions() {
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
-      Authorization:
-        'Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTY5NTQ2ODY1MCwiZXhwIjoxNjk1NDc4NzMwfQ.RKi1iAitW1k3WtQQACyiUT9aLN-FYAikvC2b0xziqW4',
-    });
+      });
     return headers;
   }
   constructor(private http: HttpClient) {}

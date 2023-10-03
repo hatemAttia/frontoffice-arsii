@@ -16,9 +16,6 @@ export class JoinUsComponent implements OnInit {
   recaptchaSiteKey: string = '6LdvMzcoAAAAAKCCiDznKQlqz5oovlC2ArYIXyN4'; 
   isRecaptchaResolved: boolean = false;
   successMessage: string = '';
-  isLoading = false;
-  hasError = false;
-  isSuccess = false;
   regionsTunisie: string[] = ['Ariana', 'Béja', 'Ben Arous', 'Bizerte', 'Gabès', 'Gafsa', 'Jendouba', 'Kairouan', 'Kasserine', 'Kébili', 'Le Kef', 'Mahdia', 'Manouba', 'Médenine', 'Monastir', 'Nabeul', 'Sfax', 'Sidi Bouzid', 'Siliana', 'Sousse', 'Tataouine', 'Tozeur', 'Tunis', 'Zaghouan'];
   officeArsii: string[] = ['OFFICE_SFAX','OFFICE_SOUSSE','OFFICE_TUNIS'];
 
@@ -65,26 +62,27 @@ export class JoinUsComponent implements OnInit {
   submitForm(): void {
     if (this.joinUsForm.valid && this.isRecaptchaResolved) {
       const formData = this.joinUsForm.value;
+      // const userName = this.joinUsForm.get('userName')?.value;
+      // const email = this.joinUsForm.get('email')?.value;
       console.log(this.joinUsForm.value);
       this.joinUsService.sendFormData(formData).subscribe(
         (response) => {
-          console.log('Réponse du serveur :', response);
-          this.joinUsForm.reset(); 
-          this.isSuccess = true; 
           this.successMessage = "L'adhésion a été effectuée avec succès."; 
           this.isRecaptchaResolved = false;
+          this.joinUsForm.reset(); 
         },
-        (error) => {
-          console.error('Erreur lors de la soumission du formulaire :', error);
-          this.hasError = true; 
-          this.errorMessage = 'Une erreur s\'est produite. Veuillez réessayer plus tard.'; 
+        (error) => { 
+          if (error.status === 409) {
+            this.errorMessage = "Cet email ou nom d'utilisateur est déjà utilisé par un autre utilisateur.";
+          } else if (error.status === 422) {
+            this.errorMessage = "Une erreur de validation s'est produite. Veuillez vérifier vos informations.";
+          } else {
+            this.errorMessage = "Une erreur s'est produite lors de l'adhésion. Veuillez réessayer.";
+          }
+          
         }
       );
-    }
-    else {
-      this.successMessage = "Une erreur s'est produite lors de l'adhésion. Veuillez réessayer.";
-    } 
-    
+    }   
   }
   onRecaptchaResolved(event: any) {
     this.isRecaptchaResolved = true;

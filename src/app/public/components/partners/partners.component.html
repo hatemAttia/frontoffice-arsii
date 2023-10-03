@@ -9,7 +9,7 @@
 
       <div class="col-lg-2 col-md-4 col-xs-6" *ngFor="let partner of partners">
         <div class="partner-logo">
-          <img [src]="'/api/arsii/admin/formation/img/'+partner.image" class="img-fluid" alt="{{ partner.name }}">
+          <img [src]="'/api/arsii/file/img/' +partner.image" class="img-fluid" alt="{{ partner.name }}">
         </div>
       </div>
 
