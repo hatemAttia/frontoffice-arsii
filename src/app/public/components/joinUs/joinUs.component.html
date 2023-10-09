@@ -22,60 +22,60 @@
           </ol>
           <div class="row gy-4">
             <div class="form-group  col-md-4">
-              <label for="region">Nom (*)</label>
+              <label for="lastName">Nom (*)</label>
               <input type="text" id="lastName" formControlName="lastName" class="form-control">
               <span class="help-block" *ngIf="!joinUsForm.get('lastName')?.valid&&joinUsForm.get('lastName')?.touched">
                 {{requiredField}}
               </span>
             </div>
             <div class="form-group  col-md-4">
-              <label for="region">Prénom (*)</label>
+              <label for="firstName">Prénom (*)</label>
               <input type="text" id="firstName" formControlName="firstName" class="form-control">
               <span class="help-block" *ngIf="!joinUsForm.get('firstName')?.valid&&joinUsForm.get('firstName')?.touched">
                 {{requiredField}}
                </span>
             </div>
             <div class="form-group  col-md-4">
-              <label for="region">Téléphone (*)</label>
+              <label for="phoneNumber">Téléphone (*)</label>
               <input type="text" id="phoneNumber" formControlName="phoneNumber" class="form-control">
               <span class="help-block" *ngIf="!joinUsForm.get('phoneNumber')?.valid && joinUsForm.get('phoneNumber')?.touched">
                 Veuillez entrer un numéro de téléphone valide 
                </span>
             </div>
             <div class="form-group col-md-4">
-              <label for="region">Date de naissance</label>
+              <label for="dateOfBirth">Date de naissance</label>
               <input type="date" id="dateOfBirth" formControlName="dateOfBirth" class="form-control">
             </div>
             <div class="form-group  col-md-4">
-              <label for="region">Email (*)</label>
+              <label for="email">Email (*)</label>
               <input type="email" id="email" formControlName="email" class="form-control">
               <span class="help-block" *ngIf="!joinUsForm.get('email')?.valid && joinUsForm.get('email')?.touched">
                 Veuillez entrer un email valide.
                </span>
             </div>
             <div class="form-group  col-md-4">
-              <label for="region">Mot de passe (*)</label>
+              <label for="password">Mot de passe (*)</label>
               <input type="password" id="password" formControlName="password" class="form-control" >
               <span class="help-block" *ngIf="!joinUsForm.get('password')?.valid && joinUsForm.get('password')?.touched">
                 Le mot de passe doit contenir au moins 8 caractères
                </span>
             </div>
             <div class="form-group  col-md-4">
-              <label for="region">Confirmer votre mot de passe</label>
+              <label for="confirm_password">Confirmer votre mot de passe</label>
               <input type="password" id="confirm_password" formControlName="confirm_password" class="form-control">
               <span class="help-block" *ngIf="joinUsForm.hasError('passwordMismatch')">
                 Les mots de passe ne correspondent pas.
               </span>
             </div>
             <div class="form-group  col-md-4">
-              <label for="region">Nom d'utilisateur (*)</label>
+              <label for="userName">Nom d'utilisateur (*)</label>
               <input type="text" id="userName" formControlName="userName" class="form-control">
               <span class="help-block" *ngIf="!joinUsForm.get('userName')?.valid&&joinUsForm.get('userName')?.touched">
                 {{requiredField}}
               </span>
             </div>
             <div class="form-group col-md-4">
-              <label for="region">Bureau ARSII</label>
+              <label for="office">Bureau ARSII</label>
               <select id="office" formControlName="office" class="form-control">
                 <option value="">Sélectionnez un office</option>
                 <option *ngFor="let office of officeArsii" [value]="office">{{ office }}</option>
@@ -92,15 +92,15 @@
               </span>
             </div>
             <div class="form-group  col-md-4">
-              <label>Situation Professionnelle</label>
+              <label for="job">Situation Professionnelle</label>
               <input id="job" formControlName="job" class="form-control">
             </div>
             <div class="form-group col-md-4">
-              <label>Établissement</label>
+              <label for="universityOrCompany">Établissement</label>
               <input type="text" id="universityOrCompany" formControlName="universityOrCompany" class="form-control">
             </div>
             <div class="form-group col-md-4">
-              <label>Genre</label>
+              <label for="gender">Genre</label>
               <div class="radio-group">
                 <label>
                   <input type="radio" formControlName="gender" value="male"> Masculin

@@ -18,7 +18,7 @@ export class FormationsDetailsComponent implements OnInit {
     }
 
   ngOnInit(): void {
-    this.formationService.getFormationById(this.formationId).subscribe((data) => {
+    this.formationService.getEventById(this.formationId).subscribe((data) => {
       this.formation = data;
     });
 

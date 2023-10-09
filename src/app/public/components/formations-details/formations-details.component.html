@@ -1,8 +1,9 @@
-<section id="portfolio-details" class="portfolio-details" *ngIf="formation">
+<section id="event-details" class="event-details" *ngIf="formation">
+  <h3>{{ formation.title }}</h3>
   <div class="container">
     <div class="row gy-4">
       <div class="col">
-        <div class="portfolio-details-slider swiper">
+        <div class="event-details-slider swiper">
           <div class="swiper-wrapper align-items-center">
             <div class="swiper-slide" *ngIf="formation">
               <img
@@ -10,7 +11,6 @@
                 alt=""
                 class="img-fluid"
               />
-              <!-- <img [src]="'/api/arsii/admin/formation/img/'+formation.image" alt="{{ formation.title }}"> -->
             </div>
           </div>
           <div class="swiper-pagination"></div>
@@ -19,8 +19,7 @@
     </div>
     <div class="row gy-4">
       <div class="col">
-        <div class="portfolio-info">
-          <!-- <h3>{{ formation.title }}</h3> -->
+        <div class="event-info">
           <ul *ngIf="formation">
             <li>
               <strong>Date</strong>:
@@ -29,14 +28,14 @@
             <li>
               <strong>Localisation: {{ formation.location }}</strong>
             </li>
-            <li><strong>Partenaire</strong>: {{ formation.partner_id }}</li>
+            <!-- <li><strong>Partenaire</strong>: {{ formation.partner_id }}</li>
             <li>
               <strong>Lien d'inscription</strong>:
               <a href="#">www.example.com</a>
-            </li>
+            </li> -->
           </ul>
         </div>
-        <div class="portfolio-description">
+        <div class="event-description">
           <!-- <h2>This is an example of portfolio detail</h2> -->
           <p>
             {{ formation.description }}

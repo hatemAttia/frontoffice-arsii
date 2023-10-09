@@ -1,11 +1,16 @@
-<section id="event-details" class="event-details" *ngIf="event">
+<section id="event-details" class="event-details" *ngIf="opportunity">
+  <h3>{{ opportunity.title }}</h3>
   <div class="container">
     <div class="row gy-4">
       <div class="col">
         <div class="event-details-slider swiper">
           <div class="swiper-wrapper align-items-center">
-            <div class="swiper-slide">
-              <img [src]="'/api/arsii/file/img/' + event.image" alt="{{ event.title }}" />
+            <div class="swiper-slide" *ngIf="opportunity">
+              <img
+                [src]="'/api/arsii/file/img/' + opportunity.image"
+                alt=""
+                class="img-fluid"
+              />
             </div>
           </div>
           <div class="swiper-pagination"></div>
@@ -15,26 +20,20 @@
     <div class="row gy-4">
       <div class="col">
         <div class="event-info">
-          <!-- <h3>{{ event.title }}</h3> -->
-          <ul>
+          <ul *ngIf="opportunity">
             <li>
               <strong>Date</strong>:
-              {{ event.date | date : "dd LLLL yyyy, HH:mm" }}
+              {{ opportunity.createdAt | date : "dd LLLL yyyy, HH:mm" }}
             </li>
             <li>
-              <strong>Localisation: {{ event.location }}</strong>
+              <strong>Sociétés: {{ opportunity.company }}</strong>
             </li>
-            <!-- <li><strong>Partenaire</strong>: {{ event.partner_id }}</li>
-            <li>
-              <strong>Lien d'inscription</strong>:
-              <a href="#">www.example.com</a>
-            </li> -->
           </ul>
         </div>
         <div class="event-description">
           <!-- <h2>This is an example of portfolio detail</h2> -->
           <p>
-            {{ event.description }}
+            {{ opportunity.description }}
           </p>
         </div>
       </div>

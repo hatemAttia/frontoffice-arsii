@@ -229,7 +229,7 @@ Prelaoder
 @media (max-width: 992px) {
   #navbar .signin {
     margin: 0 15px 10px 0;
-    width: 30%;
+    width: 40%;
   }
 }
 
@@ -935,7 +935,8 @@ input.ng-invalid.ng-touched{
   }
 }
 
-.about .tab-content h4 {
+.about .tab-content h4 ,
+.about .tab-content p {
   font-size: 15px;
   margin: 0;
   font-weight: 700;
@@ -958,11 +959,16 @@ input.ng-invalid.ng-touched{
   padding: 20px;
   height: 400px;
   width: auto;
-  border-radius: 4px;
+  border-radius: 8px;
   overflow: hidden;
   transition: 0.3s;
   margin: 10px 20px;
-  border: 1px solid #eee;
+  // border: 1px solid #eee;
+  cursor: pointer;
+}
+
+.events article:hover {
+  box-shadow: rgba(0, 0, 0, 0.733) 0px 3px 8px;
 }
 
 .events .post-img {
@@ -991,7 +997,7 @@ input.ng-invalid.ng-touched{
   font-size: 18px;
   font-weight: 600;
   padding: 0;
-  // margin: 0 0 20px 0;
+  margin-top: 20px;
 }
 
 .events .title a {
@@ -1005,6 +1011,7 @@ input.ng-invalid.ng-touched{
 
 .events .post-meta {
   width: 100%;
+  // bottom: 5rem;
 }
 
 .events .post-author-img {
@@ -1013,6 +1020,21 @@ input.ng-invalid.ng-touched{
   margin-right: 15px;
 }
 
+@media (max-width: 767px) {
+  .events .title {
+    font-size: 14px;
+    font-weight: 600;
+    padding: 0;
+    // margin: 0 0 20px 0;
+    margin-top: 10px;
+  }
+
+  .event .post-date,
+  .event .post-author {
+    font-size: 10px;
+  }
+
+}
 .events article:hover .post-img img {
   transform: scale(1.1);
 }
@@ -1045,21 +1067,21 @@ input.ng-invalid.ng-touched{
   margin-right: 5px;
 }
 .events article .readmore {
-  position: relative;
-  bottom: 0;
+  position: absolute;
+  bottom: 1rem;
   display: flex;
   align-items: center;
+  text-align: right;
   font-weight: 600;
+  font-size: 14px;
   line-height: 1;
   transition: 0.3s;
-  margin-top: 15px;
   z-index: 100;
 }
 
-.events .readmore i {
-  line-height: 0;
-  margin-left: 4px;
-  font-size: 18px;
+.events .readmore:hover {
+  transform: scale(0.9);
+  color: #3eb6ba;
 }
 
 .events .carousel-control-prev,
@@ -1119,6 +1141,8 @@ input.ng-invalid.ng-touched{
 .new-label {
   position: absolute; 
   background-color: #16979c; 
+  margin-left: -20px;
+  margin-top: -20px;
   padding: 10px;
   display: inline;
   font-size: 75%;
@@ -1323,6 +1347,180 @@ input.ng-invalid.ng-touched{
   padding-bottom: 0;
   visibility: visible;
   opacity: 1;
+}
+/*--------------------------------------------------------------
+# Portfolio Details
+--------------------------------------------------------------*/
+.p-dialog .p-dialog-header {
+  border-bottom: 0 none;
+  background: #ffffff;
+  color: #343a40;
+  padding: 1.5rem;
+  border-top-right-radius: 6px;
+  border-top-left-radius: 6px;
+}
+
+.event-details {
+  padding-top: 40px;
+}
+
+.event-details .event-details-slider img {
+  width: 100%;
+}
+
+.event-details .event-details-slider .swiper-pagination {
+  margin-top: 20px;
+  position: relative;
+}
+
+.event-details .event-details-slider .swiper-pagination .swiper-pagination-bullet {
+  width: 12px;
+  height: 12px;
+  background-color: #fff;
+  opacity: 1;
+  border: 1px solid #f82249;
+}
+
+.event-details .event-details-slider .swiper-pagination .swiper-pagination-bullet-active {
+  background-color: #f82249;
+}
+
+.event-details .event-info {
+  padding: 30px;
+  box-shadow: 0px 0 30px rgba(85, 98, 112, 0.08);
+}
+
+.event-details .event-info h3 {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #eee;
+}
+
+.event-details .event-info ul {
+  list-style: none;
+  padding: 0;
+  font-size: 15px;
+}
+
+.event-details .event-info ul li+li {
+  margin-top: 10px;
+}
+
+.event-details .event-description {
+  padding-top: 30px;
+}
+
+.event-details .event-description h2 {
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.event-details .event-description p {
+  padding: 0;
+}
+
+/* Medias Section - Home Page
+------------------------------*/
+.medias .medias-filters {
+  padding: 0;
+  margin: 0 auto 20px auto;
+  list-style: none;
+  text-align: center;
+}
+
+.medias .medias-filters li {
+  cursor: pointer;
+  display: inline-block;
+  padding: 8px 20px 10px 20px;
+  margin: 0;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1;
+  margin-bottom: 5px;
+  border-radius: 50px;
+  transition: all 0.3s ease-in-out;
+  font-family:  "Lato", sans-serif;
+}
+
+.medias .medias-filters li:hover,
+.medias .medias-filters li.filter-active {
+  color: #ffffff;
+  background-color: #16979c;
+}
+
+.medias .medias-filters li:first-child {
+  margin-left: 0;
+}
+
+.medias .medias-filters li:last-child {
+  margin-right: 0;
+}
+
+@media (max-width: 575px) {
+  .medias .medias-filters li {
+    font-size: 14px;
+    margin: 0 0 10px 0;
+  }
+}
+
+.medias .medias-item {
+  position: relative;
+  overflow: hidden;
+}
+
+.medias .medias-item .medias-info {
+  opacity: 0;
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  bottom: -100%;
+  z-index: 3;
+  transition: all ease-in-out 0.5s;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 15px;
+}
+
+.medias .medias-item .medias-info h4 {
+  color: #32353a;
+  font-size: 18px;
+  font-weight: 600;
+  padding-right: 50px;
+}
+
+.medias .medias-item .medias-info p {
+  color: rgba(33, 37, 41, 0.7);
+  font-size: 14px;
+  margin-bottom: 0;
+  padding-right: 50px;
+}
+
+.medias .medias-item .medias-info .preview-link,
+.medias .medias-item .medias-info .details-link {
+  position: absolute;
+  right: 50px;
+  font-size: 24px;
+  top: calc(50% - 14px);
+  color: rgba(146, 140, 140, 0.7);
+  transition: 0.3s;
+  line-height: 0;
+}
+
+.medias .medias-item .medias-info .preview-link:hover,
+.medias .medias-item .medias-info .details-link:hover {
+  color: #16979c;
+}
+
+.medias .medias-item .medias-info .details-link {
+  right: 14px;
+  font-size: 28px;
+}
+
+.medias .medias-item:hover .medias-info {
+  opacity: 1;
+  bottom: 0;
 }
 
 /*--------------------------------------------------------------

@@ -4,5 +4,6 @@ export interface Opportunity {
     description: string;
     type: string;
     company: string;
-    created_at: Date;
+    image: string;
+    createdAt: Date;
 }

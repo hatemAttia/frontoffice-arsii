@@ -18,15 +18,6 @@ export class MemberService {
   constructor(private http: HttpClient) {}
 
   getAllMembers(): Observable<User[]> {
-    const headers = this.createRequestOptions();
-    return this.http.get<User[]>(this.membersUrl, {
-      // headers: headers,
-    });
-  }
-  getMembers() {
-    return this.http.get<any>('assets/members.json')
-    .toPromise()
-    .then(res => <User[]>res.data)
-    .then(data => { return data; });
+    return this.http.get<User[]>(this.membersUrl);
   }
 }
