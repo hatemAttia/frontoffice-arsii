@@ -22,58 +22,67 @@
           </ol>
           <div class="row gy-4">
             <div class="form-group  col-md-4">
-              <input type="text" id="lastName" formControlName="lastName" class="form-control" placeholder="Nom (*)">
+              <label for="lastName">Nom (*)</label>
+              <input type="text" id="lastName" formControlName="lastName" class="form-control">
               <span class="help-block" *ngIf="!joinUsForm.get('lastName')?.valid&&joinUsForm.get('lastName')?.touched">
                 {{requiredField}}
               </span>
             </div>
             <div class="form-group  col-md-4">
-              <input type="text" id="firstName" formControlName="firstName" class="form-control" placeholder="Prénom (*)">
+              <label for="firstName">Prénom (*)</label>
+              <input type="text" id="firstName" formControlName="firstName" class="form-control">
               <span class="help-block" *ngIf="!joinUsForm.get('firstName')?.valid&&joinUsForm.get('firstName')?.touched">
                 {{requiredField}}
                </span>
             </div>
             <div class="form-group  col-md-4">
-              <input type="text" id="phoneNumber" formControlName="phoneNumber" class="form-control" placeholder="Téléphone (*)">
+              <label for="phoneNumber">Téléphone (*)</label>
+              <input type="text" id="phoneNumber" formControlName="phoneNumber" class="form-control">
               <span class="help-block" *ngIf="!joinUsForm.get('phoneNumber')?.valid && joinUsForm.get('phoneNumber')?.touched">
                 Veuillez entrer un numéro de téléphone valide 
                </span>
             </div>
             <div class="form-group col-md-4">
+              <label for="dateOfBirth">Date de naissance</label>
               <input type="date" id="dateOfBirth" formControlName="dateOfBirth" class="form-control">
             </div>
             <div class="form-group  col-md-4">
-              <input type="email" id="email" formControlName="email" class="form-control" placeholder="Email (*)">
+              <label for="email">Email (*)</label>
+              <input type="email" id="email" formControlName="email" class="form-control">
               <span class="help-block" *ngIf="!joinUsForm.get('email')?.valid && joinUsForm.get('email')?.touched">
                 Veuillez entrer un email valide.
                </span>
             </div>
             <div class="form-group  col-md-4">
-              <input type="password" id="password" formControlName="password" class="form-control" placeholder="Mot de passe (*)">
+              <label for="password">Mot de passe (*)</label>
+              <input type="password" id="password" formControlName="password" class="form-control" >
               <span class="help-block" *ngIf="!joinUsForm.get('password')?.valid && joinUsForm.get('password')?.touched">
-                Le mot de passe doit contenir au moins 8 caractères, y compris une lettre majuscule, une lettre minuscule, un nombre et un symbole spécial.
+                Le mot de passe doit contenir au moins 8 caractères
                </span>
             </div>
             <div class="form-group  col-md-4">
-              <input type="password" id="confirm_password" formControlName="confirm_password" class="form-control" placeholder="Confirmer le mot de passe (*)" required>
+              <label for="confirm_password">Confirmer votre mot de passe</label>
+              <input type="password" id="confirm_password" formControlName="confirm_password" class="form-control">
               <span class="help-block" *ngIf="joinUsForm.hasError('passwordMismatch')">
                 Les mots de passe ne correspondent pas.
               </span>
             </div>
             <div class="form-group  col-md-4">
-              <input type="text" id="userName" formControlName="userName" class="form-control" placeholder="Nom d'utilisateur (*)">
+              <label for="userName">Nom d'utilisateur (*)</label>
+              <input type="text" id="userName" formControlName="userName" class="form-control">
               <span class="help-block" *ngIf="!joinUsForm.get('userName')?.valid&&joinUsForm.get('userName')?.touched">
                 {{requiredField}}
               </span>
             </div>
             <div class="form-group col-md-4">
+              <label for="office">Bureau ARSII</label>
               <select id="office" formControlName="office" class="form-control">
                 <option value="">Sélectionnez un office</option>
                 <option *ngFor="let office of officeArsii" [value]="office">{{ office }}</option>
               </select>
             </div>
             <div class="form-group col-md-4">
-              <!-- <label for="region">Région (*)</label> -->
+              <label for="region">Région (*)</label>
               <select id="region" formControlName="region" class="form-control">
                 <option value="">Sélectionnez une région</option>
                 <option *ngFor="let region of regionsTunisie" [value]="region">{{ region }}</option>
@@ -83,13 +92,15 @@
               </span>
             </div>
             <div class="form-group  col-md-4">
-              <input id="job" formControlName="job" class="form-control" placeholder="Situation Professionnelle">
+              <label for="job">Situation Professionnelle</label>
+              <input id="job" formControlName="job" class="form-control">
             </div>
             <div class="form-group col-md-4">
-              <input type="text" id="universityOrCompany" formControlName="universityOrCompany" class="form-control" placeholder="Établissement">
+              <label for="universityOrCompany">Établissement</label>
+              <input type="text" id="universityOrCompany" formControlName="universityOrCompany" class="form-control">
             </div>
             <div class="form-group col-md-4">
-              <label>Genre (*)</label>
+              <label for="gender">Genre</label>
               <div class="radio-group">
                 <label>
                   <input type="radio" formControlName="gender" value="male"> Masculin
@@ -128,10 +139,13 @@
            -->
             <div class="col-md-12" text-center>
               <re-captcha [siteKey]="recaptchaSiteKey" (resolved)="onRecaptchaResolved($event)" class="custom-recaptcha"></re-captcha>
-              <button type="submit" >Soumettre</button>
               <div *ngIf="successMessage" class="alert {{ successMessage.includes('succès') ? 'alert-success' : 'alert-danger' }}">
                 {{ successMessage }}
               </div>
+              <div *ngIf="errorMessage" class="alert alert-danger">
+                {{ errorMessage }}
+              </div>
+              <button type="submit">Soumettre</button>
             </div>
           </div>
         </form>

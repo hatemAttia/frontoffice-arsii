@@ -1,7 +1,7 @@
 <section id="events" class="events">
 
     <!--  Section Title -->
-    <div class="container" data-aos="fade-up">
+    <div class="container" data-aos="fade-up" data-aos-delay="100">
     <div class="section-header">
       <h3>Opportunités</h3>
     </div>
@@ -9,35 +9,33 @@
   
     <div class="container">
   
-      <p-carousel [value]="opportunities"  styleClass="custom-carousel" [numVisible]="3" [numScroll]="1" [circular]="true" [autoplayInterval]="2000" [responsiveOptions]="responsiveOptions">
+      <p-carousel [value]="opportunities"  styleClass="custom-carousel" [numVisible]="3" [numScroll]="1" [circular]="true" [autoplayInterval]="3000" [responsiveOptions]="responsiveOptions">
         <ng-template let-opportunity pTemplate="item" >
   
-            <div data-aos="none" data-aos-delay="100">
-              <!-- <span class="new-label future-event label" *ngIf="isFutureOpportunity(opportunity.created_at)">Nouveau</span> -->
-              <!-- <article [ngClass]="{'future-event': isFutureOpportunity(opportunity.created_at)}"> -->
+            <div data-aos="slide-left" data-aos-delay="100">
               <article>
                 <div class="post-img">
-                  <!-- <img [src]="'/api/arsii/admin/opportunity/img/'+opportunity.image" alt="{{ opportunity.title }}" class="img-fluid"> -->
-                  <img src="assets/img/stages.jpg" alt="{{ opportunity.title }}" class="img-fluid">
+                  <img [src]="'/api/arsii/file/img/'+opportunity.image" alt="{{ opportunity.title }}" class="img-fluid">
                 </div>
   
-                <p class="post-category">{{ translateType(opportunity.type)}}</p>
+                <!-- <p class="post-category">{{ translateType(opportunity.type)}}</p> -->
+                <div class="post-meta">
+                  <p class="post-author"><i class="bi bi-buildings-fill"></i>{{ opportunity.company}}</p>
+
+                  <p class="post-date">
+                    <i class="bi bi-clock-fill"></i> {{ opportunity?.createdAt | date : "dd LLLL yyyy"}}
+                  </p>
+
+                </div>
   
                 <h2 class="title">
-                  <a [routerLink]="['/auth/signin', opportunity.id]">{{ opportunity.title }}</a>
+                  <a (click)="show(opportunity.id)">{{ opportunity.title }}</a>
                 </h2>
   
                 <div class="d-flex align-items-center">
                   <!-- <img src="assets/img/blog/blog-author-3.jpg" alt="" class="img-fluid post-author-img flex-shrink-0"> -->
-                  <div class="post-meta">
-                    <p class="post-author">{{ opportunity.company}}</p>
-  
-                    <p class="post-date">
-                      <time ><i class="bi bi-clock-fill"></i> {{ opportunity.created_at }}</time>
-                    </p>
-  
-                  </div>
                 </div>
+                <a (click)="show(opportunity.id)" class="readmore stretched-link"><span>Voir Détails</span></a>
               </article>
             </div>
   

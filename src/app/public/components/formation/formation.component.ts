@@ -38,8 +38,10 @@ export class FormationComponent implements OnInit {
     this.formationService.getFormations().subscribe((data: Event[]) => {
       console.log(data);
       this.formations = data;
+      this.formations.sort((a, b) => {
+        return <any>new Date(b.date) - <any>new Date(a.date);
+      });
     });
-    // localStorage.setItem('access_token', 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTY5NTkzOTAxOSwiZXhwIjoxNjk1OTQ5MDk5fQ.bEgaQvKtkiTXU2ugu84hzty_O4sw2YRaJgmMuiMyH7I');
   }
 
   ref!: DynamicDialogRef;
@@ -49,7 +51,7 @@ export class FormationComponent implements OnInit {
     return formationDateObj > new Date();
   }
   show(formationId: number) {
-    this.formationService.getFormationById(formationId).subscribe((data) => {
+    this.formationService.getEventById(formationId).subscribe((data) => {
       this.formation = data;
     });
     this.ref = this.dialogService.open(FormationsDetailsComponent, {
@@ -57,7 +59,7 @@ export class FormationComponent implements OnInit {
           formationId: formationId
         },
         header: this.formation.title,
-        width: '70%',
+        width: '60%',
         contentStyle: {"max-height": "500px", "overflow": "auto"},
         baseZIndex: 10000
     });

@@ -26,7 +26,7 @@ export class OpportunityService {
   }
 
   getOpportunityById(opportunityId: number): Observable<Opportunity> {
-    const url = `${this.opportunitiesUrl}/${opportunityId}`;
+    const url = this.opportunitiesUrl+'/'+opportunityId;
     const headers = this.createRequestOptions();
 
     return this.http.get<Opportunity>(url, { headers });

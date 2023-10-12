@@ -109,33 +109,31 @@
     }
   });
 
-  /**Event */
-
   /**
    * Porfolio isotope and filter
    */
-  let portfolionIsotope = document.querySelector('.portfolio-isotope');
+  let mediasIsotope = document.querySelector('.medias-isotope');
 
-  if (portfolionIsotope) {
+  if (mediasIsotope) {
 
-    let portfolioFilter = portfolionIsotope.getAttribute('data-portfolio-filter') ? portfolionIsotope.getAttribute('data-portfolio-filter') : '*';
-    let portfolioLayout = portfolionIsotope.getAttribute('data-portfolio-layout') ? portfolionIsotope.getAttribute('data-portfolio-layout') : 'masonry';
-    let portfolioSort = portfolionIsotope.getAttribute('data-portfolio-sort') ? portfolionIsotope.getAttribute('data-portfolio-sort') : 'original-order';
+    let mediasFilter = mediasIsotope.getAttribute('data-medias-filter') ? mediasIsotope.getAttribute('data-medias-filter') : '*';
+    let mediasLayout = mediasIsotope.getAttribute('data-medias-layout') ? mediasIsotope.getAttribute('data-medias-layout') : 'masonry';
+    let mediasSort = mediasIsotope.getAttribute('data-medias-sort') ? mediasIsotope.getAttribute('data-medias-sort') : 'original-order';
 
     window.addEventListener('load', () => {
-      let portfolioIsotope = new Isotope(document.querySelector('.portfolio-container'), {
-        itemSelector: '.portfolio-item',
-        layoutMode: portfolioLayout,
-        filter: portfolioFilter,
-        sortBy: portfolioSort
+      let mediasIsotope = new Isotope(document.querySelector('.medias-container'), {
+        itemSelector: '.medias-item',
+        layoutMode: mediasLayout,
+        filter: mediasFilter,
+        sortBy: mediasSort
       });
 
-      let menuFilters = document.querySelectorAll('.portfolio-isotope .portfolio-flters li');
+      let menuFilters = document.querySelectorAll('.medias-isotope .medias-flters li');
       menuFilters.forEach(function(el) {
         el.addEventListener('click', function() {
-          document.querySelector('.portfolio-isotope .portfolio-flters .filter-active').classList.remove('filter-active');
+          document.querySelector('.medias-isotope .medias-flters .filter-active').classList.remove('filter-active');
           this.classList.add('filter-active');
-          portfolioIsotope.arrange({
+          mediasIsotope.arrange({
             filter: this.getAttribute('data-filter')
           });
           if (typeof aos_init === 'function') {
@@ -148,6 +146,40 @@
 
   }
 
+  /**
+   * Init isotope layout and filters
+   */
+  function initIsotopeLayout() {
+    document.querySelectorAll('.isotope-layout').forEach(function(isotopeItem) {
+      let layout = isotopeItem.getAttribute('data-layout') ?? 'masonry';
+      let filter = isotopeItem.getAttribute('data-default-filter') ?? '*';
+      let sort = isotopeItem.getAttribute('data-sort') ?? 'original-order';
+
+      let initIsotope = new Isotope(isotopeItem.querySelector('.isotope-container'), {
+        itemSelector: '.isotope-item',
+        layoutMode: layout,
+        filter: filter,
+        sortBy: sort
+      });
+
+      isotopeItem.querySelectorAll('.isotope-filters li').forEach(function(filters) {
+        filters.addEventListener('click', function() {
+          isotopeItem.querySelector('.isotope-filters .filter-active').classList.remove('filter-active');
+          this.classList.add('filter-active');
+          initIsotope.arrange({
+            filter: this.getAttribute('data-filter')
+          });
+          if (typeof aosInit === 'function') {
+            aosInit();
+          }
+        }, false);
+      });
+
+    });
+  }
+  window.addEventListener('load', initIsotopeLayout);
+
+
 
   /**
    * Initiate glightbox
@@ -156,36 +188,9 @@
     selector: '.glightbox'
   });
 
-  /**
-   * Gallery Slider
+ /**
+   * Medias Slider
    */
-  new Swiper('.slides-1', {
-    speed: 600,
-    loop: true,
-    autoplay: {
-      delay: 5000,
-      disableOnInteraction: false
-    },
-    slidesPerView: 'auto',
-    pagination: {
-      el: '.swiper-pagination',
-      type: 'bullets',
-      clickable: true
-    },
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
-    }
-  });
-
-
-
-  /**
-   * Buy tickets select the ticket type on click
-   */
-  on('show.bs.modal', '#buy-ticket-modal', function(event) {
-    select('#buy-ticket-modal #ticket-type').value = event.relatedTarget.getAttribute('data-ticket-type')
-  })
 
   /**
    * Animation on scroll

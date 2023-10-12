@@ -21,19 +21,15 @@ export class EventService {
   }
 
   getEvents(): Observable<Event[]> {
-    const headers = this.createRequestOptions();
     const url = this.eventsUrl + '/Event';
     return this.http.get<Event[]>(
       url
-      //{headers: headers,}
     );
   }
 
   getEventById(eventId: number): Observable<Event> {
-    const url = `${this.eventUrl}/${eventId}`;
-    const headers = this.createRequestOptions();
-
-    return this.http.get<Event>(url, { headers });
+    const url = this.eventUrl +'/'+eventId;
+    return this.http.get<Event>(url);
   }
 
   getFormations(): Observable<Event[]> {
@@ -41,14 +37,11 @@ export class EventService {
     const url = this.eventsUrl + '/Formation';
     return this.http.get<Event[]>(
       url
-      // { headers: headers,}
     );
   }
 
-  getFormationById(formationId: number): Observable<Event> {
-    const url = `${'/api/arsii/visitor/event/'}${formationId}`;
-    const headers = this.createRequestOptions();
-
-    return this.http.get<Event>(url, { headers });
-  }
+  // getFormationById(formationId: number): Observable<Event> {
+  //   const url = this.eventUrl +'/'+formationId;;
+  //   return this.http.get<Event>(url);
+  // }
 }
