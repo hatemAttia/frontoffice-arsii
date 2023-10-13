@@ -1524,17 +1524,17 @@ input.ng-invalid.ng-touched{
   bottom: 0;
 }
 
-.medias button .readmore {
+.medias .readmore {
   background: #16979c;
   border: 2px solid #16979c;
-  padding: 12px 40px;
+  padding: 12px 20px;
   color: #fff;
   transition: all ease-in-out 0.3s;
   border-radius: 5px;
   margin-top: 20px;
 }
 
-.medias button .readmore:hover {
+.medias .readmore:hover {
   background: none;
   color:#16979c;
   cursor: pointer;
