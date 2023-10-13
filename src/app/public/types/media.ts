@@ -1,7 +1,8 @@
 export interface Media {
     id: number;
+    image: string;
     title: string;
-    link: string;
     type: string;
-    date: Date;
+    description: string;
+    urlPost: string;
 }

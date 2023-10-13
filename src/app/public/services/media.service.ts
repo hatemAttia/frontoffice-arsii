@@ -7,7 +7,7 @@ import { Media } from '../types/media';
   providedIn: 'root'
 })
 export class MediaService {
-  private mediasUrl = '/api/arsii/visitor/allMedias';
+  private mediasUrl = '/api/arsii/visitor/allMedia';
   private mediaUrl = '/api/arsii/visitor/media';
 
   constructor(private http: HttpClient) { }
@@ -22,4 +22,14 @@ export class MediaService {
   getMedias() : Observable<Media[]> {
     return this.http.get<Media[]>(this.mediasUrl);
   }
+
+  getMediaById(mediaId: number): Observable<Media> {
+    const url = this.mediaUrl +'/'+mediaId;
+    return this.http.get<Media>(url);
+  }
+
+  filterMediaByType(mediaData: any[], mediaType: string): any[] {
+    return mediaData.filter((media) => media.type === mediaType);
+  }
+
 }

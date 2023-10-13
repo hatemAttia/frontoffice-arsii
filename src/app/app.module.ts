@@ -7,6 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppHttpInterceptor } from './core/interceptor/http-interceptor.service';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { AllMediasComponent } from './public/components/all-medias/all-medias.component';
 
 
 
