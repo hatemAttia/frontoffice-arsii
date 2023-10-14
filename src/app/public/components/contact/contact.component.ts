@@ -20,10 +20,9 @@ export class ContactComponent implements OnInit {
     private formBuilder: FormBuilder,
     private contactService: ContactService) {
     this.contactForm = this.formBuilder.group({
-      name: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]],
+      from: ['', [Validators.required, Validators.email]],
       subject: ['', Validators.required],
-      message: ['', Validators.required],
+      content: ['', Validators.required],
     });
   }
 
@@ -37,15 +36,13 @@ export class ContactComponent implements OnInit {
         (response) => {
           console.log('Réponse du serveur :', response);
   
-          this.contactForm.reset(); 
-          this.isSuccess = true; 
+          this.contactForm.reset();  
           this.successMessage = 'Votre message a bien été envoyé. Merci !'; 
           this.isRecaptchaResolved = false;
         },
         (error) => {
           console.error('Erreur lors de la soumission du formulaire :', error);
-          this.hasError = true; 
-          this.errorMessage = 'Une erreur s\'est produite. Veuillez réessayer plus tard.'; 
+          this.errorMessage = "Une erreur s'est produite. Veuillez réessayer plus tard."; 
         }
       );
     }

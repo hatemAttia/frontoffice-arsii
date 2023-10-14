@@ -1,202 +1,237 @@
 /**
-* Template Name: TheEvent
-* Updated: Jul 27 2023 with Bootstrap v5.3.1
-* Template URL: https://bootstrapmade.com/theevent-conference-event-bootstrap-template/
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/
-(function() {
+ * Template Name: TheEvent
+ * Updated: Jul 27 2023 with Bootstrap v5.3.1
+ * Template URL: https://bootstrapmade.com/theevent-conference-event-bootstrap-template/
+ * Author: BootstrapMade.com
+ * License: https://bootstrapmade.com/license/
+ */
+(function () {
   "use strict";
 
   /**
    * Easy selector helper function
    */
   const select = (el, all = false) => {
-    el = el.trim()
+    el = el.trim();
     if (all) {
-      return [...document.querySelectorAll(el)]
+      return [...document.querySelectorAll(el)];
     } else {
-      return document.querySelector(el)
+      return document.querySelector(el);
     }
-  }
+  };
 
   /**
    * Easy event listener function
    */
   const on = (type, el, listener, all = false) => {
-    let selectEl = select(el, all)
+    let selectEl = select(el, all);
     if (selectEl) {
       if (all) {
-        selectEl.forEach(e => e.addEventListener(type, listener))
+        selectEl.forEach((e) => e.addEventListener(type, listener));
       } else {
-        selectEl.addEventListener(type, listener)
+        selectEl.addEventListener(type, listener);
       }
     }
-  }
+  };
 
   /**
    * Easy on scroll event listener
    */
   const onscroll = (el, listener) => {
-    el.addEventListener('scroll', listener)
-  }
+    el.addEventListener("scroll", listener);
+  };
 
   /**
    * Navbar links active state on scroll
    */
-  const navbarlinks = select('#navbar .scrollto', true)
+  const navbarlinks = select("#navbar .scrollto", true);
   const navbarlinksActive = () => {
-    const position = window.scrollY + 200
-    navbarlinks.forEach(navbarlink => {
-      if (!navbarlink.hash) return
-      const section = select(navbarlink.hash)
-      if (!section) return
-      if (position >= section.offsetTop && position <= (section.offsetTop + section.offsetHeight)) {
-        navbarlink.classList.add('active')
+    const position = window.scrollY + 200;
+    navbarlinks.forEach((navbarlink) => {
+      if (!navbarlink.hash) return;
+      const section = select(navbarlink.hash);
+      if (!section) return;
+      if (
+        position >= section.offsetTop &&
+        position <= section.offsetTop + section.offsetHeight
+      ) {
+        navbarlink.classList.add("active");
       } else {
-        navbarlink.classList.remove('active')
+        navbarlink.classList.remove("active");
       }
-    })
-  }
-  window.addEventListener('load', navbarlinksActive)
-  onscroll(document, navbarlinksActive)
+    });
+  };
+  window.addEventListener("load", navbarlinksActive);
+  onscroll(document, navbarlinksActive);
 
   /**
    * Scrolls to an element with header offset
    */
   const scrollto = (el) => {
-    let header = select('#header')
-    let offset = header.offsetHeight
+    let header = select("#header");
+    let offset = header.offsetHeight;
 
-    if (!header.classList.contains('header-scrolled')) {
-      offset -= 20
+    if (!header.classList.contains("header-scrolled")) {
+      offset -= 20;
     }
 
-    let elementPos = select(el).offsetTop
+    let elementPos = select(el).offsetTop;
     window.scrollTo({
       top: elementPos - offset,
-      behavior: 'smooth'
-    })
-  }
-
+      behavior: "smooth",
+    });
+  };
 
   /**
    * Scrool with ofset on links with a class name .scrollto
    */
-  on('click', '.scrollto', function(e) {
-    if (select(this.hash)) {
-      e.preventDefault()
+  on(
+    "click",
+    ".scrollto",
+    function (e) {
+      if (select(this.hash)) {
+        e.preventDefault();
 
-      let navbar = select('#navbar')
-      if (navbar.classList.contains('navbar-mobile')) {
-        navbar.classList.remove('navbar-mobile')
-        let navbarToggle = select('.mobile-nav-toggle')
-        navbarToggle.classList.toggle('bi-list')
-        navbarToggle.classList.toggle('bi-x')
+        let navbar = select("#navbar");
+        if (navbar.classList.contains("navbar-mobile")) {
+          navbar.classList.remove("navbar-mobile");
+          let navbarToggle = select(".mobile-nav-toggle");
+          navbarToggle.classList.toggle("bi-list");
+          navbarToggle.classList.toggle("bi-x");
+        }
+        scrollto(this.hash);
       }
-      scrollto(this.hash)
-    }
-  }, true)
+    },
+    true
+  );
 
   /**
    * Scroll with ofset on page load with hash links in the url
    */
-  window.addEventListener('load', () => {
+  window.addEventListener("load", () => {
     if (window.location.hash) {
       if (select(window.location.hash)) {
-        scrollto(window.location.hash)
+        scrollto(window.location.hash);
       }
     }
   });
 
-  /**Event */
-
   /**
    * Porfolio isotope and filter
    */
-  let portfolionIsotope = document.querySelector('.portfolio-isotope');
+  let mediasIsotope = document.querySelector(".medias-isotope");
 
-  if (portfolionIsotope) {
+  if (mediasIsotope) {
+    let mediasFilter = mediasIsotope.getAttribute("data-medias-filter")
+      ? mediasIsotope.getAttribute("data-medias-filter")
+      : "*";
+    let mediasLayout = mediasIsotope.getAttribute("data-medias-layout")
+      ? mediasIsotope.getAttribute("data-medias-layout")
+      : "masonry";
+    let mediasSort = mediasIsotope.getAttribute("data-medias-sort")
+      ? mediasIsotope.getAttribute("data-medias-sort")
+      : "original-order";
 
-    let portfolioFilter = portfolionIsotope.getAttribute('data-portfolio-filter') ? portfolionIsotope.getAttribute('data-portfolio-filter') : '*';
-    let portfolioLayout = portfolionIsotope.getAttribute('data-portfolio-layout') ? portfolionIsotope.getAttribute('data-portfolio-layout') : 'masonry';
-    let portfolioSort = portfolionIsotope.getAttribute('data-portfolio-sort') ? portfolionIsotope.getAttribute('data-portfolio-sort') : 'original-order';
+    window.addEventListener("load", () => {
+      let mediasIsotope = new Isotope(
+        document.querySelector(".medias-container"),
+        {
+          itemSelector: ".medias-item",
+          layoutMode: mediasLayout,
+          filter: mediasFilter,
+          sortBy: mediasSort,
+        }
+      );
 
-    window.addEventListener('load', () => {
-      let portfolioIsotope = new Isotope(document.querySelector('.portfolio-container'), {
-        itemSelector: '.portfolio-item',
-        layoutMode: portfolioLayout,
-        filter: portfolioFilter,
-        sortBy: portfolioSort
+      let menuFilters = document.querySelectorAll(
+        ".medias-isotope .medias-flters li"
+      );
+      menuFilters.forEach(function (el) {
+        el.addEventListener(
+          "click",
+          function () {
+            document
+              .querySelector(".medias-isotope .medias-flters .filter-active")
+              .classList.remove("filter-active");
+            this.classList.add("filter-active");
+            mediasIsotope.arrange({
+              filter: this.getAttribute("data-filter"),
+            });
+            if (typeof aos_init === "function") {
+              aos_init();
+            }
+          },
+          false
+        );
       });
-
-      let menuFilters = document.querySelectorAll('.portfolio-isotope .portfolio-flters li');
-      menuFilters.forEach(function(el) {
-        el.addEventListener('click', function() {
-          document.querySelector('.portfolio-isotope .portfolio-flters .filter-active').classList.remove('filter-active');
-          this.classList.add('filter-active');
-          portfolioIsotope.arrange({
-            filter: this.getAttribute('data-filter')
-          });
-          if (typeof aos_init === 'function') {
-            aos_init();
-          }
-        }, false);
-      });
-
     });
-
   }
 
+  /**
+   * Init isotope layout and filters
+   */
+  function initIsotopeLayout() {
+    document
+      .querySelectorAll(".isotope-layout")
+      .forEach(function (isotopeItem) {
+        let layout = isotopeItem.getAttribute("data-layout") ?? "masonry";
+        let filter = isotopeItem.getAttribute("data-default-filter") ?? "*";
+        let sort = isotopeItem.getAttribute("data-sort") ?? "original-order";
+
+        let initIsotope = new Isotope(
+          isotopeItem.querySelector(".isotope-container"),
+          {
+            itemSelector: ".isotope-item",
+            layoutMode: layout,
+            filter: filter,
+            sortBy: sort,
+          }
+        );
+
+        isotopeItem
+          .querySelectorAll(".isotope-filters li")
+          .forEach(function (filters) {
+            filters.addEventListener(
+              "click",
+              function () {
+                isotopeItem
+                  .querySelector(".isotope-filters .filter-active")
+                  .classList.remove("filter-active");
+                this.classList.add("filter-active");
+                initIsotope.arrange({
+                  filter: this.getAttribute("data-filter"),
+                });
+                if (typeof aosInit === "function") {
+                  aosInit();
+                }
+              },
+              false
+            );
+          });
+      });
+  }
+  window.addEventListener("load", initIsotopeLayout);
 
   /**
    * Initiate glightbox
    */
   const glightbox = GLightbox({
-    selector: '.glightbox'
+    selector: ".glightbox",
   });
 
   /**
-   * Gallery Slider
+   * Medias Slider
    */
-  new Swiper('.slides-1', {
-    speed: 600,
-    loop: true,
-    autoplay: {
-      delay: 5000,
-      disableOnInteraction: false
-    },
-    slidesPerView: 'auto',
-    pagination: {
-      el: '.swiper-pagination',
-      type: 'bullets',
-      clickable: true
-    },
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
-    }
-  });
-
-
-
-  /**
-   * Buy tickets select the ticket type on click
-   */
-  on('show.bs.modal', '#buy-ticket-modal', function(event) {
-    select('#buy-ticket-modal #ticket-type').value = event.relatedTarget.getAttribute('data-ticket-type')
-  })
 
   /**
    * Animation on scroll
    */
-  window.addEventListener('load', () => {
+  window.addEventListener("load", () => {
     AOS.init({
       duration: 1000,
-      easing: 'ease-in-out',
+      easing: "ease-in-out",
       once: true,
-      mirror: false
-    })
+      mirror: false,
+    });
   });
-
-})()
+})();

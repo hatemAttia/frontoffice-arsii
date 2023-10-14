@@ -1,12 +1,11 @@
-<section id="portfolio-details" class="portfolio-details" *ngIf="event">
+<section id="event-details" class="event-details" *ngIf="event">
   <div class="container">
     <div class="row gy-4">
       <div class="col">
-        <div class="portfolio-details-slider swiper">
+        <div class="event-details-slider swiper">
           <div class="swiper-wrapper align-items-center">
             <div class="swiper-slide">
-              <img [src]="'/api/arsii/file/img/' + event.image" alt="" />
-              <!-- <img [src]="'/api/arsii/admin/event/img/'+event.image" alt="{{ event.title }}"> -->
+              <img [src]="'/api/arsii/file/img/' + event.image" alt="{{ event.title }}" />
             </div>
           </div>
           <div class="swiper-pagination"></div>
@@ -15,7 +14,7 @@
     </div>
     <div class="row gy-4">
       <div class="col">
-        <div class="portfolio-info">
+        <div class="event-info">
           <!-- <h3>{{ event.title }}</h3> -->
           <ul>
             <li>
@@ -25,14 +24,14 @@
             <li>
               <strong>Localisation: {{ event.location }}</strong>
             </li>
-            <li><strong>Partenaire</strong>: {{ event.partner_id }}</li>
+            <!-- <li><strong>Partenaire</strong>: {{ event.partner_id }}</li>
             <li>
               <strong>Lien d'inscription</strong>:
               <a href="#">www.example.com</a>
-            </li>
+            </li> -->
           </ul>
         </div>
-        <div class="portfolio-description">
+        <div class="event-description">
           <!-- <h2>This is an example of portfolio detail</h2> -->
           <p>
             {{ event.description }}

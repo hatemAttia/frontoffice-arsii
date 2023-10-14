@@ -1,12 +1,14 @@
-<header [ngClass]="{'header-scrolled': isScrolled}" id="header" class="d-flex align-items-center">
+<header
+  [ngClass]="{ 'header-scrolled': isScrolled }"
+  id="header"
+  class="d-flex align-items-center"
+>
   <div class="container-fluid container-xxl d-flex align-items-center">
     <div id="logo" class="me-auto">
       <a routerLink="/" class="scrollto"
         ><img src="assets/img/arsii-white.png" alt="" title=""
       /></a>
     </div>
-
-
 
     <nav id="navbar" class="navbar order-last order-lg-0">
       <ul>
@@ -18,12 +20,16 @@
           <ul>
             <li><a href="#objectifs">Objectifs</a></li>
             <li><a href="#bureau-executif">Bureau Exécutif</a></li>
-            <li class="dropdown"><a href=""><span>Bureaux Régionaux</span> <i class="bi bi-chevron-right"></i></a>
+            <li class="dropdown">
+              <a href=""
+                ><span>Bureaux Régionaux</span>
+                <i class="bi bi-chevron-right"></i
+              ></a>
               <ul>
                 <li><a href="#">Bureau ARSII SFAX</a></li>
               </ul>
             </li>
-            <li><a href="#">Membres</a></li>
+            <!-- <li><a href="#">Membres</a></li> -->
             <li><a href="#clubs">Clubs</a></li>
           </ul>
         </li>
@@ -32,7 +38,7 @@
             ><span>Evènements</span><i class="bi bi-chevron-down"></i>
           </a>
           <ul>
-            <li><a href="#actualities">Actualités</a></li>
+            <!-- <li><a href="#actualities">Activités</a></li> -->
             <li><a href="#events">Evènements</a></li>
             <li><a href="#formations">Formations</a></li>
           </ul>
@@ -40,12 +46,16 @@
         <li>
           <a class="nav-link scrollto" href="#opportunities">Opportunités</a>
         </li>
-        <!-- <li><a class="nav-link scrollto" href="#medias">Médias</a></li> -->
+        <li><a class="nav-link scrollto" href="#medias">Médias</a></li>
         <li><a class="nav-link scrollto" href="#partners">Partenaires</a></li>
 
         <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
-        <a class="signin scrollto" routerLink="/auth/signin">Espace Membre</a>
-        <a class="signin scrollto" routerLink="/join-us">Rejoignez-Nous</a>
+        <a class="signin scrollto" href="http://localhost:4300/auth/signin"
+          >Espace Membre</a
+        >
+        <a class="signin scrollto" href="http://localhost:4300/auth/signup"
+          >Rejoignez-Nous</a
+        >
       </ul>
       <i class="bi bi-list mobile-nav-toggle"></i>
     </nav>
@@ -55,10 +65,10 @@
 <main id="main">
   <router-outlet> </router-outlet>
 </main>
-<app-footer></app-footer>
 <p-scrollTop
-      target="parent"
-      styleClass="custom-scrolltop"
-      [threshold]="100"
-      icon="pi pi-arrow-up"
-    ></p-scrollTop>
+  target="parent"
+  styleClass="custom-scrolltop"
+  [threshold]="100"
+  icon="pi pi-arrow-up"
+></p-scrollTop>
+<app-footer></app-footer>

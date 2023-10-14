@@ -1,0 +1,42 @@
+<section id="event-details" class="event-details" *ngIf="opportunity">
+  <h3>{{ opportunity.title }}</h3>
+  <div class="container">
+    <div class="row gy-4">
+      <div class="col">
+        <div class="event-details-slider swiper">
+          <div class="swiper-wrapper align-items-center">
+            <div class="swiper-slide" *ngIf="opportunity">
+              <img
+                [src]="'/api/arsii/file/img/' + opportunity.image"
+                alt=""
+                class="img-fluid"
+              />
+            </div>
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+    </div>
+    <div class="row gy-4">
+      <div class="col">
+        <div class="event-info">
+          <ul *ngIf="opportunity">
+            <li>
+              <strong>Date</strong>:
+              {{ opportunity.createdAt | date : "dd LLLL yyyy, HH:mm" }}
+            </li>
+            <li>
+              <strong>Sociétés: {{ opportunity.company }}</strong>
+            </li>
+          </ul>
+        </div>
+        <div class="event-description">
+          <!-- <h2>This is an example of portfolio detail</h2> -->
+          <p>
+            {{ opportunity.description }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

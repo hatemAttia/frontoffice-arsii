@@ -1,0 +1,88 @@
+<app-breadcrumbs></app-breadcrumbs>
+<section id="medias" class="medias">
+  <!--  Section Title -->
+  <div class="container" data-aos="fade-up">
+    <div class="section-header">
+      <h3>Médias</h3>
+    </div>
+  </div>
+  <!-- End Section Title -->
+
+  <div class="container">
+    <ul class="medias-filters" data-aos="fade-up" data-aos-delay="100">
+      <li
+        (click)="onMediaTypeChange('Tous')"
+        [class.filter-active]="selectedMediaType === 'Tous'"
+      >
+        Tous
+      </li>
+      <li
+        (click)="onMediaTypeChange('FACEBOOK')"
+        [class.filter-active]="selectedMediaType === 'FACEBOOK'"
+      >
+        Facebook
+      </li>
+      <li
+        (click)="onMediaTypeChange('YOUTUBE')"
+        [class.filter-active]="selectedMediaType === 'YOUTUBE'"
+      >
+        Youtube
+      </li>
+      <li
+        (click)="onMediaTypeChange('LINKEDIN')"
+        [class.filter-active]="selectedMediaType === 'LINKEDIN'"
+      >
+        LinkedIn
+      </li>
+    </ul>
+    <div class="row gy-4" data-aos="fade-up" data-aos-delay="200">
+      <div
+        class="col-lg-4 col-md-6 medias-item"
+        *ngFor="let media of displayedMediaData"
+      >
+        <ng-container
+          *ngIf="
+            selectedMediaType === 'Tous' ||
+            selectedMediaType === media.type
+          "
+        >
+          <div *ngIf="media.type === 'YOUTUBE'">
+            <iframe
+              width="560"
+              height="315"
+              [src]="getSafeUrl(media.urlPost)"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+            ></iframe>
+          </div>
+          <div *ngIf="media.type === 'FACEBOOK' || media.type === 'LINKEDIN'">
+            <img
+              [src]="'/api/arsii/file/img/' + media.image"
+              class="img-fluid"
+              alt="{{ media.title }}"
+            />
+          </div>
+          <div class="medias-info">
+            <h4>{{ media.title }}</h4>
+            <p>{{ media.description }}</p>
+            <!-- <a [href]="'/api/arsii/file/img/' + media.image" [title]="media.title" data-gallery="medias-gallery" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a> -->
+            <a
+              href="{{ media.urlPost }}"
+              title="Plus de détails"
+              class="details-link"
+              ><i class="bi bi-link-45deg"></i
+            ></a>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+    <p-paginator
+      [rows]="rows"
+      [totalRecords]="totalRecords"
+      [first]="first"
+      (onPageChange)="onPageChange($event)"
+    >
+    </p-paginator>
+  </div>
+</section>

@@ -40,6 +40,9 @@ export class EventsComponent implements OnInit {
     this.eventService.getEvents().subscribe((data: Event[]) => {
       console.log(data);
       this.events = data;
+      this.events.sort((a, b) => {
+        return <any>new Date(b.date) - <any>new Date(a.date);
+      });
     });
   }
 
@@ -58,8 +61,8 @@ export class EventsComponent implements OnInit {
       data: {
         eventId: eventId,
       },
-      header: this.event?.title,
-      width: '70%',
+      header: this.event.title,
+      width: '60%',
       contentStyle: { 'max-height': '500px', overflow: 'auto' },
       baseZIndex: 10000,
     });

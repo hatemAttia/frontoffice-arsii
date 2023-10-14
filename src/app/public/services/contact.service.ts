@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class ContactService {
 
-  private apiUrl = '/api/arsii/visitor/contact';
+  private apiUrl = '/api/arsii/visitor/sendEmail';
 
   constructor(private http: HttpClient) {}
 
