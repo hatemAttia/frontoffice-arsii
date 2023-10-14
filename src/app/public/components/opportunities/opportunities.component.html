@@ -1,52 +1,61 @@
 <section id="events" class="events">
-
-    <!--  Section Title -->
-    <div class="container" data-aos="fade-up">
+  <!--  Section Title -->
+  <div class="container" data-aos="fade-up">
     <div class="section-header">
       <h3>Opportunités</h3>
     </div>
-    </div><!-- End Section Title -->
-  
-    <div class="container">
-  
-      <p-carousel [value]="opportunities"  styleClass="custom-carousel" [numVisible]="3" [numScroll]="1" [circular]="true" [autoplayInterval]="2000" [responsiveOptions]="responsiveOptions">
-        <ng-template let-opportunity pTemplate="item" >
-  
-            <div data-aos="none" data-aos-delay="100">
-              <!-- <span class="new-label future-event label" *ngIf="isFutureOpportunity(opportunity.created_at)">Nouveau</span> -->
-              <!-- <article [ngClass]="{'future-event': isFutureOpportunity(opportunity.created_at)}"> -->
-              <article>
-                <div class="post-img">
-                  <!-- <img [src]="'/api/arsii/admin/opportunity/img/'+opportunity.image" alt="{{ opportunity.title }}" class="img-fluid"> -->
-                  <img src="assets/img/stages.jpg" alt="{{ opportunity.title }}" class="img-fluid">
-                </div>
-  
-                <p class="post-category">{{ translateType(opportunity.type)}}</p>
-  
-                <h2 class="title">
-                  <a [routerLink]="['/auth/signin', opportunity.id]">{{ opportunity.title }}</a>
-                </h2>
-  
-                <div class="d-flex align-items-center">
-                  <!-- <img src="assets/img/blog/blog-author-3.jpg" alt="" class="img-fluid post-author-img flex-shrink-0"> -->
-                  <div class="post-meta">
-                    <p class="post-author">{{ opportunity.company}}</p>
-  
-                    <p class="post-date">
-                      <time ><i class="bi bi-clock-fill"></i> {{ opportunity.created_at }}</time>
-                    </p>
-  
-                  </div>
-                </div>
-              </article>
+  </div>
+  <!-- End Section Title -->
+
+  <div class="container">
+    <p-carousel
+      [value]="opportunities"
+      styleClass="custom-carousel"
+      [numVisible]="3"
+      [numScroll]="1"
+      [circular]="true"
+      [autoplayInterval]="2000"
+      [responsiveOptions]="responsiveOptions"
+    >
+      <ng-template let-opportunity pTemplate="item">
+        <div data-aos="none" data-aos-delay="100">
+          <!-- <span class="new-label future-event label" *ngIf="isFutureOpportunity(opportunity.created_at)">Nouveau</span> -->
+          <!-- <article [ngClass]="{'future-event': isFutureOpportunity(opportunity.created_at)}"> -->
+          <article>
+            <div class="post-img">
+              <!-- <img [src]="'/api/arsii/admin/opportunity/img/'+opportunity.image" alt="{{ opportunity.title }}" class="img-fluid"> -->
+              <img
+                src="assets/img/stages.jpg"
+                alt="{{ opportunity.title }}"
+                class="img-fluid"
+              />
             </div>
-  
-        </ng-template>
-      </p-carousel>
-    </div>
-    <!-- <a routerLink="events-details" class="readmore stretched-link"><span>Voir Détails</span><i class="bi bi-arrow-right"></i></a> -->
-  
-  </section>
-  
-  
-  
+
+            <p class="post-category">{{ translateType(opportunity.type) }}</p>
+
+            <h2 class="title">
+              <a [routerLink]="['/auth/signin', opportunity.id]">{{
+                opportunity.title
+              }}</a>
+            </h2>
+
+            <div class="d-flex align-items-center">
+              <!-- <img src="assets/img/blog/blog-author-3.jpg" alt="" class="img-fluid post-author-img flex-shrink-0"> -->
+              <div class="post-meta">
+                <p class="post-author">{{ opportunity.company }}</p>
+
+                <p class="post-date">
+                  <time
+                    ><i class="bi bi-clock-fill"></i>
+                    {{ opportunity.created_at }}</time
+                  >
+                </p>
+              </div>
+            </div>
+          </article>
+        </div>
+      </ng-template>
+    </p-carousel>
+  </div>
+  <!-- <a routerLink="events-details" class="readmore stretched-link"><span>Voir Détails</span><i class="bi bi-arrow-right"></i></a> -->
+</section>
