@@ -61,7 +61,7 @@ export class EventsComponent implements OnInit {
       data: {
         eventId: eventId,
       },
-      header: this.event.title,
+      header: this.event?.title,
       width: '60%',
       contentStyle: { 'max-height': '500px', overflow: 'auto' },
       baseZIndex: 10000,

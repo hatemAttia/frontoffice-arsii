@@ -1,5 +1,4 @@
 <section id="event-details" class="event-details" *ngIf="formation">
-  <h3>{{ formation.title }}</h3>
   <div class="container">
     <div class="row gy-4">
       <div class="col">
@@ -18,8 +17,8 @@
       </div>
     </div>
     <div class="row gy-4">
-      <div class="col">
-        <div class="event-info">
+      <div>
+        <div class="event-info d-flex justify-content-center">
           <ul *ngIf="formation">
             <li>
               <strong>Date</strong>:
@@ -34,6 +33,14 @@
               <a href="#">www.example.com</a>
             </li> -->
           </ul>
+          <div>
+            <a
+              *ngIf="formation.urlFacebook"
+              [href]="formation.urlFacebook"
+              class="readmore stretched-link"
+              ><span>Voir facebook</span></a
+            >
+          </div>
         </div>
         <div class="event-description">
           <!-- <h2>This is an example of portfolio detail</h2> -->

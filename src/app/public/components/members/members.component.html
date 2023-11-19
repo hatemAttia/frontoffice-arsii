@@ -1,51 +1,77 @@
 <section id="team" class="team">
-
   <!--  Section Title -->
   <div class="container" data-aos="fade-up">
     <div class="section-header">
       <h3>Bureau Exécutif</h3>
     </div>
-  </div><!-- End Section Title -->
+  </div>
+  <!-- End Section Title -->
   <div class="container">
-      <div  class="row gy-0 text-center justify-content-center">
-        <div *ngIf="president" class="col-lg-4 col-md-4 col-xs-3 member-item" data-aos="fade-up" data-aos-delay="100">
+    <div class="row gy-0 text-center justify-content-center">
+      <div
+        *ngIf="president"
+        class="col-lg-4 col-md-4 col-xs-3 member-item"
+        data-aos="fade-up"
+        data-aos-delay="100"
+      >
+        <div class="member-info text-center">
+          <div class="mb-3 d-flex align-items-center justify-content-center">
+            <div class="president-img">
+              <img
+                [src]="'/api/arsii/file/img/' + president.image"
+                class="img-fluid"
+                style="width: 200px; height: 200px"
+                alt=""
+              />
+              <div class="social">
+                <a href="#"><i class="bi bi-linkedin"></i></a>
+              </div>
+            </div>
+          </div>
+          <h4 class="mb-1">
+            {{ president.firstName }} {{ president.lastName }}
+          </h4>
+          <span class="mt-0 mb-3">Président national</span>
+        </div>
+      </div>
+    </div>
+    <p-carousel
+      [value]="allMembers"
+      styleClass="custom-carousel"
+      [numVisible]="4"
+      [numScroll]="1"
+      [circular]="true"
+      [autoplayInterval]="20000"
+      [responsiveOptions]="responsiveOptions"
+    >
+      <ng-template let-member pTemplate="item">
+        <div class="member-item">
           <div class="member-info text-center">
-            <div class="mb-3 d-flex align-items-center justify-content-center">
-              <div class="president-img ">
-                <img [src]="'/api/arsii/file/img/'+president.image" class="img-fluid" alt="">
+            <div class="p-mb-3">
+              <div class="member-img">
+                <img
+                  [src]="'/api/arsii/file/img/' + member.image"
+                  class="img-fluid"
+                  alt=""
+                  style="width: 200px; height: 200px"
+                />
                 <div class="social">
                   <a href="#"><i class="bi bi-linkedin"></i></a>
                 </div>
               </div>
             </div>
-            <h4 class="mb-1"> {{ president.firstName}} {{ president.lastName}}</h4>
-            <span class="mt-0 mb-3">Président national</span>
+            <div class="">
+              <h4 class="p-mb-1">
+                {{ member.firstName }} {{ member.lastName }}
+              </h4>
+              <span class="p-mt-0 p-mb-3">{{
+                translatePost(member.post)
+              }}</span>
+              <!-- <span [class]="'product-badge status-'+product.inventoryStatus.toLowerCase()">{{product.inventoryStatus}}</span> -->
+            </div>
           </div>
         </div>
-      </div>
-    <p-carousel [value]="allMembers" styleClass="custom-carousel" [numVisible]="3" [numScroll]="1" [circular]="true" [autoplayInterval]="2000" [responsiveOptions]="responsiveOptions">
-      <ng-template let-member pTemplate="item">
-          <div class="member-item">
-              <div class="member-info text-center">
-                  <div class="p-mb-3">
-                    <div class="member-img">
-                      <img [src]="'/api/arsii/file/img/' +member.image"  class="img-fluid" alt="">
-                      <div class="social">
-                        <a href="#"><i class="bi bi-linkedin"></i></a>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="">
-                      <h4 class="p-mb-1">{{member.firstName }}  {{ member.lastName}}</h4>
-                      <span class="p-mt-0 p-mb-3">{{translatePost(member.post)}}</span>
-                      <!-- <span [class]="'product-badge status-'+product.inventoryStatus.toLowerCase()">{{product.inventoryStatus}}</span> -->
-
-                  </div>
-              </div>
-          </div>
       </ng-template>
     </p-carousel>
-
   </div>
 </section>
-

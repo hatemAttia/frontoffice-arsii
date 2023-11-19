@@ -5,7 +5,10 @@
         <div class="event-details-slider swiper">
           <div class="swiper-wrapper align-items-center">
             <div class="swiper-slide">
-              <img [src]="'/api/arsii/file/img/' + event.image" alt="{{ event.title }}" />
+              <img
+                [src]="'/api/arsii/file/img/' + event.image"
+                alt="{{ event.title }}"
+              />
             </div>
           </div>
           <div class="swiper-pagination"></div>
@@ -14,7 +17,7 @@
     </div>
     <div class="row gy-4">
       <div class="col">
-        <div class="event-info">
+        <div class="event-info d-flex justify-content-between">
           <!-- <h3>{{ event.title }}</h3> -->
           <ul>
             <li>
@@ -30,6 +33,14 @@
               <a href="#">www.example.com</a>
             </li> -->
           </ul>
+          <div>
+            <a
+              *ngIf="event.urlFacebook"
+              [href]="event.urlFacebook"
+              class="readmore stretched-link"
+              ><span>Voir facebook</span></a
+            >
+          </div>
         </div>
         <div class="event-description">
           <!-- <h2>This is an example of portfolio detail</h2> -->

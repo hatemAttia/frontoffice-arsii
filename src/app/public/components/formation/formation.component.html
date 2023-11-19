@@ -21,13 +21,13 @@
       <ng-template let-formation pTemplate="item">
         <div data-aos="slide-left" data-aos-delay="100">
           <article
-          [ngClass]="{ 'future-event': isFutureFormation(formation.date) }"
+            [ngClass]="{ 'future-event': isFutureFormation(formation.date) }"
           >
-          <span
-            class="new-label future-event label"
-            *ngIf="isFutureFormation(formation.date)"
-            >Nouveau</span
-          >
+            <span
+              class="new-label future-event label"
+              *ngIf="isFutureFormation(formation.date)"
+              >Nouveau</span
+            >
             <div class="post-img">
               <img
                 [src]="'/api/arsii/file/img/' + formation.image"
@@ -48,17 +48,21 @@
                 >
               </p>
               <p class="post-address">
-                <i class="bi bi-geo-alt-fill"></i> {{ formation.location }}
+                <i class="bi bi-geo-alt-fill"></i>
+                {{ formation.location | slice : 0 : 20 }}
               </p>
-            <h2 class="title">
-              <a (click)="show(formation.id)">{{ formation.title }}</a>
-            </h2>
+              <h2 class="title">
+                <a (click)="show(formation.id)">{{ formation.title }}</a>
+              </h2>
 
-            <div class="d-flex align-items-center">
-              <!-- <img src="assets/img/blog/blog-author-3.jpg" alt="" class="img-fluid post-author-img flex-shrink-0"> -->
+              <div class="d-flex align-items-center">
+                {{ formation.description | slice : 0 : 30 }}
+                <!-- <img src="assets/img/blog/blog-author-3.jpg" alt="" class="img-fluid post-author-img flex-shrink-0"> -->
               </div>
             </div>
-            <a (click)="show(formation.id)" class="readmore stretched-link"><span>Voir Détails</span></a>
+            <a (click)="show(formation.id)" class="readmore stretched-link"
+              ><span>Voir Détails</span></a
+            >
           </article>
         </div>
       </ng-template>

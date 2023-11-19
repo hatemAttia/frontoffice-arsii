@@ -17,7 +17,6 @@ const routes: Routes = [
       { path: 'allMedias', component: AllMediasComponent },
     ],
   },
-
 ];
 
 @NgModule({

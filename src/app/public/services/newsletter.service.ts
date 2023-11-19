@@ -3,11 +3,10 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class NewsletterService {
-
-  private apiUrl = '/api/arsii/newsletter';
+  private apiUrl = '/api/arsii/visitor/newsletter';
 
   constructor(private http: HttpClient) {}
 

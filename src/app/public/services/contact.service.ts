@@ -3,10 +3,9 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ContactService {
-
   private apiUrl = '/api/arsii/visitor/sendEmail';
 
   constructor(private http: HttpClient) {}

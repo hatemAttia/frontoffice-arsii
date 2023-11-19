@@ -12,4 +12,5 @@ export interface Event {
   is_activity: boolean;
   image: string;
   partner_id: number;
+  urlFacebook: string;
 }
